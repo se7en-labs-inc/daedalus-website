@@ -28,7 +28,7 @@ function getConfig () {
       }
     ],
     alternativeLanguages: [],
-    themes: [ 'cardano' ],
+    themes: ['daedaluswallet'],
     ga: { trackingId: null },
     localization: {
       createLocalizedPages: true,

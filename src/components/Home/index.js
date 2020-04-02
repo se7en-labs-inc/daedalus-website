@@ -1,5 +1,5 @@
 import Title from './Title'
-import CTA from './Cta'
+import Cta from './Cta'
 // import ComingSoon from './ComingSoon'
 // import Features from './Features'
 // import Overview from './Overview'
@@ -7,7 +7,7 @@ import CTA from './Cta'
 
 export {
   Title,
-  CTA
+  Cta
   // ComingSoon,
   // Features,
   // Overview,

@@ -10,24 +10,24 @@ const Container = styled.div`
   position: relative;
 `
 
-// const MainTitle = styled.h1`
-//   max-width: 60rem;
-//   margin: 0 auto 0.2rem auto;
-// `
+const MainTitle = styled(Typography)`
+  max-width: 60rem;
+  margin: 0 auto 0.2rem auto;
+`
 
-const SubTitle = styled.h2`
+const SubTitle = styled(Typography)`
   /* color: ${({ theme }) => theme.colors.secondaryText}; */
   margin-top: 1.8rem;
 `
 
 const Title = ({ title, subtitle }) => (
   <Container>
-    <Typography
-      variant='h1'
-    >
-      {title}
-    </Typography>
-    <SubTitle>{subtitle}</SubTitle>
+      <MainTitle variant='h1'>
+        {title}
+      </MainTitle>
+      <SubTitle variant='h2'>
+        {subtitle}
+      </SubTitle>
   </Container>
 )
 

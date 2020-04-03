@@ -95,6 +95,7 @@ const App = ({ element }) => {
                           <Styles theme={originalTheme.config} />
                           <Router>
                             {getRoutes(lang)}
+                            {console.log('theme', theme)}
                             <DefaultRoute default element={element} />
                           </Router>
                         </LinkProvider>

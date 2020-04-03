@@ -9,27 +9,28 @@ import styled from 'styled-components'
 import {
   Cta,
   Title
+  
 } from '../components/Home'
+//Overview
 // Features,
-// Overview,
 // FeaturesTitle
 
 const CTAContainer = styled.div`
   margin-top: 3rem;
 `
 
-// const SectionContainer = styled.div`
-//   position: relative;
-//   margin-top: 6rem;
+const SectionContainer = styled.div`
+  position: relative;
+  margin-top: 6rem;
 
-//   @media screen and (max-width: 900px) {
-//     margin-top: 10rem;
-//   }
+  @media screen and (max-width: 900px) {
+    margin-top: 10rem;
+  }
 
-//   @media screen and (max-width: 500px) {
-//     margin-top: 8rem;
-//   }
-// `
+  @media screen and (max-width: 500px) {
+    margin-top: 8rem;
+  }
+`
 
 // const SpinnerInnerContainer = styled.div`
 //   position: absolute;
@@ -72,10 +73,10 @@ export default () => (
         </section>
         {/* <section id='browser-testing-overview-section'>
           <SectionContainer>
-            <Overview />
+            <Overview title={content.overview.title} conrtent={content.overview.content}/>
           </SectionContainer>
-        </section>
-        <section id='browser-testing-features-section'>
+        </section> */}
+        {/* <section id='browser-testing-features-section'>
           <FeaturesTitle />
           <SectionContainer>
             <SpinnerInnerContainer>

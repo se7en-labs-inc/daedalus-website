@@ -1,15 +1,15 @@
 import Title from './Title'
 import Cta from './Cta'
+import Overview from './Overview'
+import Features from './Features'
+import FeaturesTitle from './FeaturesTitle'
 // import ComingSoon from './ComingSoon'
-// import Features from './Features'
-// import Overview from './Overview'
-// import FeaturesTitle from './FeaturesTitle'
 
 export {
   Title,
-  Cta
+  Cta,
+  Overview,
+  Features,
+  FeaturesTitle
   // ComingSoon,
-  // Features,
-  // Overview,
-  // FeaturesTitle
 }

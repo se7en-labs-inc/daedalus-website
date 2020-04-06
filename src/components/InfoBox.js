@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import Triangle from '/TriangleSeperator'
+import Triangle from './TriangleSeperator'
 
 const Container = styled.div`
   width: 100%;
   padding: 5rem;
-  background-color: ${({ theme }) => theme.background.overlay05};
+  background-color: ${({ theme }) => theme.colors.background.overlay01};
   color: ${({ theme }) => theme.palette.primary.contrastText};
   text-align: center;
   position: relative;
@@ -23,19 +23,13 @@ const Container = styled.div`
   }
 `
 
-
-
-const Body = styled.div`
-  color: ${({ theme }) => theme.background.overlay05};
-`
-
 const InfoBox = ({ title, children }) => (
   <Container>
     <Triangle />
     <h3>{title}</h3>
-    <Body>
+    <div>
       {children}
-    </Body>
+    </div>
   </Container>
 )
 

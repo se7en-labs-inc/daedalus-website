@@ -2,12 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { DiGithubBadge } from 'react-icons/di'
-import TinyColor from '@ctrl/tinycolor'
 import { ModalTrigger } from '../Modal'
-
-function darken (color, amount) {
-  return new TinyColor(color).darken(amount).toRgbString()
-}
 
 const expand = keyframes`
   from {
@@ -49,7 +44,7 @@ const Container = styled.div`
     width: 6rem;
     height: 6rem;
     border-radius: 3rem;
-    background-color: ${({ theme }) => darken(theme.colors.interactive, 10)};
+    background-color: ${({ theme }) => theme.palette.primary.main};
     transition: opacity 0.1s ease-in-out;
     animation-delay: 0.6s;
   }
@@ -58,11 +53,11 @@ const Container = styled.div`
     width: 8rem;
     height: 8rem;
     border-radius: 4rem;
-    background-color: ${({ theme }) => darken(theme.colors.interactive, 20)};
+    background-color: ${({ theme }) => theme.palette.primary.main};
   }
 
   .open-medusa {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.palette.text.primary};
   }
 `
 

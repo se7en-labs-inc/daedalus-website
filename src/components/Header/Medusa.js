@@ -1,107 +1,86 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
-// import { StaticQuery, graphql } from 'gatsby'
-// import styled from 'styled-components'
-// import { Image } from '@input-output-hk/front-end-core-components'
-// import { LanguageConsumer } from '../../state'
-// import Query from './Query'
-// import { isSupported as isMedusaSupported } from '../../connectors/medusa'
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Image } from '@input-output-hk/front-end-core-components'
+import { isSupported as isMedusaSupported } from '../../connectors/medusa'
 
-// const Container = styled.div`
-//   width: 100%;
-//   overflow: hidden;
-//   top: -1rem;
-//   position: relative;
+import StaticMedusaImage from '../../../static/images/static-medusa.jpg'
 
-//   &.fullscreen {
-//     position: static;
-//   }
-// `
+const Container = styled.div`
+  width: 100%;
+  overflow: hidden;
+  top: -1rem;
+  position: relative;
 
-// const MedusaFrame = styled.iframe`
-//   width: 110%;
-//   position: relative;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   height: 60rem;
+  &.fullscreen {
+    position: static;
+  }
+`
 
-//   &.fullscreen {
-//     width: 100%;
-//     height: 100vh;
-//   }
-// `
+const MedusaFrame = styled.iframe`
+  width: 110%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60rem;
 
-// const MedusaStatic = styled.div`
-//   width: 110%;
-//   position: relative;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   height: 60rem;
+  &.fullscreen {
+    width: 100%;
+    height: 100vh;
+  }
+`
 
-//   img {
-//     margin: 0;
-//   }
-// `
+const MedusaStatic = styled.div`
+  width: 110%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60rem;
 
-// const UnSupported = styled.p`
-//   position: absolute;
-//   width: 90%;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   font-size: 3rem;
-//   text-align: center;
-// `
+  img {
+    margin: 0;
+  }
+`
 
-// const isSupported = () => isMedusaSupported()
-// const Medusa = ({ fullScreen }) => {
-//   return (
-//     <Container className={fullScreen && 'fullscreen'}>
-//       {isSupported() &&
-//         <MedusaFrame
-//           title='medusa'
-//           className={fullScreen ? 'fullscreen' : ''}
-//           src={`//webdevm.iohk.io/?lang=${lang}${fullScreen ? '&medusa=fullscreen' : ''}&repo=daedalus${(lang === 'ja') ? '&content=' + encodeURI('Daedalusプルーフオブステークプロトコルを実装した暗号通貨およびブロックチェーンネットワーク') : ''}`}
-//         />
-//       }
-//       {!isSupported() && fullScreen &&
-//         <Query
-//           render={({ medusa_unsupported: medusaUnsupported }) => (
-//             <UnSupported>{medusaUnsupported}</UnSupported>
-//           )}
-//         />
-//       }
-//       {!isSupported() && !fullScreen &&
-//         <StaticQuery
-//           query={graphql`
-//                 query {
-//                   file(relativePath: {eq: "images/static-medusa.jpg"}) {
-//                     childImageSharp {
-//                       fluid(maxWidth: 2000, maxHeight: 1000) {
-//                         ...GatsbyImageSharpFluid_withWebp
-//                       }
-//                     }
-//                   }
-//                 }
-//               `}
-//           render={({ file }) => {
-//             return (
-//               <MedusaStatic>
-//                 <Image
-//                   src={file.childImageSharp.fluid}
-//                   alt='Medusa'
-//                 />
-//               </MedusaStatic>
-//             )
-//           }}
-//         />
-//       }
-//     </Container>
-//   )
-// }
+const UnSupported = styled.p`
+  position: absolute;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  text-align: center;
+`
 
-// Medusa.propTypes = {
-//   fullScreen: PropTypes.bool.isRequired
-// }
+const isSupported = () => isMedusaSupported()
+const Medusa = ({ fullScreen, lang }) => {
+  return (
+    <Container className={fullScreen && 'fullscreen'}>
+      {isSupported() &&
+        <MedusaFrame
+          title='medusa'
+          className={fullScreen ? 'fullscreen' : ''}
+          src={`//webdevm.iohk.io/?lang=${lang}${fullScreen ? '&medusa=fullscreen' : ''}&repo=daedalus${(lang === 'ja') ? '&content=' + encodeURI('Daedalusプルーフオブステークプロトコルを実装した暗号通貨およびブロックチェーンネットワーク') : ''}`}
+        />
+      }
+      {!isSupported() && fullScreen &&
+        <UnSupported>Medusa Unsupported</UnSupported>
+      }
+      {!isSupported() && !fullScreen &&
+        <MedusaStatic>
+          <Image
+            src={StaticMedusaImage}
+            alt='Medusa'
+          />
+        </MedusaStatic>
+      }
+    </Container>
+  )
+}
 
-// export default Medusa
+Medusa.propTypes = {
+  fullScreen: PropTypes.bool.isRequired,
+  lang: PropTypes.string
+}
+
+export default Medusa

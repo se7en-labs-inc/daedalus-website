@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ThemeConsumer } from '../../state'
+
+import DaedalusLogo from '../../../static/images/daedalus-logo-netlify.svg'
 
 const Container = styled.div`
   text-align: center;
@@ -24,11 +25,7 @@ const LogoText = styled.p`
 
 const Logo = () => (
   <Container className='logo-container' id='browser-testing-header-logo-component'>
-    <ThemeConsumer>
-      {({ theme }) => (
-        <LogoImage src={theme.images.daedalusLogo} alt='Daedalus logo' />
-      )}
-    </ThemeConsumer>
+    <LogoImage src={DaedalusLogo} alt='Daedalus logo' />
     <LogoText className='logo-text'>Daedalus <span>Wallet</span></LogoText>
   </Container>
 )

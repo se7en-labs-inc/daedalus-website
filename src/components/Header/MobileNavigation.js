@@ -204,9 +204,7 @@ const MobileNavigation = ({ navigation }) => {
 }
 
 MobileNavigation.propTypes = {
-  navigation: PropTypes.shape({
-    labels: PropTypes.arrayOf(PropTypes.string).isRequired
-  }).isRequired
+  navigation: PropTypes.shape(PropTypes.arrayOf(PropTypes.string).isRequired).isRequired
 }
 
 export default MobileNavigation

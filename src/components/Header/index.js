@@ -73,7 +73,7 @@ const MedusaContainer = styled.div`
 
 const OpenMedusaContainer = styled.div`
   position: absolute;
-  top: 22rem;
+  top: 23rem;
   z-index: 2;
   left: 50%;
   transform: translateX(-50%);

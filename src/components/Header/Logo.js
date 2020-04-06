@@ -8,7 +8,6 @@ const Container = styled.div`
 `
 
 const LogoImage = styled.img`
-  margin: 0 0 1.6rem 0;
   width: 11rem;
 `
 

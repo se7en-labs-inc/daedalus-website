@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
 import Container from '@material-ui/core/Container'
 import { Grid, Box } from '@material-ui/core'
-import SelectLanguage from '../components/SelectLanguage'
-import SelectTheme from '../components/SelectTheme'
+import SelectLanguage from './SelectLanguage'
+import SelectTheme from './SelectTheme'
 import GlobalContentQuery from '../queries/GlobalContentQuery'
 
 const Title = styled.p`

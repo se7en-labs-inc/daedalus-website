@@ -28,7 +28,7 @@ function getConfig () {
       }
     ],
     alternativeLanguages: [],
-    themes: ['daedaluswallet'],
+    themes: [ 'cardano' ],
     ga: { trackingId: null },
     localization: {
       createLocalizedPages: true,
@@ -41,7 +41,7 @@ function getConfig () {
     routes: []
   }
 
-  const customConfig = packageConfig['daedalus-wallet-starter'] || {}
+  const customConfig = packageConfig['gatsby-iohk-default-starter'] || {}
 
   return mergeConfig(defaultConfig, customConfig)
 }

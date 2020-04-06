@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Footer from '@input-output-hk/front-end-site-components/components/Footer'
 import Theme from '@input-output-hk/front-end-core-components/components/Theme'
 import Container from '@material-ui/core/Container'
-import Header from '../components/Header'
+import Header from '../components/Header/index'
 
 const StyledMain = styled.main`
   position: relative;

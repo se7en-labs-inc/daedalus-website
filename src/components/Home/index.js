@@ -3,7 +3,6 @@ import Cta from './Cta'
 import Overview from './Overview'
 import Features from './Features'
 import FeaturesTitle from './FeaturesTitle'
-// import ComingSoon from './ComingSoon'
 
 export {
   Title,
@@ -11,5 +10,4 @@ export {
   Overview,
   Features,
   FeaturesTitle
-  // ComingSoon,
 }

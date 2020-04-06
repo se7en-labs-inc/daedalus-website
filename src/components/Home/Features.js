@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Image } from '@input-output-hk/front-end-core-components'
 // import { GiWallet, GiVibratingShield, GiDesk, GiNewspaper, GiAbstract011 } from 'react-icons/gi'
 
 import WalletIcon from '../../../static/images/daedalus_wallet.svg'
@@ -159,75 +160,75 @@ const FeaturesWrap = styled.div`
 `
 
 const Features = ({ securityTitle, securityDesc, accountTitle, accountDesc, platformTitle, platformDesc, newsFeedTitle, newsFeedDesc, personalTitle, personalDesc }) => (
-      <Container>
-        <FeaturesWrap>
-          <div>
-            <h4>
-              <span>
-                <img src={SecurityIcon} alt={securityTitle} />
-              </span>
-              <span>{securityTitle}</span>
-            </h4>
-            <p>
-              {securityDesc}
-            </p>
-            <h4>
-              <span>
-                <img src={WalletIcon} alt={accountTitle} />
-              </span>
-              <span>{accountTitle}</span>
-            </h4>
-            <p>
-              {accountDesc}
-            </p>
-            <h4>
-              <span>
-                <img src={DesktopIcon} alt={platformTitle} />
-              </span>
-              <span>{platformTitle}</span>
-            </h4>
-            <p>
-              {platformDesc}
-            </p>
-          </div>
-        </FeaturesWrap>
-        <FeaturesWrap>
-          {/* <h3>{frontmatter.content.wallet_features.title}</h3> */}
-          <div>
-            <h4>
-              <span>
-                <img src={NewsIcon} alt={newsFeedTitle} />
-              </span>
-              <span>{newsFeedTitle}</span>
-            </h4>
-            <p>
-              {newsFeedDesc}
-            </p>
-            <h4>
-              <span>
-                <img src={ThemeIcon} alt={personalTitle} />
-              </span>
-              <span>{personalTitle}</span>
-            </h4>
-            <p>
-              {personalDesc}
-            </p>
-          </div>
-        </FeaturesWrap>
-      </Container>
+  <Container>
+    <FeaturesWrap>
+      <div>
+        <h4>
+          <span>
+            <Image src={SecurityIcon} alt={securityTitle} />
+          </span>
+          <span>{securityTitle}</span>
+        </h4>
+        <p>
+          {securityDesc}
+        </p>
+        <h4>
+          <span>
+            <Image src={WalletIcon} alt={accountTitle} />
+          </span>
+          <span>{accountTitle}</span>
+        </h4>
+        <p>
+          {accountDesc}
+        </p>
+        <h4>
+          <span>
+            <Image src={DesktopIcon} alt={platformTitle} />
+          </span>
+          <span>{platformTitle}</span>
+        </h4>
+        <p>
+          {platformDesc}
+        </p>
+      </div>
+    </FeaturesWrap>
+    <FeaturesWrap>
+      {/* <h3>{frontmatter.content.wallet_features.title}</h3> */}
+      <div>
+        <h4>
+          <span>
+            <Image src={NewsIcon} alt={newsFeedTitle} />
+          </span>
+          <span>{newsFeedTitle}</span>
+        </h4>
+        <p>
+          {newsFeedDesc}
+        </p>
+        <h4>
+          <span>
+            <Image src={ThemeIcon} alt={personalTitle} />
+          </span>
+          <span>{personalTitle}</span>
+        </h4>
+        <p>
+          {personalDesc}
+        </p>
+      </div>
+    </FeaturesWrap>
+  </Container>
 )
 
 Features.propTypes = {
   securityTitle: PropTypes.string,
-   securityDesc: PropTypes.string,
-   accountTitle: PropTypes.string,
-   accountDesc: PropTypes.string,
-   platformTitle: PropTypes.string,
-   platformDesc: PropTypes.string,
-   newsFeedTitle: PropTypes.string,
-   newsFeedDesc: PropTypes.string,
-   personalTitle: PropTypes.string,
-   personalDesc: PropTypes.string
+  securityDesc: PropTypes.string,
+  accountTitle: PropTypes.string,
+  accountDesc: PropTypes.string,
+  platformTitle: PropTypes.string,
+  platformDesc: PropTypes.string,
+  newsFeedTitle: PropTypes.string,
+  newsFeedDesc: PropTypes.string,
+  personalTitle: PropTypes.string,
+  personalDesc: PropTypes.string
 }
 
 export default Features

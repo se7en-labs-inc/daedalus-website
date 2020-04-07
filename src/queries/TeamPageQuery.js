@@ -18,13 +18,13 @@ const TeamPageQuery = ({ render }) => (
                       default_content
                       team {
                         member
-                        twitter_username
-                        linkedin_username
-                        github_username
-                        iohk_profile
+                        twitter
+                        linkedin
+                        github
+                        iohkProfile
                         location
-                        job_title
-                        image_path
+                        jobTitle
+                        imagePath
                         description
                       }
                     }

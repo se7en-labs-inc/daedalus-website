@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FiTwitter, FiGithub, FiLinkedin } from 'react-icons/fi'
 import { FaMapMarkerAlt } from 'react-icons/fa'
-// import Link from '@input-output-hk/front-end-core-components/'
+import { Link } from '@input-output-hk/front-end-core-components'
 // import Img from '@input-output-hk/front-end-core-components/'
 
 const TeamContainer = styled.div`
@@ -197,7 +197,9 @@ const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobT
     <TeamContainer className='browser-testing-member-component'>
       <ProfileImage>
         <ImageContainer>
-          <img src={imagePath} alt={member} />
+          <Link>
+            <img src={imagePath} alt={member} />
+          </Link>
         </ImageContainer>
       </ProfileImage>
       <Profile>

@@ -18,6 +18,15 @@ const GlobalContentQuery = ({ render }) => (
                       main_title
                       select_language
                       select_theme
+                      medusa_unsupported
+                      navigation {
+                        labels {
+                          home
+                          team
+                          download
+                          beta
+                        }
+                      }
                     }
                   }
                 }

@@ -4,30 +4,29 @@ import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  /* color: ${({ theme }) => theme.colors.text}; */
   text-align: center;
   font-weight: 300;
   position: relative;
 `
 
-// const MainTitle = styled.h1`
-//   max-width: 60rem;
-//   margin: 0 auto 0.2rem auto;
-// `
+const MainTitle = styled(Typography)`
+  max-width: 60rem;
+  margin: 0 auto 0.2rem auto;
+`
 
-const SubTitle = styled.h2`
-  /* color: ${({ theme }) => theme.colors.secondaryText}; */
+const SubTitle = styled(Typography)`
   margin-top: 1.8rem;
 `
 
 const Title = ({ title, subtitle }) => (
   <Container>
-    <Typography
-      variant='h1'
-    >
+    {/* The inline style below removes horrid onload positioning issue */}
+    <MainTitle variant='h1' style={{ margin: '0 auto' }}>
       {title}
-    </Typography>
-    <SubTitle>{subtitle}</SubTitle>
+    </MainTitle>
+    <SubTitle variant='h2'>
+      {subtitle}
+    </SubTitle>
   </Container>
 )
 

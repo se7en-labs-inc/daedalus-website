@@ -197,7 +197,7 @@ const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobT
     <TeamContainer className='browser-testing-member-component'>
       <ProfileImage>
         <ImageContainer>
-          <Link>
+          <Link href='https://iohk.io'>
             <img src={imagePath} alt={member} />
           </Link>
         </ImageContainer>

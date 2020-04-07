@@ -131,7 +131,7 @@ const ImageContainer = styled.div`
   }
 `
 
-const JobTitle= styled.p`
+const JobTitle = styled.p`
   margin: 0;
 
   a {

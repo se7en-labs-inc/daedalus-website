@@ -9,6 +9,7 @@ const CTAContainer = styled.div`
 
   a {
     margin: 1rem;
+    padding:0;
   }
 `
 

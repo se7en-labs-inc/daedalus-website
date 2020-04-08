@@ -14,18 +14,11 @@ export default () => (
           <Box marginTop={6} marginBottom={10}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                {content.team.map(({ member, twitter, linkedin, github, iohkProfile, location, jobTitle, imagePath, description }) => (
+                {content.team.map((teamMember, index) => (
                   <Member
-                    key={member}
-                    member={member}
-                    twitter={twitter}
-                    linkedin={linkedin}
-                    github={github}
-                    iohkProfile={iohkProfile}
-                    location={location}
-                    jobTitle={jobTitle}
-                    imagePath={imagePath}
-                    description={description}
+                    {...teamMember}
+                    key={index}
+                    firstItem={index === 0}
                   />
                 ))}
               </Grid>

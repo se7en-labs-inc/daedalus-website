@@ -10,6 +10,10 @@ const TeamContainer = styled.div`
   position: relative;
   padding-top: ${({ firstItem }) => firstItem ? '0' : '8rem'};
 
+  &:first-child {
+    padding-top:8rem;
+  }
+
   > div {
     box-sizing: border-box;
     padding-left: 12rem;
@@ -29,7 +33,7 @@ const TeamContainer = styled.div`
 
   &:after {
     content: '';
-    border-right: 0.1rem dashed ${({ theme }) => theme.colors.text};
+    border-right: 0.1rem dashed ${({ theme }) => theme.colors.text.primary};
     height: 100%;
     display: block;
     position: absolute;
@@ -71,7 +75,7 @@ const ProfileImage = styled.div`
 
   &:before {
     width: 12rem;
-    border: 0.1rem solid ${({ theme }) => theme.colors.interactive};
+    border: 0.1rem solid ${({ theme }) => theme.colors.primary.main};
     transform: translateY(-50%);
   }
 
@@ -79,8 +83,9 @@ const ProfileImage = styled.div`
     width: 1.6rem;
     height: 1.6rem;
     border-radius: 0.8rem;
-    border: 0.1rem solid ${({ theme }) => theme.colors.text};
+    border: 0.1rem solid ${({ theme }) => theme.colors.text.primary};
     transform: translate(50%, -50%);
+    z-index:200;
   }
 
   @media screen and (max-width: 1200px) {
@@ -110,7 +115,7 @@ const Profile = styled.div`
 const ImageContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   box-sizing: border-box;
-  border: 0.2rem solid ${({ theme }) => theme.colors.interactive};
+  border: 0.2rem solid ${({ theme }) => theme.colors.primary.main};
   border-radius: 8rem;
   width: 16rem;
   height: 16rem;
@@ -131,6 +136,11 @@ const ImageContainer = styled.div`
   }
 `
 
+const MemberTitle = styled.h3`
+  margin-top:0;
+  margin-bottom:0;
+`
+
 const JobTitle = styled.p`
   margin: 0;
 
@@ -147,11 +157,11 @@ const JobTitle = styled.p`
     }
 
     svg {
-      fill: ${({ theme }) => theme.colors.interactive};
+      fill: ${({ theme }) => theme.colors.primary.main};
     }
 
     &:hover svg {
-      fill: ${({ theme }) => theme.colors.interactiveHighlight};
+      fill: ${({ theme }) => theme.colors.primary.light};
     }
   }
 
@@ -161,12 +171,13 @@ const JobTitle = styled.p`
 `
 const Location = styled.p`
   position: relative;
-  color: ${({ theme }) => theme.colors.secondaryText};
+  color: ${({ theme }) => theme.colors.secondary.light};
+  margin-top:0;
   margin-bottom: 2rem;
 
   &:after {
     content: '';
-    border: 0.1rem dotted ${({ theme }) => theme.colors.interactive};
+    border: 0.1rem dotted ${({ theme }) => theme.colors.primary.main};
     position: absolute;
     width: calc(100% + 12.2rem);
     left: -12.2rem;
@@ -192,28 +203,51 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
 `
 
-const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobTitle, imagePath, description }) => {
+const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobTitle, imagePath, description, firstItem }) => {
   return (
-    <TeamContainer className='browser-testing-member-component'>
+    <TeamContainer firstItem={firstItem} className='browser-testing-member-component'>
       <ProfileImage>
         <ImageContainer>
-          <Link href='https://iohk.io'>
+          <Link href={`https://iohk.io/team/${iohkProfile}/`}>
             <img src={imagePath} alt={member} />
           </Link>
         </ImageContainer>
       </ProfileImage>
       <Profile>
-        <h3>{member}</h3>
+        <Link href={`https://iohk.io/team/${iohkProfile}/`}>
+          <MemberTitle>{member}</MemberTitle>
+        </Link>
         <JobTitle>
           {jobTitle}
           {twitter &&
-            <FiTwitter />
+            <Link
+              href={`https://twitter.com/${twitter}`}
+              title={`${member} twitter`}
+              target='_blank'
+              tracking={{ label: `member_twitter_${member}` }}
+            >
+              <FiTwitter />
+            </Link>
           }
           {linkedin &&
-            <FiLinkedin />
+            <Link
+              href={`https://www.linkedin.com/in/${linkedin}`}
+              title={`${member} linkedIn`}
+              target='_blank'
+              tracking={{ label: `member_linkedin_${member}` }}
+            >
+              <FiLinkedin />
+            </Link>
           }
           {github &&
-            <FiGithub />
+            <Link
+              href={`https://github.com/${github}`}
+              title={`${member} GitHub`}
+              target='_blank'
+              tracking={{ label: `member_github_${member}` }}
+            >
+              <FiGithub />
+            </Link>
           }
         </JobTitle>
         <Location>
@@ -228,15 +262,16 @@ const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobT
 }
 
 Member.propTypes = {
-  member: PropTypes.string,
-  twitter: PropTypes.string,
-  linkedin: PropTypes.string,
-  github: PropTypes.string,
-  iohkProfile: PropTypes.string,
-  location: PropTypes.string,
-  jobTitle: PropTypes.string,
-  imagePath: PropTypes.string,
-  description: PropTypes.string
+  firstItem: PropTypes.bool.isRequired,
+  member: PropTypes.string.isRequired,
+  twitter: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  iohkProfile: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 }
 
 export default Member

@@ -24,7 +24,6 @@ const ReleaseNotesLink = styled.a`
 
 const Title = ({ beta, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
   <div id='browser-testing-download-component-title-container'>
-    {console.log(title)}
     <Heading>
       {title}
       {' '}

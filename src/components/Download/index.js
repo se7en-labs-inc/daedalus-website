@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Query from './Query'
+import Container from '@material-ui/core/Container'
+import Layout from '../../components/Layout'
 import Title from './Title'
 import OSColumn from './OSColumn'
 import styled from 'styled-components'
-import Loader from '../Loader'
+import Loader from '../../components/Loader'
 
 import { FaCogs } from 'react-icons/fa'
 
@@ -49,41 +51,54 @@ const LoadingContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
 `
-
+// render={({ common, os, error, loading }) => (
 const Download = ({ beta = false }) => (
   <Query
     beta={beta}
     render={({ common, os, error, loading }) => (
-      <div id='browser-testing-download-component'>
-        {console.log({ os })}
-        <Title beta={beta} />
-        {error &&
-          <ErrorText id='browser-testing-download-error'>
-            <span><FaCogs /></span><br />
-            We're working on a new version of Daedalus {beta && `Flight`} right now. Please check back soon!
-          </ErrorText>
-        }
-        {loading && !error &&
-          <LoadingContainer key='loading-container'>
-            <Loader />
-          </LoadingContainer>
-        }
-        {!loading && !error &&
-          <Columns>
-            {Object.keys(os).map(key => (
-              <Column key={key}>
-                <OSColumn
-                  common={common}
-                  osData={os[key].osData}
-                  checksum={os[key].checksum}
-                  signature={os[key].signature}
-                  beta={beta}
-                />
-              </Column>
-            ))}
-          </Columns>
-        }
-      </div>
+      <Layout>
+        <Container maxWidth='lg'>
+          {console.log('downloadContent common', common)}
+          {console.log('downloadContent os', os)}
+          {!loading && !error &&
+            <Title
+              beta={beta}
+              title={common.frontmatter.content.title}
+              subtitle={common.frontmatter.content.subTitle}
+              noteUrl={common.frontmatter.content.release_notes.url}
+              flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
+              noteLabel={common.frontmatter.content.release_notes.label}
+              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
+            />
+          }
+          {error &&
+            <ErrorText id='browser-testing-download-error'>
+              <span><FaCogs /></span><br />
+              We're working on a new version of Daedalus {beta && `Flight`} right now. Please check back soon!
+            </ErrorText>
+          }
+          {loading && !error &&
+            <LoadingContainer key='loading-container'>
+              <Loader />
+            </LoadingContainer>
+          }
+          {!loading && !error &&
+            <Columns>
+              {Object.keys(os).map(key => (
+                <Column key={key}>
+                  <OSColumn
+                    common={common}
+                    osData={os[key].osData}
+                    checksum={os[key].checksum}
+                    signature={os[key].signature}
+                    beta={beta}
+                  />
+                </Column>
+              ))}
+            </Columns>
+          }
+        </Container>
+      </Layout>
     )}
   />
 )

@@ -22,6 +22,7 @@ export const get = async (beta) => {
     const JSONRes = await result.json()
     data.cached[endpoint] = JSONRes
     autoCapture({ category: XHR_RESPONSE, action: 'received_daedalus_data' })
+    console.log('JSONRes', JSONRes)
     return [ JSONRes, null ]
   } catch (error) {
     logger.error({

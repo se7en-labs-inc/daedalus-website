@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { get as getDaedalusData, getCached as getCachedDaedalusData } from '../../connectors/daedalusData'
-import ContentQuery from './ContentQuery'
+import DownloadPageQuery from '../../queries/DownloadPageQuery'
 import logger from '../../helpers/logger'
 
 function renderHTMLTemplate (html, data) {
@@ -27,14 +27,15 @@ const Query = ({ render, beta = false }) => {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [ setDaedalusData ])
 
   if (error) return render({ error })
   if (!daedalusData) return render({ loading: true })
 
   return (
-    <ContentQuery
+    <DownloadPageQuery
       render={data => {
+        console.log('query.js', data)
         const formattedData = {
           ...data,
           os: {

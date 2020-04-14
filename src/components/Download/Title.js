@@ -2,16 +2,14 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
-import ContentQuery from './ContentQuery'
-import { makeTransparent } from '../../helpers/color'
 
-const Title = styled.h3`
+const Heading = styled.h3`
   text-align: center;
 `
 
 const Subtitle = styled.p`
   text-align: center;
-  color: ${({ theme }) => makeTransparent(theme.colors.text, 0.5)};
+  color: ${({ theme }) => (theme.palette.background.overLay05)};
   margin-bottom:0.2rem;
 `
 const ReleaseNotes = styled.div`
@@ -23,27 +21,36 @@ const ReleaseNotesLink = styled.a`
   text-align: center;
 `
 
-export default (beta) => (
-  <ContentQuery
-    render={({ common }) => (
-      <div id='browser-testing-download-component-title-container'>
-        <Title>
-          {common.frontmatter.content.title}
-          {' '}
-          {beta.beta ? 'Daedalus Flight' : ''}
-        </Title>
-        <Subtitle>
-          {common.frontmatter.content.subtitle}
-        </Subtitle>
-        {!beta.beta
-          ? <ReleaseNotes>
-              <ReleaseNotesLink href={common.frontmatter.content.release_notes.url}>{common.frontmatter.content.release_notes.label}</ReleaseNotesLink>
-            </ReleaseNotes>
-          : <ReleaseNotes>
-              <ReleaseNotesLink href={common.frontmatter.content.release_notes_flight.url}>{common.frontmatter.content.release_notes_flight.label}</ReleaseNotesLink>
-            </ReleaseNotes>
-        }
-      </div>
-    )}
-  />
+const Title = ({ beta, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
+  <div id='browser-testing-download-component-title-container'>
+    {console.log(title)}
+    <Heading>
+      {title}
+      {' '}
+      {beta.beta ? 'Daedalus Flight' : ''}
+    </Heading>
+    <Subtitle>
+      {subtitle}
+    </Subtitle>
+    {!beta.beta
+      ? <ReleaseNotes>
+        <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
+      </ReleaseNotes>
+      : <ReleaseNotes>
+        <ReleaseNotesLink href={flightNoteUrl}>{flightNoteLabel}</ReleaseNotesLink>
+      </ReleaseNotes>
+    }
+  </div>
 )
+
+Title.propTypes = {
+  beta: PropTypes.bool,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  noteUrl: PropTypes.string,
+  flightNoteUrl: PropTypes.string,
+  noteLabel: PropTypes.string,
+  flightNoteLabel: PropTypes.string
+}
+
+export default Title

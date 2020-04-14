@@ -1,9 +1,9 @@
 import React, { createRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Button from '../Button'
+import { Button } from '@material-ui/core'
 import Modal, { ModalTrigger } from '../Modal'
-import Link from '../Link'
+import { Link } from '@input-output-hk/front-end-core-components'
 import { FiClipboard } from 'react-icons/fi'
 
 const window = global.window || { navigator: {} }
@@ -205,7 +205,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
           value={osData.checksum}
           readonly
           rows='3'
-          onChange={() => {}}
+          onChange={() => { }}
         />
         <Link
           href='#'

@@ -1,0 +1,103 @@
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { get as getDaedalusData, getCached as getCachedDaedalusData } from '../../connectors/daedalusData'
+import ContentQuery from './ContentQuery'
+import logger from '../../helpers/logger'
+
+function renderHTMLTemplate (html, data) {
+  return html.replace(/{{\s?[^\s}]+\s?}}/g, (match) => {
+    const identifier = match.replace(/[{{\s\s}}]/g, '')
+    return data[identifier] || match
+  })
+}
+
+const Query = ({ render, beta = false }) => {
+  let isMounted = true
+  const [ daedalusData, setDaedalusData ] = useState(getCachedDaedalusData(beta))
+  const [ error, setError ] = useState(null)
+  useEffect(() => {
+    const loadData = async () => {
+      const [ data, error ] = await getDaedalusData(beta)
+      if (!isMounted) return
+      if (error && !data) return setError(error)
+      setDaedalusData(data)
+    }
+
+    loadData()
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  if (error) return render({ error })
+  if (!daedalusData) return render({ loading: true })
+
+  return (
+    <ContentQuery
+      render={data => {
+        const formattedData = {
+          ...data,
+          os: {
+            ...data.os,
+            windows: {
+              ...data.os.windows,
+              checksum: {
+                ...data.os.windows.checksum
+              }
+            },
+            linux: {
+              ...data.os.linux,
+              checksum: {
+                ...data.os.linux.checksum
+              }
+            },
+            darwin: {
+              ...data.os.darwin,
+              checksum: {
+                ...data.os.darwin.checksum
+              }
+            }
+          }
+        }
+
+        try {
+          Object.keys(formattedData.os).forEach(os => {
+            formattedData.os[os].checksum.html = renderHTMLTemplate(formattedData.os[os].checksum.html, {
+              binary: daedalusData.platforms[os].URL,
+              checksum: daedalusData.platforms[os].SHA256,
+              version: daedalusData.platforms[os].version,
+              hash: daedalusData.platforms[os].hash,
+              signature: daedalusData.platforms[os].signature,
+              filename: daedalusData.platforms[os].URL.replace(/^.*\/(.*)$/, '$1')
+            })
+
+            formattedData.os[os].osData = {
+              ...formattedData.os[os].osData,
+              binary: daedalusData.platforms[os].URL,
+              checksum: daedalusData.platforms[os].SHA256,
+              version: daedalusData.platforms[os].version,
+              hash: daedalusData.platforms[os].hash,
+              signature: daedalusData.platforms[os].signature
+            }
+          })
+
+          return render(formattedData)
+        } catch (error) {
+          logger.error({
+            description: `error processing content for daedalus download`,
+            args: [ data ],
+            error
+          })
+          return render({ error })
+        }
+      }}
+    />
+  )
+}
+
+Query.propTypes = {
+  render: PropTypes.func.isRequired,
+  beta: PropTypes.bool
+}
+
+export default Query

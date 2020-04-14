@@ -8,12 +8,12 @@ const CTAContainer = styled.div`
   text-align: center;
 
   a {
+    font-size: 1.6rem;
     margin: 1rem;
   }
 `
 
 const BigButtonText = styled(Button)`
-  font-size: ${({ theme }) => theme.typography.bigFontSize}px;
   &:hover {
     color: ${({ theme }) => theme.palette.primary.contrastText};
   } 
@@ -39,16 +39,16 @@ const Cta = ({ learnLink, learn, supportLink, support }) => {
       >
         {learn}
       </BigButtonText>
-      <BigButtonTextSecondary 
+      <BigButtonTextSecondary
         size='large'
-        href={supportLink} 
-        variant='contained' 
-        color='secondary' 
-        id='browser-testing-support-cta' 
+        href={supportLink}
+        variant='contained'
+        color='secondary'
+        id='browser-testing-support-cta'
         tracking={{ label: 'home_cta_support' }}
-        >
-          {support}
-        </BigButtonTextSecondary>
+      >
+        {support}
+      </BigButtonTextSecondary>
     </CTAContainer>
   )
 }

@@ -25,6 +25,19 @@ const Container = styled.div`
     cursor:pointer;
   }
 
+  a {
+    font-size: 1.6rem;
+    &:hover {
+      color: ${({ theme }) => theme.palette.primary.contrastText};
+    }
+    &.secondaryBtn {
+      font-weight:300;
+      &:hover {
+        color: ${({ theme }) => theme.palette.secondary.contrastText};
+      } 
+    }
+  }
+
   a.beta-btn {
     background: #ffb633;
     color: #121326;
@@ -152,7 +165,11 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
       <Title>{osData.os}</Title>
       <Version id={`browser-testing-download-${osData.key}-version`}>{common.frontmatter.content.version_string}: {osData.version}</Version>
       <Button
-        href={osData.binary}
+        color='primary'
+        size='large'
+        component={Link}
+        variant='contained'
+        href={osData.binary || ''}
         id={`browser-testing-download-${osData.key}-cta`}
         tracking={{ label: getTrackingLabel(`download_cta_${osData.key}`) }}
         className={beta ? 'beta-btn' : ''}
@@ -164,13 +181,16 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
         {common.frontmatter.content.pgp_signature}
       </PGPSignatureTitle>
       <Button
-        small
-        secondary
+        color='secondary'
+        size='small'
+        component={Link}
+        variant='contained'
         href={getPGPSignatureHref()}
         onClick={onDownloadPGPSignature}
         download={getPGPFilename()}
         id={`browser-testing-download-${osData.key}-pgp-signature`}
         tracking={{ label: getTrackingLabel(`download_pgp_${osData.key}`) }}
+        className='secondaryBtn'
       >
         {common.frontmatter.content.pgp_download}
       </Button>

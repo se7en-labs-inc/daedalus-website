@@ -15,7 +15,6 @@ import {
   FeaturesTitle
 } from '../components/Home'
 
-
 const CTAContainer = styled.div`
   margin-top: 3rem;
 `
@@ -72,11 +71,11 @@ export default () => (
             />
           </CTAContainer>
         </section>
-          <SectionContainer>
-            <Container maxWidth='lg'>
-              <Overview title={content.overview.title} content={content.overview.content} />
-            </Container> 
-          </SectionContainer>
+        <SectionContainer>
+          <Container maxWidth='lg'>
+            <Overview title={content.overview.title} content={content.overview.content} />
+          </Container>
+        </SectionContainer>
         <section id='browser-testing-features-section'>
           <FeaturesTitle featureTitle={content.wallet_features.title} />
           <SectionContainer>
@@ -86,7 +85,7 @@ export default () => (
           </SectionContainer>
           <SectionContainer>
             <Container maxWidth='lg'>
-              <Features 
+              <Features
                 securityTitle={content.wallet_features.advanced_security.title}
                 securityDesc={content.wallet_features.advanced_security.description}
                 accountTitle={content.wallet_features.unlimited_accounting.title}

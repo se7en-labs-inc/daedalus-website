@@ -1,24 +1,7 @@
-// import React from 'react'
-// // import Box from '@material-ui/core/Box'
-// // import Container from '@material-ui/core/Container'
-// // import Grid from '@material-ui/core/Grid'
-// import Layout from '../components/Layout'
-// import DownloadPageQuery from '../queries/DownloadPageQuery'
-
-// export default () => (
-//   <DownloadPageQuery
-//     render={(content) => (
-//       <Layout>
-//         <p>Download</p>
-//         {console.log('download content', content)}
-//       </Layout>
-//     )}
-//   />
-// )
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import DownloadPageQuery from '../queries/DownloadPageQuery'
+import Container from '@material-ui/core/Container'
 import Layout from '../components/Layout'
 import Title from '../components/Download/Title'
 import OSColumn from '../components/Download/OSColumn'
@@ -74,7 +57,7 @@ const Download = ({ beta = false }) => (
     beta={beta}
     render={({ common, os, error, loading }) => (
       <Layout>
-        <div id='browser-testing-download-component'>
+        <Container maxWidth='lg'>
           {console.log('downloadContent common', common)}
           {console.log('downloadContent os', os)}
           <Title
@@ -112,7 +95,7 @@ const Download = ({ beta = false }) => (
               ))}
             </Columns>
           }
-        </div>
+        </Container>
       </Layout>
     )}
   />

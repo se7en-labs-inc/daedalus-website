@@ -11,6 +11,7 @@ const Container = styled.div`
 
 const MainTitle = styled(Typography)`
   max-width: 70rem;
+  color: ${({ theme }) => theme.palette.text.hilight};
   /* margin: 0 auto 0.2rem auto; */
 `
 

@@ -80,7 +80,7 @@ const ModalTitle = styled.h2`
   margin: 0 auto;
   text-align: center;
   padding: 5rem 2rem;
-  max-width: ${({ theme }) => theme.dimensions.contentWidth};
+  max-width: ${({ theme }) => theme.breakpoints.values.md}px;
 `
 
 const ModalBodyWrapper = styled.div`
@@ -91,11 +91,11 @@ const ModalBodyWrapper = styled.div`
 const ModalBody = styled.div`
   margin: 0 auto;
   padding: 0 2rem 5rem;
-  max-width: ${({ theme }) => theme.dimensions.contentWidth};
+  max-width: ${({ theme }) => theme.breakpoints.values.md}px;
 
   code {
     padding: 1rem 2rem;
-    background-color: ${({ theme }) => theme.colors.primaryHighlight};
+    background-color: ${({ theme }) => theme.palette.background.overlay01};
     display: block;
     font-size: 1.2rem;
   }
@@ -117,10 +117,14 @@ const ModalBody = styled.div`
 `
 
 const TextArea = styled.textarea`
-  background-color: ${({ theme }) => theme.colors.primaryHighlight};
-  color: ${({ theme }) => theme.colors.text};
-  resize: none;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight:300;
+  background-color: ${({ theme }) => theme.palette.secondary.main};
+  color: ${({ theme }) => theme.palette.secondary.contrastText};
   border: none;
+  resize: none;
+  outline: none;
 `
 
 const ChecksumArea = styled.div`

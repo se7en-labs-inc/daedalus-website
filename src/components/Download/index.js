@@ -64,7 +64,7 @@ const Download = ({ beta = false }) => (
             <Title
               beta={beta}
               title={common.frontmatter.content.title}
-              subtitle={common.frontmatter.content.subTitle}
+              subtitle={common.frontmatter.content.subtitle}
               noteUrl={common.frontmatter.content.release_notes.url}
               flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
               noteLabel={common.frontmatter.content.release_notes.label}

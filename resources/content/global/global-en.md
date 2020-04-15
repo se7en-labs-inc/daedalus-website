@@ -1,7 +1,7 @@
 ---
 title: en (English) Global translations
 content:
-  main_title: IOHK Gatsby Starter
+  main_title: Daedalus Wallet
   select_language: Select language
   select_theme: Select theme
   medusa_unsupported: The Medusa visualisation is not supported by your browser.

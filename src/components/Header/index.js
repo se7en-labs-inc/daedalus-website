@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import GlobalContentQuery from '../../queries/GlobalContentQuery'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
+import SelectLanguage from '../../components/SelectLanguage'
 import {
   Container as MuiContainer,
   Hidden
@@ -83,6 +84,12 @@ const OpenMedusaContainer = styled.div`
   }
 `
 
+const SelectLanguageWrap = styled.div`
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+`
+
 const Header = () => (
   <GlobalContentQuery
     render={(content) => (
@@ -94,6 +101,9 @@ const Header = () => (
           <HeaderSpace id='browser-testing-header-space' maxWidth='lg'>
             <Hidden only={[ 'xs', 'sm' ]}>
               <DesktopNavigation navigation={content.navigation} />
+              <SelectLanguageWrap>
+                <SelectLanguage />
+              </SelectLanguageWrap>
             </Hidden>
           </HeaderSpace>
           <SubContainer id='browser-testing-header-sub-container'>

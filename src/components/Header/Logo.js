@@ -12,7 +12,7 @@ const LogoImage = styled.img`
 `
 
 const LogoText = styled.p`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.palette.text.hilight};
   letter-spacing: 0.3rem;
   font-size: 2rem;
   text-transform: uppercase;

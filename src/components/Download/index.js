@@ -11,6 +11,10 @@ import Flight from '../../components/Flight'
 
 import { FaCogs } from 'react-icons/fa'
 
+const Kontainer = styled(Container)`
+  margin-bottom:9rem;
+`
+
 const Columns = styled.div`
   width: 100%;
   text-align: center;
@@ -58,9 +62,7 @@ const Download = ({ beta = false }) => (
     beta={beta}
     render={({ common, os, error, loading }) => (
       <Layout>
-        <Container maxWidth='lg'>
-          {console.log('downloadContent common', common)}
-          {console.log('downloadContent os', os)}
+        <Kontainer maxWidth='lg'>
           {beta &&
             <Flight />
           }
@@ -101,7 +103,7 @@ const Download = ({ beta = false }) => (
               ))}
             </Columns>
           }
-        </Container>
+        </Kontainer>
       </Layout>
     )}
   />

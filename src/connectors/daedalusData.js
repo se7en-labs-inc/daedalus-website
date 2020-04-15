@@ -16,13 +16,11 @@ export const get = async (beta) => {
     autoCapture({ category: XHR_REQUEST, action: 'request_daedalus_data' })
     const startTime = Date.now()
     const endpoint = getEndpoint(beta)
-    console.log(endpoint)
     const result = await window.fetch(`${endpoint}?date=${Math.floor(Date.now() / 1000)}`)
     timing({ category: XHR_TIMING, value: Date.now() - startTime, variable: 'daedalus_download_data' })
     const JSONRes = await result.json()
     data.cached[endpoint] = JSONRes
     autoCapture({ category: XHR_RESPONSE, action: 'received_daedalus_data' })
-    console.log('JSONRes', JSONRes)
     return [ JSONRes, null ]
   } catch (error) {
     logger.error({

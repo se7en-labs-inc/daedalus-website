@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'IOHK Gatsby Starter',
+        name: 'Daedalus Wallet',
         short_name: 'IOHK Starter',
         start_url: '/',
         background_color: '#131325',

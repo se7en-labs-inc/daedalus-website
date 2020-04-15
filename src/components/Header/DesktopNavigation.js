@@ -23,7 +23,7 @@ const Nav = styled.nav`
     font-weight: 600;
     font-size: 0.9em;
     letter-spacing: 0.1em;
-    color: ${({ theme }) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.hilight};
     &:hover,
     &.active,
     &:focus {

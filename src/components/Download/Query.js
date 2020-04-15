@@ -35,7 +35,6 @@ const Query = ({ render, beta = false }) => {
   return (
     <DownloadPageQuery
       render={data => {
-        console.log('query.js', data)
         const formattedData = {
           ...data,
           os: {

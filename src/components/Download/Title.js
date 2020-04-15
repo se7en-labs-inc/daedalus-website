@@ -17,7 +17,7 @@ const Subtitle = styled.p`
 const ReleaseNotes = styled.div`
   text-align: center;
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 `
 const ReleaseNotesLink = styled.a`
   text-align: center;
@@ -27,13 +27,12 @@ const Title = ({ beta, title, subtitle, noteUrl, flightNoteUrl, noteLabel, fligh
   <div id='browser-testing-download-component-title-container'>
     <Heading>
       {title}
-      {' '}
-      {beta.beta ? 'Daedalus Flight' : ''}
+      {beta ? ' Daedalus Flight' : ''}
     </Heading>
     <Subtitle>
       {subtitle}
     </Subtitle>
-    {!beta.beta
+    {!beta
       ? <ReleaseNotes>
         <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
       </ReleaseNotes>

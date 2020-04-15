@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 const Heading = styled.h3`
   text-align: center;
+  color: ${({ theme }) => theme.palette.text.hilight};
 `
 
 const Subtitle = styled.p`

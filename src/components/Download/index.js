@@ -7,6 +7,7 @@ import Title from './Title'
 import OSColumn from './OSColumn'
 import styled from 'styled-components'
 import Loader from '../../components/Loader'
+import Flight from '../../components/Flight'
 
 import { FaCogs } from 'react-icons/fa'
 
@@ -60,7 +61,10 @@ const Download = ({ beta = false }) => (
         <Container maxWidth='lg'>
           {console.log('downloadContent common', common)}
           {console.log('downloadContent os', os)}
-          {!loading && !error &&
+          {beta &&
+            <Flight />
+          }
+          {common &&
             <Title
               beta={beta}
               title={common.frontmatter.content.title}

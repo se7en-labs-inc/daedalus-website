@@ -25,6 +25,12 @@ function getConfig () {
         label: 'English',
         flag: '🇺🇸',
         locale: 'en_US'
+      },
+      {
+        key: 'ja',
+        label: '日本語',
+        flag: '🇯🇵',
+        locale: 'ja_JP'
       }
     ],
     alternativeLanguages: [],

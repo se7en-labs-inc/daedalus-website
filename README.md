@@ -1,4 +1,4 @@
-# IOHK Gatsby Starter
+# Daedalus Wallet
 
 The [Gatsby](https://www.gatsbyjs.org/) starter template used by [IOHK](https://iohk.io/) to build front-end web assets.
 

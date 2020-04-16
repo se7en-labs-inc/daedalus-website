@@ -46,17 +46,6 @@ export default () => (
   <IndexPageQuery
     render={(content) => (
       <Layout>
-        {console.log(content)}
-        {/* <Container maxWidth='lg'>
-          <Box marginTop={6} marginBottom={10}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <p>FOO BAR</p>
-              </Grid>
-            </Grid>
-          </Box>
-        </Container> */}
-
         <section id='browser-testing-cta-section'>
           <Title
             title={content.title}

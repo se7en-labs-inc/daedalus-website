@@ -147,7 +147,7 @@ const FeaturesWrap = styled.div`
     h4 {
       text-transform: uppercase;
       margin-top: 4rem;
-
+      color: ${({ theme }) => theme.palette.text.hilight};
       &:first-of-type {
         margin-top: 0;
       }

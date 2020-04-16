@@ -10,12 +10,13 @@ const Container = styled.div`
 `
 
 const MainTitle = styled(Typography)`
-  max-width: 60rem;
-  margin: 0 auto 0.2rem auto;
+  max-width: 70rem;
+  color: ${({ theme }) => theme.palette.text.hilight};
+  /* margin: 0 auto 0.2rem auto; */
 `
 
 const SubTitle = styled(Typography)`
-  margin-top: 1.8rem;
+  /* margin-top: 1.8rem; */
 `
 
 const Title = ({ title, subtitle }) => (
@@ -24,7 +25,7 @@ const Title = ({ title, subtitle }) => (
     <MainTitle variant='h1' style={{ margin: '0 auto' }}>
       {title}
     </MainTitle>
-    <SubTitle variant='h2'>
+    <SubTitle variant='h4'>
       {subtitle}
     </SubTitle>
   </Container>

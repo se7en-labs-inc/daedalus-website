@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
 import Theme from '@input-output-hk/front-end-core-components/components/Theme'
-import logger from '..//helpers/logger.js'
 import linux from '../../resources/images/linux.svg'
 import darwin from '../../resources/images/darwin.svg'
 import windows from '../../resources/images/windows.svg'
@@ -88,7 +87,7 @@ const DownloadPageQuery = ({ render }) => (
                   }
                   formattedData.os[os][contentType] = node.childMarkdownRemark
                 } catch (error) {
-                  logger.error({
+                  console.error({
                     description: `error processing download content, ${node.relativePath}`,
                     args: [ { DownloadContent, DownloadPage } ],
                     error

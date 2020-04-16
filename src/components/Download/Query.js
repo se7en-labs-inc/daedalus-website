@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { get as getDaedalusData, getCached as getCachedDaedalusData } from '../../connectors/daedalusData'
 import DownloadPageQuery from '../../queries/DownloadPageQuery'
-import logger from '../../helpers/logger'
 
 function renderHTMLTemplate (html, data) {
   return html.replace(/{{\s?[^\s}]+\s?}}/g, (match) => {
@@ -83,7 +82,7 @@ const Query = ({ render, beta = false }) => {
 
           return render(formattedData)
         } catch (error) {
-          logger.error({
+          console.error({
             description: `error processing content for daedalus download`,
             args: [ data ],
             error

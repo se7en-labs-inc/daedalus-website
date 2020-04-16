@@ -1,6 +1,5 @@
 import ReactGA from 'react-ga'
 import config from '../config'
-import logger from './logger'
 import { getDocumentHeight, getDocumentWidth } from './dom'
 import { getHashParam, getHostname } from './url'
 
@@ -10,7 +9,6 @@ const options = {
   gaOptions: { cookieDomain: getHostname(), cookieName: 'gaDaedalus' }
 }
 
-logger.info({ id: 'Google Analytics', trackingID: config.ga.trackingID, options })
 ReactGA.initialize(config.ga.trackingID, options)
 
 /**
@@ -22,7 +20,7 @@ export const pageView = (path) => {
   try {
     ReactGA.pageview(path)
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'Failed to track page view',
       args: [ path ],
       error
@@ -39,7 +37,7 @@ export const modalView = (name) => {
   try {
     ReactGA.modalview(name)
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'Failed to track modal view',
       args: [ name ],
       error
@@ -59,7 +57,7 @@ export const capture = ({ category, action, label, value }) => {
   try {
     ReactGA.event({ category, action, label, value })
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'Failed to track capture',
       args: [ { category, action, label, value } ],
       error
@@ -93,7 +91,7 @@ export const click = ({ category, label, event }) => {
       if (relativeCoordinates) capture({ category, label: JSON.stringify(relativeCoordinates), action: 'click_coordinates' })
     }
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'Failed to track click',
       args: [ { category, label } ],
       error
@@ -113,7 +111,7 @@ export const autoCapture = ({ category, action, label, value }) => {
   try {
     ReactGA.event({ category, action, label, value, nonInteraction: true })
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'Failed to track auto capture',
       args: [ { category, action, label, value } ],
       error
@@ -133,7 +131,7 @@ export const timing = ({ category, label, value, variable }) => {
   try {
     ReactGA.timing({ category, label, value, variable })
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'Failed to track timing',
       args: [ { category, label, value, variable } ],
       error

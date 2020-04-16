@@ -1,4 +1,3 @@
-import logger from '../helpers/logger'
 import { autoCapture, timing } from '../helpers/analytics'
 import { XHR_RESPONSE, XHR_REQUEST, XHR_TIMING } from '../constants/analytics'
 
@@ -23,7 +22,7 @@ export const get = async (beta) => {
     autoCapture({ category: XHR_RESPONSE, action: 'received_daedalus_data' })
     return [ JSONRes, null ]
   } catch (error) {
-    logger.error({
+    console.error({
       description: 'error fetching latest Daedalus data',
       args: [],
       error

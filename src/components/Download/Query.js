@@ -70,6 +70,15 @@ const Query = ({ render, beta = false }) => {
               filename: daedalusData.platforms[os].URL.replace(/^.*\/(.*)$/, '$1')
             })
 
+            formattedData.os[os].signature.html = renderHTMLTemplate(formattedData.os[os].signature.html, {
+              binary: daedalusData.platforms[os].URL,
+              checksum: daedalusData.platforms[os].SHA256,
+              version: daedalusData.platforms[os].version,
+              hash: daedalusData.platforms[os].hash,
+              signature: daedalusData.platforms[os].signature,
+              filename: daedalusData.platforms[os].URL.replace(/^.*\/(.*)$/, '$1')
+            })
+
             formattedData.os[os].osData = {
               ...formattedData.os[os].osData,
               binary: daedalusData.platforms[os].URL,

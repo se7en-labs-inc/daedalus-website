@@ -141,9 +141,10 @@ const ChecksumArea = styled.div`
 `
 
 const OSColumn = ({ common, osData, checksum, signature, beta }) => {
+  console.log(URL)
   const checksumTextAreaRef = createRef()
-
-  const getPGPFilename = () => `${osData.os.replace(/\s/g, '_')}__pgp_signature.asc`
+  const pgpName = osData.binary.split('/').pop()
+  const getPGPFilename = () => `${pgpName}.asc`
   const getPGPBlog = () => window.Blob && new window.Blob([ osData.signature ], { type: 'text/txt' })
   const getPGPSignatureHref = () => {
     const blob = getPGPBlog()
@@ -171,7 +172,6 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
       <Button
         color='primary'
         size='large'
-        component={Link}
         variant='contained'
         href={osData.binary || ''}
         id={`browser-testing-download-${osData.key}-cta`}
@@ -187,7 +187,6 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
       <Button
         color='secondary'
         size='small'
-        component={Link}
         variant='contained'
         href={getPGPSignatureHref()}
         onClick={onDownloadPGPSignature}

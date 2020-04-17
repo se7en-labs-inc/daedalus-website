@@ -21,7 +21,7 @@ Instead of typing the path to the Daedalus installer executable use drag and dro
   
   - Press space
   
-  - Drag and drop Daedalus installer from Finder to Terminal
+  - Drag and drop Daedalus installer from Explorer to Command Prompt
   
   - Press space
   

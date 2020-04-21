@@ -1,8 +1,12 @@
 ---
 title: en (English) site content
 head:
-  title: Team
+  title: Daedalus - Meet the team
   meta:
-    - { name: "twitter:title", content: "Team", file: "" }
-    - { name: "og:title", content: "Team", file: "" }
+    - { name: "description", content: "Meet the Daedalus team", file: "" }
+    - { name: "twitter:card", content: "Daedalus team", file: "" }
+    - { name: "twitter:title", content: "Daedalus team", file: "" }
+    - { name: "twitter:description", content: "Meet the Daedalus team", file: "" }
+    - { name: "og:title", content: "Daedalus team", file: "" }
+    - { name: "og:description", content: "Meet the Daedalus team", file: "" }
 ---

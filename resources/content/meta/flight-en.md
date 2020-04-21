@@ -1,8 +1,8 @@
 ---
 title: en (English) site content
 head:
-  title: Flight
+  title: Daedalus Flight - The pre-release version cryptocurrency wallet
   meta:
-    - { name: "twitter:title", content: "Flight", file: "" }
-    - { name: "og:title", content: "Flight", file: "" }
+    - { name: "twitter:title", content: "Daedalus Flight - The pre-release version cryptocurrency wallet", file: "" }
+    - { name: "og:title", content: "Daedalus Flight - The pre-release version cryptocurrency wallet", file: "" }
 ---

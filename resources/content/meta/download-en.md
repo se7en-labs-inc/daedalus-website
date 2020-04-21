@@ -1,8 +1,13 @@
 ---
-title: en (English) site content
+# Netlify identifier
+title: En (English) download page meta data
 head:
-  title: Download
+  title: Daedalus - Downloads
   meta:
-    - { name: "twitter:title", content: "Download", file: "" }
-    - { name: "og:title", content: "Download", file: "" }
+    - { name: "description", content: "Download the Daedalus cryptocurrency wallet", file: "" }
+    - { name: "twitter:card", content: "Download Daedalus", file: "" }
+    - { name: "twitter:title", content: "Download Daedalus", file: "" }
+    - { name: "twitter:description", content: "Download the Daedalus cryptocurrency wallet", file: "" }
+    - { name: "og:title", content: "Download Daedalus", file: "" }
+    - { name: "og:description", content: "Download the Daedalus cryptocurrency wallet", file: "" }
 ---

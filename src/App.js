@@ -11,6 +11,7 @@ import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import config from './config'
 import { getThemes } from './themes'
+import Header from './components/Header'
 
 // Default route uses SSR from "pages"
 const DefaultRoute = ({ element }) => element
@@ -93,6 +94,7 @@ const App = ({ element }) => {
                       {({ key: lang }) => (
                         <LinkProvider lang={lang} component={Link}>
                           <Styles theme={originalTheme.config} />
+                          <Header />
                           <Router>
                             {getRoutes(lang)}
                             {console.log('theme', theme)}

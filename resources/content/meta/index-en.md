@@ -1,8 +1,9 @@
 ---
 title: en (English) site content
 head:
-  title: Home
+  title: Daedalus - Cryptocurrency wallet
   meta:
-    - { name: "twitter:title", content: "Home", file: "" }
-    - { name: "og:title", content: "Home", file: "" }
+    - { name: "description", content: "The extensible open source cryptocurrency wallet, built to grow with the community", file: "" }
+    - { name: "twitter:title", content: "Daedalus - Cryptocurrency wallet", file: "" }
+    - { name: "og:title", content: "Daedalus - Cryptocurrency wallet", file: "" }
 ---

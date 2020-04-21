@@ -100,6 +100,10 @@ const MobileNavigation = ({ navigation }) => {
     setMobileNavVisible(!mobileNavVisible)
   }
 
+  const closeNav = e => {
+    setMobileNavVisible(false)
+  }
+
   const onScroll = () => {
     if (!mobileNavVisible) setScrollPosition(getScrollOffset())
     if (mobileNavVisible) scrollTo(scrollPosition)
@@ -148,6 +152,7 @@ const MobileNavigation = ({ navigation }) => {
                 <li>
                   <Link
                     href='/'
+                    onClick={closeNav}
                     activeClassName='active'
                     id='browser-testing-navigation-link-home'
                     tracking={{ label: 'mobile_navigation_home' }}
@@ -158,6 +163,7 @@ const MobileNavigation = ({ navigation }) => {
                 <li>
                   <Link
                     href='/team/'
+                    onClick={closeNav}
                     activeClassName='active'
                     id='browser-testing-navigation-link-team'
                     tracking={{ label: 'mobile_navigation_team' }}
@@ -168,6 +174,7 @@ const MobileNavigation = ({ navigation }) => {
                 <li>
                   <Link
                     href='/download/'
+                    onClick={closeNav}
                     activeClassName='active'
                     id='browser-testing-navigation-link-download'
                     tracking={{ label: 'mobile_navigation_download' }}
@@ -178,6 +185,7 @@ const MobileNavigation = ({ navigation }) => {
                 <li>
                   <Link
                     href='/flight/'
+                    onClick={closeNav}
                     activeClassName='active'
                     id='browser-testing-navigation-link-flight'
                     tracking={{ label: 'mobile_navigation_flight' }}

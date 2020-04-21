@@ -171,7 +171,7 @@ const JobTitle = styled.p`
 `
 const Location = styled.p`
   position: relative;
-  color: ${({ theme }) => theme.colors.secondary.light};
+  color: ${({ theme }) => theme.colors.primary.contrastText};
   margin-top:0;
   margin-bottom: 2rem;
 
@@ -181,7 +181,7 @@ const Location = styled.p`
     position: absolute;
     width: calc(100% + 12.2rem);
     left: -12.2rem;
-    bottom: -1rem;
+    bottom: -1.85rem;
   }
 
   span {
@@ -201,6 +201,7 @@ const Location = styled.p`
 `
 const Description = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
+  margin-top: 3rem;
 `
 
 const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobTitle, imagePath, description, firstItem }) => {

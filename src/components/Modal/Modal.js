@@ -51,6 +51,10 @@ const ModalContainer = styled.div`
     border: 0 solid ${({ theme }) => theme.palette.primary.main};
     border-top-width: 1.5rem;
     border-bottom-width: 1.5rem;
+    @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
+        border-top-width: 0.5rem;
+        border-bottom-width: 0.5rem;
+    }
 
     .modal-content-inner-wrapper {
       position: absolute;
@@ -61,6 +65,10 @@ const ModalContainer = styled.div`
       border: 0 solid ${({ theme }) => theme.palette.primary.main};
       border-left-width: 1.5rem;
       border-right-width: 1.5rem;
+      @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
+        border-left-width: 0.5rem;
+        border-right-width: 0.5rem;
+      }
     }
   }
 
@@ -68,6 +76,16 @@ const ModalContainer = styled.div`
     transition: opacity 500ms ease-in-out;
     opacity: 1;
     height: 100%;
+    ul, ol {
+      list-style-position: outside;
+    }
+    ol {
+      li {
+        p {
+          display:inline-block;
+        }
+      }
+    }
   }
 
   .cardano-modal-leave {
@@ -104,6 +122,10 @@ const CloseContainer = styled.div`
   z-index: 1;
   width: 15rem;
   height: 15rem;
+  @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
+    width: 8rem;
+    height: 9rem;
+  }
   border-radius: 7.5rem;
   transform: translate(50%, -40%);
   background-color: ${({ theme }) => theme.palette.primary.main};
@@ -115,6 +137,10 @@ const CloseContainer = styled.div`
     top: 50%;
     font-size: 4rem;
     transform: translate(-100%, -10%);
+    @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
+      font-size:3rem;
+      top: 60%;
+    }
   }
 `
 

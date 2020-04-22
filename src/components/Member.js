@@ -181,7 +181,7 @@ const Location = styled.p`
     position: absolute;
     width: calc(100% + 12.2rem);
     left: -12.2rem;
-    bottom: -1.85rem;
+    bottom: -1.9rem;
   }
 
   span {

@@ -49,6 +49,27 @@ const DownloadPageQuery = ({ render }) => (
                           label
                           url
                         }
+                        supported_platforms {
+                          heading
+                          mac
+                          win
+                          linux {
+                            aimed_at
+                            tested_against {
+                              label
+                              linuxa
+                              linuxb
+                              linuxc
+                            }
+                          }
+                        }
+                        recommended_hardware {
+                          heading
+                          item1
+                          item2
+                          item3
+                          item4 
+                        }
                       }
                     }
                   }

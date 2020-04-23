@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Query from './Query'
 import Container from '@material-ui/core/Container'
@@ -18,6 +18,17 @@ const Kontainer = styled(Container)`
 const Columns = styled.div`
   width: 100%;
   text-align: center;
+  ul {
+    list-style-position: outside;
+  }
+  li {
+    text-align: left;
+    max-width: 60rem;
+    margin: 0 auto;
+    ul {
+      margin-left: 2rem;
+    }
+  }
 `
 
 const Column = styled.div`
@@ -89,19 +100,44 @@ const Download = ({ beta = false }) => (
             </LoadingContainer>
           }
           {!loading && !error &&
-            <Columns>
-              {Object.keys(os).map(key => (
-                <Column key={key}>
-                  <OSColumn
-                    common={common}
-                    osData={os[key].osData}
-                    checksum={os[key].checksum}
-                    signature={os[key].signature}
-                    beta={beta}
-                  />
-                </Column>
-              ))}
-            </Columns>
+            <Fragment>
+              <Columns>
+                {Object.keys(os).map(key => (
+                  <Column key={key}>
+                    <OSColumn
+                      common={common}
+                      osData={os[key].osData}
+                      checksum={os[key].checksum}
+                      signature={os[key].signature}
+                      beta={beta}
+                    />
+                  </Column>
+                ))}
+              </Columns>
+              <Columns>
+                <h4>{common.frontmatter.content.supported_platforms.heading}</h4>
+                <ul>
+                  <li>{common.frontmatter.content.supported_platforms.win}</li>
+                  <li>{common.frontmatter.content.supported_platforms.mac}</li>
+                  <li>Linux - {common.frontmatter.content.supported_platforms.linux.tested_against.label}:
+                    <ul>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                    </ul>
+                  </li>
+                </ul>
+              </Columns>
+              <Columns>
+                <h4>{common.frontmatter.content.recommended_hardware.heading}</h4>
+                <ul>
+                  <li>{common.frontmatter.content.recommended_hardware.item1}</li>
+                  <li>{common.frontmatter.content.recommended_hardware.item2}</li>
+                  <li>{common.frontmatter.content.recommended_hardware.item3}</li>
+                  <li>{common.frontmatter.content.recommended_hardware.item4}</li>
+                </ul>
+              </Columns>
+            </Fragment>
           }
         </Kontainer>
       </Layout>

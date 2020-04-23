@@ -12,18 +12,24 @@ const StyledMain = styled.main`
   width: 100%;
 `
 
+const FooterContainer = styled(Container)`
+  .body-text p:first-of-type{
+    color: ${({ theme }) => theme.palette.primary.main}
+  }
+`
+
 const Main = ({ children }) => (
   <Fragment>
     <StyledMain>
       {children}
     </StyledMain>
-    <Container maxWidth='lg'>
+    <FooterContainer maxWidth='lg'>
       <Theme.Consumer>
         {({ theme }) => (
-          <Footer theme={theme.palette.type} variant='cardano' />
+          <Footer theme={theme.palette.type} variant='daedalus' />
         )}
       </Theme.Consumer>
-    </Container>
+    </FooterContainer>
   </Fragment>
 )
 

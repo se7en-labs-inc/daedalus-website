@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Query from './Query'
 import Container from '@material-ui/core/Container'
@@ -18,6 +18,17 @@ const Kontainer = styled(Container)`
 const Columns = styled.div`
   width: 100%;
   text-align: center;
+  ul {
+    list-style-position: outside;
+  }
+  li {
+    text-align: left;
+    max-width: 60rem;
+    margin: 0 auto;
+    ul {
+      margin-left: 2rem;
+    }
+  }
 `
 
 const Column = styled.div`
@@ -56,6 +67,20 @@ const LoadingContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
 `
+
+const VideoWrap = styled.div`
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`
+
 // render={({ common, os, error, loading }) => (
 const Download = ({ beta = false }) => (
   <Query
@@ -65,6 +90,11 @@ const Download = ({ beta = false }) => (
         <Kontainer maxWidth='lg'>
           {beta &&
             <Flight />
+          }
+          {!beta &&
+            <VideoWrap>
+              <iframe width='560' height='315' src='https://www.youtube.com/embed/eNUwie_45E8?rel=0' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullscreen />
+            </VideoWrap>
           }
           {common &&
             <Title
@@ -89,19 +119,44 @@ const Download = ({ beta = false }) => (
             </LoadingContainer>
           }
           {!loading && !error &&
-            <Columns>
-              {Object.keys(os).map(key => (
-                <Column key={key}>
-                  <OSColumn
-                    common={common}
-                    osData={os[key].osData}
-                    checksum={os[key].checksum}
-                    signature={os[key].signature}
-                    beta={beta}
-                  />
-                </Column>
-              ))}
-            </Columns>
+            <Fragment>
+              <Columns>
+                {Object.keys(os).map(key => (
+                  <Column key={key}>
+                    <OSColumn
+                      common={common}
+                      osData={os[key].osData}
+                      checksum={os[key].checksum}
+                      signature={os[key].signature}
+                      beta={beta}
+                    />
+                  </Column>
+                ))}
+              </Columns>
+              <Columns>
+                <h4>{common.frontmatter.content.supported_platforms.heading}</h4>
+                <ul>
+                  <li>{common.frontmatter.content.supported_platforms.win}</li>
+                  <li>{common.frontmatter.content.supported_platforms.mac}</li>
+                  <li>Linux - {common.frontmatter.content.supported_platforms.linux.tested_against.label}:
+                    <ul>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                    </ul>
+                  </li>
+                </ul>
+              </Columns>
+              <Columns>
+                <h4>{common.frontmatter.content.recommended_hardware.heading}</h4>
+                <ul>
+                  <li>{common.frontmatter.content.recommended_hardware.item1}</li>
+                  <li>{common.frontmatter.content.recommended_hardware.item2}</li>
+                  <li>{common.frontmatter.content.recommended_hardware.item3}</li>
+                  <li>{common.frontmatter.content.recommended_hardware.item4}</li>
+                </ul>
+              </Columns>
+            </Fragment>
           }
         </Kontainer>
       </Layout>

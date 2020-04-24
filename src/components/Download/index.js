@@ -92,9 +92,11 @@ const Download = ({ beta = false }) => (
             <Flight />
           }
           {!beta &&
-            <VideoWrap>
-              <iframe width='560' height='315' src='https://www.youtube.com/embed/eNUwie_45E8?rel=0' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullscreen />
-            </VideoWrap>
+            <Container maxWidth='md'>
+              <VideoWrap>
+                <iframe width='560' height='315' src='https://www.youtube.com/embed/eNUwie_45E8?rel=0' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullscreen />
+              </VideoWrap>
+            </Container>
           }
           {common &&
             <Title
@@ -141,10 +143,10 @@ const Download = ({ beta = false }) => (
                   <li>Linux - {common.frontmatter.content.supported_platforms.linux.tested_against.label}:
                     <ul>
                       <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
-                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
-                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxb}</li>
                     </ul>
                   </li>
+                  <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxc}</li>
                 </ul>
               </Columns>
               <Columns>

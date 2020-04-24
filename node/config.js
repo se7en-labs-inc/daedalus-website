@@ -35,7 +35,7 @@ function getConfig () {
     ],
     alternativeLanguages: [],
     themes: [ 'cardano' ],
-    ga: { trackingId: null },
+    ga: { trackingID: null },
     localization: {
       createLocalizedPages: true,
       ignore: [],

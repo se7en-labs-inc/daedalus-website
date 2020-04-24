@@ -31,6 +31,21 @@ const TeamContainer = styled.div`
     }
   }
 
+  &:before {
+    content: '';
+    border: 0.1rem dotted ${({ theme }) => theme.colors.primary.main};
+    position: absolute;
+    width: calc(50% + 12.2rem);
+    right: 0;
+    top: 179px;
+    @media screen and (max-width: 1200px) {
+      top: 174px;
+    }
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
+  }
+
   &:after {
     content: '';
     border-right: 0.1rem dashed ${({ theme }) => theme.colors.text.primary};
@@ -175,14 +190,7 @@ const Location = styled.p`
   margin-top:0;
   margin-bottom: 2rem;
 
-  &:after {
-    content: '';
-    border: 0.1rem dotted ${({ theme }) => theme.colors.primary.main};
-    position: absolute;
-    width: calc(100% + 12.2rem);
-    left: -12.2rem;
-    bottom: -1.9rem;
-  }
+  
 
   span {
     vertical-align: middle;
@@ -193,11 +201,7 @@ const Location = styled.p`
     font-size: 90%;
   }
 
-  @media screen and (max-width: 900px) {
-    &:after {
-      display: none;
-    }
-  }
+  
 `
 const Description = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};

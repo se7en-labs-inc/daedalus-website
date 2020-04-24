@@ -48,7 +48,7 @@ const TeamContainer = styled.div`
 
   &:after {
     content: '';
-    border-right: 0.1rem dashed ${({ theme }) => theme.colors.text.primary};
+    border-right: 2px dashed ${({ theme }) => theme.colors.text.primary};
     height: 100%;
     display: block;
     position: absolute;

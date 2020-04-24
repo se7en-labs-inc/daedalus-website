@@ -1,3 +1,14 @@
 # Use this file as your netlify.toml file
 # client side route redirects are auto
 # generated.
+
+[[redirects]]
+  from = "/clock-sync/"
+  to = "https://iohk.zendesk.com/hc/en-us/articles/360010230873"
+  status = 302
+
+
+[[redirects]]
+  from = "/ja/clock-sync/"
+  to = "https://iohk.zendesk.com/hc/ja/articles/360010230873"
+  status = 302

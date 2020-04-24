@@ -92,9 +92,11 @@ const Download = ({ beta = false }) => (
             <Flight />
           }
           {!beta &&
-            <VideoWrap>
-              <iframe width='560' height='315' src='https://www.youtube.com/embed/eNUwie_45E8?rel=0' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullscreen />
-            </VideoWrap>
+            <Container maxWidth='md'>
+              <VideoWrap>
+                <iframe width='560' height='315' src='https://www.youtube.com/embed/eNUwie_45E8?rel=0' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullscreen />
+              </VideoWrap>
+            </Container>
           }
           {common &&
             <Title

@@ -31,7 +31,7 @@ content:
         label: Tested against
         linuxa: Ubuntu 18.04
         linuxb: Fedora 28
-        linuxc: Fedora 28
+        linuxc: Aimed at all Linux distributions
   recommended_hardware:
     heading: Recommended minimum hardware requirements
     item1: 64-bit dual core processors

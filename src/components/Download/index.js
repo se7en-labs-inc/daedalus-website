@@ -101,6 +101,7 @@ const Download = ({ beta = false }) => (
           {common &&
             <Title
               beta={beta}
+              betaTitle={common.frontmatter.content.betaTitle}
               title={common.frontmatter.content.title}
               subtitle={common.frontmatter.content.subtitle}
               noteUrl={common.frontmatter.content.release_notes.url}

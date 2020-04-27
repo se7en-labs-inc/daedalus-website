@@ -141,7 +141,7 @@ const ChecksumArea = styled.div`
 `
 
 const OSColumn = ({ common, osData, checksum, signature, beta }) => {
-  console.log(URL)
+  // console.log(URL)
   const checksumTextAreaRef = createRef()
   const pgpName = osData.binary.split('/').pop()
   const getPGPFilename = () => `${pgpName}.asc`
@@ -178,8 +178,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
         tracking={{ label: getTrackingLabel(`download_cta_${osData.key}`) }}
         className={beta ? 'beta-btn' : ''}
       >
-        {common.frontmatter.content.cta_string}
-        {beta ? ' Flight' : ''}
+        {beta ? common.frontmatter.content.beta_cta_string : common.frontmatter.content.cta_string}
       </Button>
       <PGPSignatureTitle>
         {common.frontmatter.content.pgp_signature}
@@ -273,6 +272,7 @@ OSColumn.propTypes = {
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
         cta_string: PropTypes.string.isRequired,
+        beta_cta_string: PropTypes.string.isRequired,
         pgp_download: PropTypes.string.isRequired,
         version_string: PropTypes.string.isRequired,
         verify_signature: PropTypes.string.isRequired,

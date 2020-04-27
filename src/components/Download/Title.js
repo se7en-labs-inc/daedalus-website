@@ -23,11 +23,10 @@ const ReleaseNotesLink = styled.a`
   text-align: center;
 `
 
-const Title = ({ beta, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
+const Title = ({ beta, betaTitle, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
   <div id='browser-testing-download-component-title-container'>
     <Heading>
-      {title}
-      {beta ? ' Daedalus Flight' : ''}
+      {beta ? betaTitle : title}
     </Heading>
     <Subtitle>
       {subtitle}
@@ -45,6 +44,7 @@ const Title = ({ beta, title, subtitle, noteUrl, flightNoteUrl, noteLabel, fligh
 
 Title.propTypes = {
   beta: PropTypes.bool,
+  betaTitle: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   noteUrl: PropTypes.string,

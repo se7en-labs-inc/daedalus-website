@@ -3,8 +3,10 @@
 title: Ja (Japanese) download page content
 content:
   title: ダウンロード
+  betaTitle: DAEDALUS FLIGHTをダウンロード
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
   cta_string: ダイダロスのダウンロード
+  beta_cta_string: DAEDALUS FLIGHTをダウンロード
   pgp_download: ダウンロード Signature
   version_string: バージョン
   verify_signature: 署名の検証 

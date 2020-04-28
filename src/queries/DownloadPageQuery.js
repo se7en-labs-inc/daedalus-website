@@ -28,8 +28,10 @@ const DownloadPageQuery = ({ render }) => (
                     frontmatter {
                       content {
                         title
+                        betaTitle
                         subtitle
                         cta_string
+                        beta_cta_string
                         pgp_download
                         version_string
                         verify_signature

@@ -20,11 +20,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Daedalus Wallet',
-        short_name: 'IOHK Starter',
+        short_name: 'Daedalus',
         start_url: '/',
         background_color: '#131325',
         theme_color: '#131325',
         display: 'minimal-ui',
+        icon: 'resources/images/icon.png',
         icon_options: {
           purpose: 'maskable'
         }

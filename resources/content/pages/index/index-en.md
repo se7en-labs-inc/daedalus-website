@@ -10,7 +10,7 @@ content:
     title: Coming soon
   cta:
     learn: Learn more
-    learn_link: 'https://whycardano.com/'
+    learn_link: 'https://cardano.org/why/'
     support: Get support
     support_link: >-
       https://iohk.zendesk.com/hc/en-us/categories/360000877653-Daedalus-wallet-mainnet

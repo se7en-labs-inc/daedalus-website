@@ -6,7 +6,7 @@ content:
   subtitle: コミュニティと共に成長する、拡張可能なオープンソースの暗号通貨ウォレット
   cta:
     learn: もっと知る
-    learn_link: https://whycardano.com/jp/
+    learn_link: https://cardano.org/why/
     support: サポートポータル
     support_link: https://iohk.zendesk.com/hc/ja/categories/360000877653-Daedalus-wallet-mainnet
   overview:

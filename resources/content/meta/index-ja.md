@@ -5,4 +5,6 @@ head:
   title: カルダノ - 暗号通貨ウォレット
   meta:
     - { name: "description", content: "コミュニティとともに成長するように構築された、拡張可能なオープンソースの暗号通貨ウォレット", file: "" }
+    - { name: "og:image", content: "", file: "/images/uploads/meta.jpg" }
+    - { name: "twitter:image", content: "", file: "/images/uploads/meta.jpg" }
 ---

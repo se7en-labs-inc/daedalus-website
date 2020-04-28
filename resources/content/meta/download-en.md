@@ -10,4 +10,6 @@ head:
     - { name: "twitter:description", content: "Download the Daedalus cryptocurrency wallet", file: "" }
     - { name: "og:title", content: "Download Daedalus", file: "" }
     - { name: "og:description", content: "Download the Daedalus cryptocurrency wallet", file: "" }
+    - { name: "og:image", content: "", file: "/images/uploads/meta.jpg" }
+    - { name: "twitter:image", content: "", file: "/images/uploads/meta.jpg" }
 ---

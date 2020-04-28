@@ -269,9 +269,9 @@ const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobT
 Member.propTypes = {
   firstItem: PropTypes.bool.isRequired,
   member: PropTypes.string.isRequired,
-  twitter: PropTypes.string.isRequired,
-  linkedin: PropTypes.string.isRequired,
-  github: PropTypes.string.isRequired,
+  twitter: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string,
   iohkProfile: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   jobTitle: PropTypes.string.isRequired,

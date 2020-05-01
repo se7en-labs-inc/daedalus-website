@@ -9,8 +9,8 @@ content:
       cryptocurrencies, it will be easy to customize your Daedalus experience!
     title: Coming soon
   cta:
-    learn: Learn more
-    learn_link: 'https://cardano.org/why/'
+    learn: Download
+    learn_link: '/en/download'
     support: Get support
     support_link: >-
       https://iohk.zendesk.com/hc/en-us/categories/360000877653-Daedalus-wallet-mainnet

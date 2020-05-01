@@ -14,7 +14,7 @@ content:
   pgp_signature: PGP signature
   sha_256_checksum: SHA256 checksum
   os:
-    windows: Windows 64 bit
+    windows: Windows 8.1 and 10, 64 bit
     darwin: macOS 64 bit
     linux: Linux 64 bit
   release_notes:
@@ -30,10 +30,9 @@ content:
     linux:
       aimed_at: Aimed at all Linux distributions
       tested_against:
-        label: Tested against
+        label: "Aimed at all Linux distributions - Tested against"
         linuxa: Ubuntu 18.04
         linuxb: Fedora 28
-        linuxc: Aimed at all Linux distributions
   recommended_hardware:
     heading: Recommended minimum hardware requirements
     item1: 64-bit dual core processors

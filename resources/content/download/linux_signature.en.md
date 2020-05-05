@@ -19,7 +19,7 @@ title: Linux PGP signature verification instructions
     - <code>gpg2 --lsign D32587D4090FE461CAEE0FF4966E5CB9CBFAA9BA</code>
 
 - Verify the installer binary using the .asc signature (the .asc signature file must reside in the same directory as the installer binary):
-    - <code>gpg2 --verify {{ filename }}.pkg.asc</code>
+    - <code>gpg2 --verify {{ filename }}.asc</code>
     - Successful verification should produce a message like follows:
 
 <code>

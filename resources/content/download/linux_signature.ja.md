@@ -59,7 +59,7 @@ title: Linux PGP署名検証手順
     <ul>
       <li>
         <code>
-          gpg2 --verify daedalus-VERSION-cardano-sl-VERSION-mainnet-linux.bin.pkg.asc
+          gpg2 --verify daedalus-VERSION-cardano-sl-VERSION-mainnet-linux.bin.asc
         </code>
       </li>
       <li>

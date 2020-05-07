@@ -31,9 +31,9 @@ content:
       aimed_at: すべてのLinuxディストリビューションをサポート予定です。
       tested_against:
         label: テスト対象
-        linuxa: Ubuntu 18.04
-        linuxb: Fedora 28
-        linuxc: すべてのLinuxディストリビューションをサポート予定です。
+        linuxa: Ubuntu 18.04 LTS
+        linuxb: Ubuntu 20.04 LTS
+        linuxc: Fedora 28
   recommended_hardware:
     heading: 推奨する最低ハードウェア要件
     item1: 64ビットデュアルコアプロセッサ

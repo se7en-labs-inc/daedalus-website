@@ -145,6 +145,7 @@ const Download = ({ beta = false }) => (
                     <ul>
                       <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
                       <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxb}</li>
+                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxc}</li>
                     </ul>
                   </li>
                 </ul>

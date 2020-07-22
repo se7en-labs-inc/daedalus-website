@@ -87,7 +87,7 @@ const OpenMedusaContainer = styled.div`
 const SelectLanguageWrap = styled.div`
   position: absolute;
   top: 2rem;
-  right: 1rem;
+  left: 1.25rem;
 `
 
 const Header = () => (
@@ -101,10 +101,10 @@ const Header = () => (
           <HeaderSpace id='browser-testing-header-space' maxWidth='lg'>
             <Hidden only={[ 'xs', 'sm' ]}>
               <DesktopNavigation navigation={content.navigation} />
-              <SelectLanguageWrap>
-                <SelectLanguage />
-              </SelectLanguageWrap>
             </Hidden>
+            <SelectLanguageWrap>
+              <SelectLanguage />
+            </SelectLanguageWrap>
           </HeaderSpace>
           <SubContainer id='browser-testing-header-sub-container'>
             <Wrapper>

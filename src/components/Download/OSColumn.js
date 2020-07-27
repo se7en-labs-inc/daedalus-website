@@ -164,6 +164,10 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
 
   const getTrackingLabel = label => `${beta ? 'beta_' : ''}${label}_${osData.version}`
 
+  const unCacheURL = (url) => {
+    return url + '?t=' + (new Date().getTime())
+  }
+
   return (
     <Container id={`browser-testing-download-${osData.key}-component`}>
       <Image src={osData.image} alt={osData.os} />
@@ -173,7 +177,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
         color='primary'
         size='large'
         variant='contained'
-        href={osData.binary || ''}
+        href={unCacheURL(osData.binary) || ''}
         id={`browser-testing-download-${osData.key}-cta`}
         tracking={{ label: getTrackingLabel(`download_cta_${osData.key}`) }}
         className={beta ? 'beta-btn' : ''}

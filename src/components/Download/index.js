@@ -68,19 +68,6 @@ const LoadingContainer = styled.div`
   transform: translateX(-50%);
 `
 
-const VideoWrap = styled.div`
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-`
-
 // render={({ common, os, error, loading }) => (
 const Download = ({ beta = false }) => (
   <Query
@@ -90,13 +77,6 @@ const Download = ({ beta = false }) => (
         <Kontainer maxWidth='lg'>
           {beta &&
             <Flight />
-          }
-          {!beta &&
-            <Container maxWidth='md'>
-              <VideoWrap>
-                <iframe width='560' height='315' src='https://www.youtube.com/embed/eNUwie_45E8?rel=0' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullscreen />
-              </VideoWrap>
-            </Container>
           }
           {common &&
             <Title

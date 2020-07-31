@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core'
 import Modal, { ModalTrigger } from '../Modal'
 import { Link } from '@input-output-hk/front-end-core-components'
 import { FiClipboard } from 'react-icons/fi'
+import * as analytics from '@input-output-hk/front-end-core-libraries/build/analytics'
 
 const window = global.window || { navigator: {} }
 
@@ -151,7 +152,13 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
     return blob ? URL.createObjectURL(blob) : '#'
   }
 
-  const onDownloadPGPSignature = (e) => {
+  const onDownloadPGPSignature = (os) => (e) => {
+    analytics.click({
+      category: analytics.constants.EXTERNAL_LINK,
+      label: getTrackingLabel(`download_pgp_${os}`),
+      event: e
+    })
+
     if (window.navigator.msSaveBlob || e.target.href === '#') e.preventDefault()
     if (window.navigator.msSaveBlob) window.navigator.msSaveBlob(getPGPBlog(), getPGPFilename())
   }
@@ -168,18 +175,25 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
     return url + '?t=' + (new Date().getTime())
   }
 
+  const trackDownload = (os) => (event) => analytics.click({
+    category: analytics.constants.EXTERNAL_LINK,
+    label: getTrackingLabel(`download_cta_${osData.key}`),
+    event
+  })
+
   return (
     <Container id={`browser-testing-download-${osData.key}-component`}>
       <Image src={osData.image} alt={osData.os} />
       <Title>{osData.os}</Title>
       <Version id={`browser-testing-download-${osData.key}-version`}>{common.frontmatter.content.version_string}: {osData.version}</Version>
       <Button
+        component={Link}
         color='primary'
         size='large'
         variant='contained'
         href={unCacheURL(osData.binary) || ''}
         id={`browser-testing-download-${osData.key}-cta`}
-        tracking={{ label: getTrackingLabel(`download_cta_${osData.key}`) }}
+        onClick={trackDownload(osData.key)}
         className={beta ? 'beta-btn' : ''}
       >
         {beta ? common.frontmatter.content.beta_cta_string : common.frontmatter.content.cta_string}
@@ -188,14 +202,14 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
         {common.frontmatter.content.pgp_signature}
       </PGPSignatureTitle>
       <Button
+        component={Link}
         color='secondary'
         size='small'
         variant='contained'
         href={getPGPSignatureHref()}
-        onClick={onDownloadPGPSignature}
+        onClick={onDownloadPGPSignature(osData.key)}
         download={getPGPFilename()}
         id={`browser-testing-download-${osData.key}-pgp-signature`}
-        tracking={{ label: getTrackingLabel(`download_pgp_${osData.key}`) }}
         className='secondaryBtn'
       >
         {common.frontmatter.content.pgp_download}

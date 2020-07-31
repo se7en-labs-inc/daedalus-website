@@ -187,7 +187,6 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
       <Title>{osData.os}</Title>
       <Version id={`browser-testing-download-${osData.key}-version`}>{common.frontmatter.content.version_string}: {osData.version}</Version>
       <Button
-        component={Link}
         color='primary'
         size='large'
         variant='contained'
@@ -202,7 +201,6 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
         {common.frontmatter.content.pgp_signature}
       </PGPSignatureTitle>
       <Button
-        component={Link}
         color='secondary'
         size='small'
         variant='contained'

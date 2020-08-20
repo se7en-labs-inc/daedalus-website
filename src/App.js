@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { Location, Router } from '@reach/router'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
@@ -18,10 +18,10 @@ const DefaultRoute = ({ element }) => element
 DefaultRoute.propTypes = { element: PropTypes.node.isRequired }
 
 // Used to render all links via @input-output-hk/front-end-core-components/components/Link
-const Link = (props) => {
+const Link = forwardRef((props, ref) => {
   const componentProps = { ...props }
   let Component = GatsbyLink
-  if (props.isStatic || !props.isRelative) {
+  if (props.isStatic || !props.isRelative || props.href.match(/^#/) || (componentProps.target && componentProps.target !== '_self')) {
     Component = 'a'
     if (!props.isRelative) {
       componentProps.target = '_blank'
@@ -31,18 +31,32 @@ const Link = (props) => {
     componentProps.to = componentProps.href
     delete componentProps.href
   }
-
+  let tracking = props.tracking
+  if (!tracking && props.href) tracking = { label: props.href }
+  if (tracking) {
+    componentProps.onClick = (e) => {
+      analytics.click({ category: tracking.category || 'link', label: tracking.label, event: e })
+      props.onClick && props.onClick(e)
+    }
+  }
   delete componentProps.isStatic
   delete componentProps.isRelative
-
+  delete componentProps.tracking
   return (
-    <Component {...componentProps} />
+    <Component ref={ref} {...componentProps} />
   )
-}
+})
 
 Link.propTypes = {
   isStatic: PropTypes.bool.isRequired,
-  isRelative: PropTypes.bool.isRequired
+  isRelative: PropTypes.bool.isRequired,
+  component: PropTypes.any,
+  href: PropTypes.string,
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    category: PropTypes.string
+  }),
+  onClick: PropTypes.func
 }
 
 const App = ({ element }) => {

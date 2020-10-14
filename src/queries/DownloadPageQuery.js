@@ -32,6 +32,7 @@ const DownloadPageQuery = ({ render }) => (
                         subtitle
                         cta_string
                         beta_cta_string
+                        catalyst_cta_string
                         pgp_download
                         version_string
                         verify_signature

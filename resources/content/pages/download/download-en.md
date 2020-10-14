@@ -7,6 +7,7 @@ content:
   subtitle: Download the latest version of Daedalus for your preferred OS.
   cta_string: Download Daedalus
   beta_cta_string: Download Daedalus Flight
+  catalyst_cta_string: Download Daedalus Catalyst
   pgp_download: Get Signature
   version_string: Version
   verify_signature: Verify signature instructions

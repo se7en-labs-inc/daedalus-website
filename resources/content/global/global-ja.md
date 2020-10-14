@@ -11,4 +11,5 @@ content:
       team: チーム
       download: ダウンロード
       beta: Flight
+      catalyst: Catalyst
 ---

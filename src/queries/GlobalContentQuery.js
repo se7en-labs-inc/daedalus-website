@@ -25,6 +25,7 @@ const GlobalContentQuery = ({ render }) => (
                           team
                           download
                           beta
+                          catalyst
                         }
                       }
                     }

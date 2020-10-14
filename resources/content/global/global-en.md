@@ -11,4 +11,5 @@ content:
       team: Team
       download: Download
       beta: Flight
+      catalyst: Catalyst
 ---

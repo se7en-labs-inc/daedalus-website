@@ -141,7 +141,7 @@ const ChecksumArea = styled.div`
   }
 `
 
-const OSColumn = ({ common, osData, checksum, signature, beta }) => {
+const OSColumn = ({ common, osData, checksum, signature, beta, catalyst }) => {
   // console.log(URL)
   const checksumTextAreaRef = createRef()
   const pgpName = osData.binary.split('/').pop()
@@ -171,6 +171,9 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
 
   const getTrackingLabel = label => `${beta ? 'beta_' : ''}${label}_${osData.version}`
 
+  let buttonTitle = beta ? common.frontmatter.content.beta_cta_string : common.frontmatter.content.cta_string
+  buttonTitle = catalyst ? common.frontmatter.content.catalyst_cta_string : buttonTitle
+  
   const unCacheURL = (url) => {
     return url + '?t=' + (new Date().getTime())
   }
@@ -195,7 +198,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
         onClick={trackDownload(osData.key)}
         className={beta ? 'beta-btn' : ''}
       >
-        {beta ? common.frontmatter.content.beta_cta_string : common.frontmatter.content.cta_string}
+        {buttonTitle}
       </Button>
       <PGPSignatureTitle>
         {common.frontmatter.content.pgp_signature}
@@ -282,6 +285,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta }) => {
 
 OSColumn.propTypes = {
   beta: PropTypes.bool,
+  catalyst: PropTypes.bool,
   common: PropTypes.shape({
     frontmatter: PropTypes.shape({
       content: PropTypes.shape({
@@ -289,6 +293,7 @@ OSColumn.propTypes = {
         subtitle: PropTypes.string.isRequired,
         cta_string: PropTypes.string.isRequired,
         beta_cta_string: PropTypes.string.isRequired,
+        catalyst_cta_string: PropTypes.string.isRequired,
         pgp_download: PropTypes.string.isRequired,
         version_string: PropTypes.string.isRequired,
         verify_signature: PropTypes.string.isRequired,

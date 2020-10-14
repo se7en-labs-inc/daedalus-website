@@ -8,6 +8,7 @@ import OSColumn from './OSColumn'
 import styled from 'styled-components'
 import Loader from '../../components/Loader'
 import Flight from '../../components/Flight'
+import Catalyst from '../../components/Catalyst'
 
 import { FaCogs } from 'react-icons/fa'
 
@@ -69,16 +70,19 @@ const LoadingContainer = styled.div`
 `
 
 // render={({ common, os, error, loading }) => (
-const Download = ({ beta = false }) => (
+const Download = ({ beta = false, catalyst = false }) => (
   <Query
     beta={beta}
     render={({ common, os, error, loading }) => (
       <Layout>
         <Kontainer maxWidth='lg'>
-          {beta &&
+          {beta && !catalyst &&
             <Flight />
           }
-          {common &&
+          {catalyst &&
+            <Catalyst />
+          }
+          {common && !catalyst &&
             <Title
               beta={beta}
               betaTitle={common.frontmatter.content.betaTitle}
@@ -112,6 +116,7 @@ const Download = ({ beta = false }) => (
                       checksum={os[key].checksum}
                       signature={os[key].signature}
                       beta={beta}
+                      catalyst={catalyst}
                     />
                   </Column>
                 ))}
@@ -148,7 +153,8 @@ const Download = ({ beta = false }) => (
 )
 
 Download.propTypes = {
-  beta: PropTypes.bool
+  beta: PropTypes.bool,
+  catalyst: PropTypes.bool
 }
 
 export default Download

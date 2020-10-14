@@ -1,4 +1,5 @@
 import notFound from './404'
+import catalyst from './catalyst'
 import tos from './tos'
 import team from './team'
 import flight from './flight'
@@ -11,5 +12,6 @@ export default [
   team,
   download,
   flight,
-  tos
+  tos,
+  catalyst
 ]

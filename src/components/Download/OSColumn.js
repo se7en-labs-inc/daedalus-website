@@ -173,7 +173,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta, catalyst }) => {
 
   let buttonTitle = beta ? common.frontmatter.content.beta_cta_string : common.frontmatter.content.cta_string
   buttonTitle = catalyst ? common.frontmatter.content.catalyst_cta_string : buttonTitle
-  
+
   const unCacheURL = (url) => {
     return url + '?t=' + (new Date().getTime())
   }

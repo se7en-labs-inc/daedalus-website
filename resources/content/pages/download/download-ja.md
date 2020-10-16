@@ -7,7 +7,7 @@ content:
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
   cta_string: ダイダロスのダウンロード
   beta_cta_string: DAEDALUS FLIGHTをダウンロード
-  catalyst_cta_string: Download Daedalus Catalyst
+  catalyst_cta_string: Daedalus Catalystをダウンロードする
   pgp_download: ダウンロード Signature
   version_string: バージョン
   verify_signature: 署名の検証 

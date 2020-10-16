@@ -4,13 +4,12 @@ content:
   title: Daedalus catalyst
   subtitle: Specially created for ada holders who want to Register to vote on Catalyst Funds.
   content: >-
-    It is important to note that while we have done our best to ensure that Daedalus Catalyst releases are as safe as possible, we cannot guarantee they will always be stable or reliable. Furthermore, in terms of core functionality, Daedalus Catalyst candidates are still working on mainnet, and therefore, you will be transacting with real ada.
+    Important note: we have endeavored to ensure that Daedalus Catalyst releases are as safe and secure as regular mainnet releases. However, as this is an experimental wallet, we cannot guarantee the same level of stability or reliability. Daedalus Catalyst connects to mainnet, and makes real ada transactions so please exercise caution as you would using any mainnet wallet.
 
+    **Please note that transactions created in Daedalus Catalyst use real ada.**
 
-    **Transactions made using Daedalus Catalyst will be real ada transactions.**
+    We recommend that only the more technically competent members of our community who are already familiar with Daedalus and other crypto wallets use Daedalus Catalyst wallet.
 
-
-    We recommend using Daedalus Catalyst only to more technically competent members of our community who are familiar with Daedalus and other crypto wallets.
 
 use:
   title: ''

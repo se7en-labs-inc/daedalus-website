@@ -2,15 +2,13 @@
 title: En (English) catalyst page content
 content:
   title: Daedalus catalyst
-  subtitle: Specially created for ada holders who want to Register to vote on Catalyst Funds.
+  subtitle: ADA保有者がProject Catalystのファンドへ登録、投票するためのアプリケーションです。
   content: >-
-    It is important to note that while we have done our best to ensure that Daedalus Catalyst releases are as safe as possible, we cannot guarantee they will always be stable or reliable. Furthermore, in terms of core functionality, Daedalus Catalyst candidates are still working on mainnet, and therefore, you will be transacting with real ada.
+    重要：Daedalus Catalystリリースについては、通常のメインネット版リリースと同様の安全性を確保すべく努めていますが、実験的ウォレットという性質上、同レベルの安定性または信頼性は保証できません。Daedalus Catalystはメインネットに接続し、実際のADAが取り引きされます。メインネットウォレットを使用する際と同様に、十分注意して実行してください。
 
+    **Daedalus Catalystで作成されたトランザクションは実際のADAを使用します。**
 
-    **Transactions made using Daedalus Catalyst will be real ada transactions.**
-
-
-    We recommend using Daedalus Catalyst only to more technically competent members of our community who are familiar with Daedalus and other crypto wallets.
+    Daedalus Catalystの使用は、Daedalusや他の暗号通貨ウォレットに精通し、技術的知識に長けたコミュニティメンバーのみが行ってください。
 
 use:
   title: ''

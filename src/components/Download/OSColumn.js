@@ -141,7 +141,7 @@ const ChecksumArea = styled.div`
   }
 `
 
-const OSColumn = ({ common, osData, checksum, signature, beta, catalyst }) => {
+const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
   // console.log(URL)
   const checksumTextAreaRef = createRef()
   const pgpName = osData.binary.split('/').pop()
@@ -169,10 +169,15 @@ const OSColumn = ({ common, osData, checksum, signature, beta, catalyst }) => {
     window.document && window.document.execCommand('copy')
   }
 
-  const getTrackingLabel = label => `${beta ? 'beta_' : ''}${label}_${osData.version}`
+  const getTrackingLabel = label => `${(walletType === 'normal') ? '' : walletType + '_'}${label}_${osData.version}`
 
-  let buttonTitle = beta ? common.frontmatter.content.beta_cta_string : common.frontmatter.content.cta_string
-  buttonTitle = catalyst ? common.frontmatter.content.catalyst_cta_string : buttonTitle
+  const titleArray = {
+    normal: common.frontmatter.content.cta_string,
+    flight: common.frontmatter.content.flight_cta_string,
+    catalyst: common.frontmatter.content.catalyst_cta_string
+  }
+
+  const buttonTitle = titleArray[walletType]
 
   const unCacheURL = (url) => {
     return url + '?t=' + (new Date().getTime())
@@ -196,7 +201,7 @@ const OSColumn = ({ common, osData, checksum, signature, beta, catalyst }) => {
         href={unCacheURL(osData.binary) || ''}
         id={`browser-testing-download-${osData.key}-cta`}
         onClick={trackDownload(osData.key)}
-        className={beta ? 'beta-btn' : ''}
+        className={(walletType === 'normal') ? '' : 'beta-btn'}
       >
         {buttonTitle}
       </Button>
@@ -284,15 +289,14 @@ const OSColumn = ({ common, osData, checksum, signature, beta, catalyst }) => {
 }
 
 OSColumn.propTypes = {
-  beta: PropTypes.bool,
-  catalyst: PropTypes.bool,
+  walletType: PropTypes.string,
   common: PropTypes.shape({
     frontmatter: PropTypes.shape({
       content: PropTypes.shape({
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
         cta_string: PropTypes.string.isRequired,
-        beta_cta_string: PropTypes.string.isRequired,
+        flight_cta_string: PropTypes.string.isRequired,
         catalyst_cta_string: PropTypes.string.isRequired,
         pgp_download: PropTypes.string.isRequired,
         version_string: PropTypes.string.isRequired,

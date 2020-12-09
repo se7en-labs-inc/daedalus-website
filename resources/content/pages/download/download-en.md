@@ -3,10 +3,11 @@
 title: En (English) download page content
 content:
   title: Download
-  betaTitle: Download Flight
+  flightTitle: Download Flight
+  catalystTitle: Download Catalyst
   subtitle: Download the latest version of Daedalus for your preferred OS.
   cta_string: Download Daedalus
-  beta_cta_string: Download Daedalus Flight
+  flight_cta_string: Download Daedalus Flight
   catalyst_cta_string: Download Daedalus Catalyst
   pgp_download: Get Signature
   version_string: Version

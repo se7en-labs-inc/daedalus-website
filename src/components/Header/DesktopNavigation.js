@@ -155,10 +155,10 @@ const DesktopNavigation = ({ navigation }) => {
               <Link
                 href='/flight/'
                 activeClassName='active'
-                id='browser-testing-navigation-link-beta'
-                tracking={{ label: 'desktop_navigation_beta' }}
+                id='browser-testing-navigation-link-flight'
+                tracking={{ label: 'desktop_navigation_flight' }}
               >
-                {navigation.labels.beta}
+                {navigation.labels.flight}
               </Link>
             </li>
             <li>

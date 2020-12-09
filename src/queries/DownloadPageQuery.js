@@ -28,10 +28,11 @@ const DownloadPageQuery = ({ render }) => (
                     frontmatter {
                       content {
                         title
-                        betaTitle
+                        flightTitle
+                        catalystTitle
                         subtitle
                         cta_string
-                        beta_cta_string
+                        flight_cta_string
                         catalyst_cta_string
                         pgp_download
                         version_string

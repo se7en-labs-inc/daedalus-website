@@ -23,28 +23,21 @@ const ReleaseNotesLink = styled.a`
   text-align: center;
 `
 
-const Title = ({ beta, betaTitle, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
+const Title = ({ walletType, walletTypeTitle, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
   <div id='browser-testing-download-component-title-container'>
     <Heading>
-      {beta ? betaTitle : title}
+      {walletType} walletType
     </Heading>
     <Subtitle>
       {subtitle}
     </Subtitle>
-    {!beta
-      ? <ReleaseNotes>
-        <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
-      </ReleaseNotes>
-      : <ReleaseNotes>
-        <ReleaseNotesLink href={flightNoteUrl}>{flightNoteLabel}</ReleaseNotesLink>
-      </ReleaseNotes>
-    }
+    <h2>Add release notes!?!?</h2>
   </div>
 )
 
 Title.propTypes = {
-  beta: PropTypes.bool,
-  betaTitle: PropTypes.string,
+  walletType: PropTypes.string,
+  walletTypeTitle: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   noteUrl: PropTypes.string,

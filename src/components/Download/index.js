@@ -70,22 +70,34 @@ const LoadingContainer = styled.div`
 `
 
 // render={({ common, os, error, loading }) => (
-const Download = ({ beta = false, catalyst = false }) => (
+const Download = ({ walletType = 'normal' }) => (
   <Query
-    beta={beta}
+    walletType={walletType}
     render={({ common, os, error, loading }) => (
       <Layout>
         <Kontainer maxWidth='lg'>
-          {beta && !catalyst &&
+          {(walletType === 'flight') &&
             <Flight />
           }
-          {catalyst &&
+          {(walletType === 'catalyst') &&
             <Catalyst />
           }
-          {common && !catalyst &&
+          {common && walletType === 'flight' &&
             <Title
-              beta={beta}
-              betaTitle={common.frontmatter.content.betaTitle}
+              walletType={walletType}
+              walletTypeTitle={common.frontmatter.content.flightTitle}
+              title={common.frontmatter.content.title}
+              subtitle={common.frontmatter.content.subtitle}
+              noteUrl={common.frontmatter.content.release_notes.url}
+              flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
+              noteLabel={common.frontmatter.content.release_notes.label}
+              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
+            />
+          }
+          {common && walletType === 'catalyst' &&
+            <Title
+              walletType={walletType}
+              walletTypeTitle={common.frontmatter.content.catalystTitle}
               title={common.frontmatter.content.title}
               subtitle={common.frontmatter.content.subtitle}
               noteUrl={common.frontmatter.content.release_notes.url}
@@ -97,7 +109,7 @@ const Download = ({ beta = false, catalyst = false }) => (
           {error &&
             <ErrorText id='browser-testing-download-error'>
               <span><FaCogs /></span><br />
-              We're working on a new version of Daedalus {beta && `Flight`} right now. Please check back soon!
+              We're working on a new version of Daedalus {walletType}-walletType right now. Please check back soon!
             </ErrorText>
           }
           {loading && !error &&
@@ -115,8 +127,7 @@ const Download = ({ beta = false, catalyst = false }) => (
                       osData={os[key].osData}
                       checksum={os[key].checksum}
                       signature={os[key].signature}
-                      beta={beta}
-                      catalyst={catalyst}
+                      walletType={walletType}
                     />
                   </Column>
                 ))}
@@ -153,8 +164,7 @@ const Download = ({ beta = false, catalyst = false }) => (
 )
 
 Download.propTypes = {
-  beta: PropTypes.bool,
-  catalyst: PropTypes.bool
+  walletType: PropTypes.string
 }
 
 export default Download

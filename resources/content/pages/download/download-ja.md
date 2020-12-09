@@ -25,6 +25,9 @@ content:
   release_notes_flight:
     label: リリースノート Flight
     url: https://iohk.zendesk.com/hc/ja/sections/900000090723
+  release_notes_catalyst:
+    label: Release notes
+    url: '#'
   supported_platforms:
     heading: サポート対象のプラットフォーム
     mac: MacOS 10.13, MacOS 10.14, MacOS 10.15

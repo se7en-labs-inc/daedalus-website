@@ -23,15 +23,32 @@ const ReleaseNotesLink = styled.a`
   text-align: center;
 `
 
-const Title = ({ walletType, walletTypeTitle, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
+const Title = ({ walletType, walletTypeTitle, title, subtitle, noteUrl, flightNoteUrl, catalystNoteUrl, noteLabel, flightNoteLabel, catalystNoteLabel }) => (
   <div id='browser-testing-download-component-title-container'>
     <Heading>
-      {walletType} walletType
+      {(walletType === 'normal') ? title : walletTypeTitle}
     </Heading>
     <Subtitle>
       {subtitle}
     </Subtitle>
-    <h2>Add release notes!?!?</h2>
+    {(walletType === 'normal') &&
+      <ReleaseNotes>
+        <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
+      </ReleaseNotes>
+    }
+    {(walletType === 'flight') &&
+      <ReleaseNotes>
+        <ReleaseNotesLink href={flightNoteUrl}>{flightNoteLabel}</ReleaseNotesLink>
+      </ReleaseNotes>
+    }
+    {(walletType === 'catalyst') &&
+      <ReleaseNotes>
+        {(catalystNoteUrl !== '#')
+          ? <ReleaseNotesLink href={catalystNoteUrl}>{catalystNoteLabel}</ReleaseNotesLink>
+          : <h5>No notes link yet</h5>
+        }
+      </ReleaseNotes>
+    }
   </div>
 )
 
@@ -42,8 +59,10 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   noteUrl: PropTypes.string,
   flightNoteUrl: PropTypes.string,
+  catalystNoteUrl: PropTypes.string,
   noteLabel: PropTypes.string,
-  flightNoteLabel: PropTypes.string
+  flightNoteLabel: PropTypes.string,
+  catalystNoteLabel: PropTypes.string
 }
 
 export default Title

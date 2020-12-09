@@ -53,6 +53,10 @@ const DownloadPageQuery = ({ render }) => (
                           label
                           url
                         }
+                        release_notes_catalyst {
+                          label
+                          url
+                        }
                         supported_platforms {
                           heading
                           mac

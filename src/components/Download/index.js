@@ -101,15 +101,15 @@ const Download = ({ walletType = 'normal' }) => (
               title={common.frontmatter.content.title}
               subtitle={common.frontmatter.content.subtitle}
               noteUrl={common.frontmatter.content.release_notes.url}
-              flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
+              catalystNoteUrl={common.frontmatter.content.release_notes_catalyst.url}
               noteLabel={common.frontmatter.content.release_notes.label}
-              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
+              catalystNoteLabel={common.frontmatter.content.release_notes_catalyst.label}
             />
           }
           {error &&
             <ErrorText id='browser-testing-download-error'>
               <span><FaCogs /></span><br />
-              We're working on a new version of Daedalus {walletType}-walletType right now. Please check back soon!
+              We're working on a new version of Daedalus {walletType} right now. Please check back soon!
             </ErrorText>
           }
           {loading && !error &&

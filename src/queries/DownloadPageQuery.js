@@ -31,6 +31,8 @@ const DownloadPageQuery = ({ render }) => (
                         flightTitle
                         catalystTitle
                         subtitle
+                        flightSubtitle
+                        catalystSubtitle
                         cta_string
                         flight_cta_string
                         catalyst_cta_string

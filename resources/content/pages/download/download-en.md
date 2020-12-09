@@ -6,6 +6,8 @@ content:
   flightTitle: Download Flight
   catalystTitle: Download Catalyst
   subtitle: Download the latest version of Daedalus for your preferred OS.
+  catalystSubtitle: Download the latest version of Daedalus Catalyst for your preferred OS.
+  flightSubtitle: Download the latest version of Daedalus Flight for your preferred OS.
   cta_string: Download Daedalus
   flight_cta_string: Download Daedalus Flight
   catalyst_cta_string: Download Daedalus Catalyst

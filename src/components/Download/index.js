@@ -69,6 +69,12 @@ const LoadingContainer = styled.div`
   transform: translateX(-50%);
 `
 
+const pickWalletString = (type, normal, flight, catalyst) => {
+  if (type === 'normal') { return normal }
+  if (type === 'flight') { return flight }
+  if (type === 'catalyst') { return catalyst }
+}
+
 // render={({ common, os, error, loading }) => (
 const Download = ({ walletType = 'normal' }) => (
   <Query
@@ -85,15 +91,10 @@ const Download = ({ walletType = 'normal' }) => (
           {common && walletType &&
             <Title
               walletType={walletType}
-              walletTypeTitle={common.frontmatter.content.flightTitle}
-              title={common.frontmatter.content.title}
-              subtitle={common.frontmatter.content.subtitle}
-              noteUrl={common.frontmatter.content.release_notes.url}
-              flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
-              catalystNoteUrl={common.frontmatter.content.release_notes_catalyst.url}
-              noteLabel={common.frontmatter.content.release_notes.label}
-              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
-              catalystNoteLabel={common.frontmatter.content.release_notes_catalyst.label}
+              title={pickWalletString(walletType, common.frontmatter.content.title, common.frontmatter.content.flightTitle, common.frontmatter.content.catalystTitle)}
+              subtitle={pickWalletString(walletType, common.frontmatter.content.subtitle, common.frontmatter.content.flightSubtitle, common.frontmatter.content.catalystSubtitle)}
+              noteUrl={pickWalletString(walletType, common.frontmatter.content.release_notes.url, common.frontmatter.content.release_notes_flight.url, common.frontmatter.content.release_notes_catalyst.url)}
+              noteLabel={pickWalletString(walletType, common.frontmatter.content.release_notes.label, common.frontmatter.content.release_notes_flight.label, common.frontmatter.content.release_notes_catalyst.label)}
             />
           }
           {error &&

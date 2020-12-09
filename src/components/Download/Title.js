@@ -29,7 +29,7 @@ const Title = ({ walletType, walletTypeTitle, title, subtitle, noteUrl, flightNo
       {(walletType === 'normal') ? title : walletTypeTitle}
     </Heading>
     <Subtitle>
-      {subtitle}
+      {subtitle} {walletType}
     </Subtitle>
     {(walletType === 'normal') &&
       <ReleaseNotes>

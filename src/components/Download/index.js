@@ -82,7 +82,7 @@ const Download = ({ walletType = 'normal' }) => (
           {(walletType === 'catalyst') &&
             <Catalyst />
           }
-          {common && walletType === 'flight' &&
+          {common && walletType &&
             <Title
               walletType={walletType}
               walletTypeTitle={common.frontmatter.content.flightTitle}
@@ -90,19 +90,9 @@ const Download = ({ walletType = 'normal' }) => (
               subtitle={common.frontmatter.content.subtitle}
               noteUrl={common.frontmatter.content.release_notes.url}
               flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
-              noteLabel={common.frontmatter.content.release_notes.label}
-              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
-            />
-          }
-          {common && walletType === 'catalyst' &&
-            <Title
-              walletType={walletType}
-              walletTypeTitle={common.frontmatter.content.catalystTitle}
-              title={common.frontmatter.content.title}
-              subtitle={common.frontmatter.content.subtitle}
-              noteUrl={common.frontmatter.content.release_notes.url}
               catalystNoteUrl={common.frontmatter.content.release_notes_catalyst.url}
               noteLabel={common.frontmatter.content.release_notes.label}
+              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
               catalystNoteLabel={common.frontmatter.content.release_notes_catalyst.label}
             />
           }

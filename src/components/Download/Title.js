@@ -31,9 +31,11 @@ const Title = ({ title, subtitle, noteUrl, noteLabel }) => (
     <Subtitle>
       {subtitle}
     </Subtitle>
-    <ReleaseNotes>
-      <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
-    </ReleaseNotes>
+    {(noteUrl !== '#') &&
+      <ReleaseNotes>
+        <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
+      </ReleaseNotes>
+    }
   </div>
 )
 

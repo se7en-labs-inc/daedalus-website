@@ -6,6 +6,8 @@ content:
   flightTitle: DAEDALUS FLIGHTをダウンロード
   catalystTitle: Daedalus Catalystをダウンロードする
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
+  catalystSubtitle: ご使用のOSに応じたDaedalus-Catalystの最新バージョンをダウンロードしてください。
+  flightSubtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
   cta_string: ダイダロスのダウンロード
   flight_cta_string: DAEDALUS FLIGHTをダウンロード
   catalyst_cta_string: Daedalus Catalystをダウンロードする

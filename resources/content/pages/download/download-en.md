@@ -3,10 +3,14 @@
 title: En (English) download page content
 content:
   title: Download
-  betaTitle: Download Flight
-  subtitle: Download the latest version of Daedalus for your preferred OS.
+  flightTitle: Download Flight
+  catalystTitle: Download Catalyst
+  subtitle: Download the latest version of Daedalus for your preferred operating system.
+  catalystSubtitle: Download the latest version of Daedalus Catalyst to your preferred operating system.
+  flightSubtitle: Download the latest version of Daedalus Flight for your preferred operating system.
   cta_string: Download Daedalus
-  beta_cta_string: Download Daedalus Flight
+  flight_cta_string: Download Daedalus Flight
+  catalyst_cta_string: Download Daedalus Catalyst
   pgp_download: Get Signature
   version_string: Version
   verify_signature: Verify signature instructions
@@ -23,6 +27,9 @@ content:
   release_notes_flight:
     label: Release notes
     url: https://iohk.zendesk.com/hc/en-us/sections/900000090723
+  release_notes_catalyst:
+    label: Release notes
+    url: https://iohk.zendesk.com/hc/en-us/sections/900000592286
   supported_platforms:
     heading: Supported Platforms
     mac: MacOS 10.13, MacOS 10.14, MacOS 10.15

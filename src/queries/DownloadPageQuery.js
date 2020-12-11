@@ -28,10 +28,14 @@ const DownloadPageQuery = ({ render }) => (
                     frontmatter {
                       content {
                         title
-                        betaTitle
+                        flightTitle
+                        catalystTitle
                         subtitle
+                        flightSubtitle
+                        catalystSubtitle
                         cta_string
-                        beta_cta_string
+                        flight_cta_string
+                        catalyst_cta_string
                         pgp_download
                         version_string
                         verify_signature
@@ -48,6 +52,10 @@ const DownloadPageQuery = ({ render }) => (
                           url
                         }
                         release_notes_flight {
+                          label
+                          url
+                        }
+                        release_notes_catalyst {
                           label
                           url
                         }

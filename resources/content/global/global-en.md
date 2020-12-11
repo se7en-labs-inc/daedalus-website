@@ -10,5 +10,6 @@ content:
       home: Home
       team: Team
       download: Download
-      beta: Flight
+      flight: Flight
+      catalyst: Catalyst
 ---

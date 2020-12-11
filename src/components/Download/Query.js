@@ -10,13 +10,13 @@ function renderHTMLTemplate (html, data) {
   })
 }
 
-const Query = ({ render, beta = false }) => {
+const Query = ({ render, walletType = 'normal' }) => {
   let isMounted = true
-  const [ daedalusData, setDaedalusData ] = useState(getCachedDaedalusData(beta))
+  const [ daedalusData, setDaedalusData ] = useState(getCachedDaedalusData(walletType))
   const [ error, setError ] = useState(null)
   useEffect(() => {
     const loadData = async () => {
-      const [ data, error ] = await getDaedalusData(beta)
+      const [ data, error ] = await getDaedalusData(walletType)
       if (!isMounted) return
       if (error && !data) return setError(error)
       setDaedalusData(data)
@@ -105,7 +105,7 @@ const Query = ({ render, beta = false }) => {
 
 Query.propTypes = {
   render: PropTypes.func.isRequired,
-  beta: PropTypes.bool
+  walletType: PropTypes.string
 }
 
 export default Query

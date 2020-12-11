@@ -23,34 +23,27 @@ const ReleaseNotesLink = styled.a`
   text-align: center;
 `
 
-const Title = ({ beta, betaTitle, title, subtitle, noteUrl, flightNoteUrl, noteLabel, flightNoteLabel }) => (
+const Title = ({ title, subtitle, noteUrl, noteLabel }) => (
   <div id='browser-testing-download-component-title-container'>
     <Heading>
-      {beta ? betaTitle : title}
+    {title}
     </Heading>
     <Subtitle>
       {subtitle}
     </Subtitle>
-    {!beta
-      ? <ReleaseNotes>
+    {(noteUrl !== '#') &&
+      <ReleaseNotes>
         <ReleaseNotesLink href={noteUrl}>{noteLabel}</ReleaseNotesLink>
-      </ReleaseNotes>
-      : <ReleaseNotes>
-        <ReleaseNotesLink href={flightNoteUrl}>{flightNoteLabel}</ReleaseNotesLink>
       </ReleaseNotes>
     }
   </div>
 )
 
 Title.propTypes = {
-  beta: PropTypes.bool,
-  betaTitle: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   noteUrl: PropTypes.string,
-  flightNoteUrl: PropTypes.string,
-  noteLabel: PropTypes.string,
-  flightNoteLabel: PropTypes.string
+  noteLabel: PropTypes.string
 }
 
 export default Title

@@ -10,5 +10,6 @@ content:
       home: ホーム
       team: チーム
       download: ダウンロード
-      beta: Flight
+      flight: Flight
+      catalyst: Catalyst
 ---

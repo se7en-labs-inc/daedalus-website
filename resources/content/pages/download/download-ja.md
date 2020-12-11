@@ -3,10 +3,14 @@
 title: Ja (Japanese) download page content
 content:
   title: ダウンロード
-  betaTitle: DAEDALUS FLIGHTをダウンロード
+  flightTitle: DAEDALUS FLIGHTをダウンロード
+  catalystTitle: Daedalus Catalystをダウンロードする
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
+  catalystSubtitle: ご使用のOSに応じたDaedalus-Catalystの最新バージョンをダウンロードしてください。
+  flightSubtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
   cta_string: ダイダロスのダウンロード
-  beta_cta_string: DAEDALUS FLIGHTをダウンロード
+  flight_cta_string: DAEDALUS FLIGHTをダウンロード
+  catalyst_cta_string: Daedalus Catalystをダウンロードする
   pgp_download: ダウンロード Signature
   version_string: バージョン
   verify_signature: 署名の検証 
@@ -23,6 +27,9 @@ content:
   release_notes_flight:
     label: リリースノート Flight
     url: https://iohk.zendesk.com/hc/ja/sections/900000090723
+  release_notes_catalyst:
+    label: Release notes
+    url: https://iohk.zendesk.com/hc/ja/sections/900000592286
   supported_platforms:
     heading: サポート対象のプラットフォーム
     mac: MacOS 10.13, MacOS 10.14, MacOS 10.15

@@ -8,6 +8,7 @@ import OSColumn from './OSColumn'
 import styled from 'styled-components'
 import Loader from '../../components/Loader'
 import Flight from '../../components/Flight'
+import Catalyst from '../../components/Catalyst'
 
 import { FaCogs } from 'react-icons/fa'
 
@@ -68,32 +69,38 @@ const LoadingContainer = styled.div`
   transform: translateX(-50%);
 `
 
+const pickWalletString = (type, normal, flight, catalyst) => {
+  if (type === 'normal') { return normal }
+  if (type === 'flight') { return flight }
+  if (type === 'catalyst') { return catalyst }
+}
+
 // render={({ common, os, error, loading }) => (
-const Download = ({ beta = false }) => (
+const Download = ({ walletType = 'normal' }) => (
   <Query
-    beta={beta}
+    walletType={walletType}
     render={({ common, os, error, loading }) => (
       <Layout>
         <Kontainer maxWidth='lg'>
-          {beta &&
+          {(walletType === 'flight') &&
             <Flight />
           }
-          {common &&
+          {(walletType === 'catalyst') &&
+            <Catalyst />
+          }
+          {common && walletType &&
             <Title
-              beta={beta}
-              betaTitle={common.frontmatter.content.betaTitle}
-              title={common.frontmatter.content.title}
-              subtitle={common.frontmatter.content.subtitle}
-              noteUrl={common.frontmatter.content.release_notes.url}
-              flightNoteUrl={common.frontmatter.content.release_notes_flight.url}
-              noteLabel={common.frontmatter.content.release_notes.label}
-              flightNoteLabel={common.frontmatter.content.release_notes_flight.label}
+              walletType={walletType}
+              title={pickWalletString(walletType, common.frontmatter.content.title, common.frontmatter.content.flightTitle, common.frontmatter.content.catalystTitle)}
+              subtitle={pickWalletString(walletType, common.frontmatter.content.subtitle, common.frontmatter.content.flightSubtitle, common.frontmatter.content.catalystSubtitle)}
+              noteUrl={pickWalletString(walletType, common.frontmatter.content.release_notes.url, common.frontmatter.content.release_notes_flight.url, common.frontmatter.content.release_notes_catalyst.url)}
+              noteLabel={pickWalletString(walletType, common.frontmatter.content.release_notes.label, common.frontmatter.content.release_notes_flight.label, common.frontmatter.content.release_notes_catalyst.label)}
             />
           }
           {error &&
             <ErrorText id='browser-testing-download-error'>
               <span><FaCogs /></span><br />
-              We're working on a new version of Daedalus {beta && `Flight`} right now. Please check back soon!
+              We're working on a new version of Daedalus {walletType} right now. Please check back soon!
             </ErrorText>
           }
           {loading && !error &&
@@ -111,7 +118,7 @@ const Download = ({ beta = false }) => (
                       osData={os[key].osData}
                       checksum={os[key].checksum}
                       signature={os[key].signature}
-                      beta={beta}
+                      walletType={walletType}
                     />
                   </Column>
                 ))}
@@ -148,7 +155,7 @@ const Download = ({ beta = false }) => (
 )
 
 Download.propTypes = {
-  beta: PropTypes.bool
+  walletType: PropTypes.string
 }
 
 export default Download

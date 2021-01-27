@@ -11,5 +11,4 @@ content:
       team: Team
       download: Download
       flight: Flight
-      catalyst: Catalyst
 ---

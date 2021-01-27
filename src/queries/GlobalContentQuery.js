@@ -25,7 +25,6 @@ const GlobalContentQuery = ({ render }) => (
                           team
                           download
                           flight
-                          catalyst
                         }
                       }
                     }

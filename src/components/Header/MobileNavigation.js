@@ -193,17 +193,6 @@ const MobileNavigation = ({ navigation }) => {
                     {navigation.labels.flight}
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href='/catalyst/'
-                    onClick={closeNav}
-                    activeClassName='active'
-                    id='browser-testing-navigation-link-catalyst'
-                    tracking={{ label: 'mobile_navigation_catalyst' }}
-                  >
-                    {navigation.labels.catalyst}
-                  </Link>
-                </li>
               </ul>
             </Nav>
           }

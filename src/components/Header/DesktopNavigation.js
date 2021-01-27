@@ -161,16 +161,6 @@ const DesktopNavigation = ({ navigation }) => {
                 {navigation.labels.flight}
               </Link>
             </li>
-            <li>
-              <Link
-                href='/catalyst/'
-                activeClassName='active'
-                id='browser-testing-navigation-link-catalyst'
-                tracking={{ label: 'desktop_navigation_catalyst' }}
-              >
-                {navigation.labels.catalyst}
-              </Link>
-            </li>
           </ul>
           <div className='gradRight' />
         </div>

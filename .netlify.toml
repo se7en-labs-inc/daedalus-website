@@ -21,6 +21,24 @@
 
 
 [[redirects]]
+  from = "/native-tokens/"
+  to = "https://iohk.io/en/blog/posts/2020/12/09/native-tokens-on-cardano-core-principles-and-points-of-difference/"
+  status = 302
+
+
+[[redirects]]
+  from = "/en/native-tokens/"
+  to = "https://iohk.io/en/blog/posts/2020/12/09/native-tokens-on-cardano-core-principles-and-points-of-difference/"
+  status = 302
+
+
+[[redirects]]
+  from = "/ja/native-tokens/"
+  to = "https://forum.cardano.org/t/iohk-cardano/42997"
+  status = 302
+
+
+[[redirects]]
   from = "/ja/known-issues/"
   to = "https://iohk.zendesk.com/hc/ja/articles/360011451693"
   status = 302  

@@ -32,7 +32,7 @@ content:
     url: https://iohk.zendesk.com/hc/ja/sections/900000592286
   supported_platforms:
     heading: サポート対象のプラットフォーム
-    mac: MacOS 10.13, MacOS 10.14, MacOS 10.15
+    mac: MacOS 10.13, MacOS 10.14, MacOS 10.15, MacOS 11.1, MacOS 11.2
     win: Windows 8.1、Windows 10（64ビットWindowsのみサポート）
     linux:
       aimed_at: すべてのLinuxディストリビューションをサポート予定です。

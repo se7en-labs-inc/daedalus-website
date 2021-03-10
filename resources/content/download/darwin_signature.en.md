@@ -26,7 +26,7 @@ title: MacOS PGP signature verification instructions
 					<li>Search for&nbsp;signing.authority@iohk.io</li>
 					<li>Choose the key with fingerprint CBFAA9BA with the user ID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo;, then click Retrieve Key</li>
 					<li>
-						<p>Verify (right-click the imported key, then Details) that the fingerprint of the imported key is D325 87D4 090F E461 CAEE 0FF4 966E 5CB9 CBFA A9BA</p>
+						Verify (right-click the imported key, then Details) that the fingerprint of the imported key is D325 87D4 090F E461 CAEE 0FF4 966E 5CB9 CBFA A9BA
 					</li>
 					<li>if it&rsquo;s not, the wrong key was imported, right-click and delete</li>
 					<li>if it is, we are good to proceed with the next step.</li>

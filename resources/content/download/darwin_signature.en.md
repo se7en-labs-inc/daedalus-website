@@ -43,7 +43,7 @@ title: MacOS PGP signature verification instructions
         Search for signing.authority@iohk.io
       </li>
       <li>
-        Choose the key with fingerprint CBFAA9BA with the user ID “IOHK Signing Authority <signing.authority@iohk.io>”, then click Retrieve Key
+        Choose the key with fingerprint CBFAA9BA with the user ID “IOHK Signing Authority ”, then click Retrieve Key
       </li>
       <li>
         Verify (right-click the imported key, then Details) that the fingerprint of the imported key is D325 87D4 090F E461 CAEE 0FF4 966E 5CB9 CBFA A9BA
@@ -74,7 +74,7 @@ title: MacOS PGP signature verification instructions
         The Verification Results dialog will then appear with the verdict in the Result column:
         <ol>
           <li>
-            “Signed by: IOHK Signing Authority <signing.authority@iohk.io> 1471941A -- full trust” -- if successful
+            “Signed by: IOHK Signing Authority 1471941A -- full trust” -- if successful
           </li>
           <li>
             ..anything else means there was no valid signature for the installer.

@@ -66,3 +66,13 @@
   from = "/assets/Daedalus-FAQ-JP.pdf/"
   to = "https://iohk.zendesk.com/hc/ja/categories/360000877653"
   status = 302
+
+[[redirects]]
+  from = "/d0/"
+  to = "https://iohk.io/en/blog/posts/2021/03/04/not-long-till-d-0-day/"
+  status = 302
+
+[[redirects]]
+  from = "/ja/d0/"
+  to = "https://iohk.io/en/blog/posts/2021/03/04/not-long-till-d-0-day/"
+  status = 302

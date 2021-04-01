@@ -69,10 +69,15 @@
 
 [[redirects]]
   from = "/d0/"
-  to = "https://iohk.io/en/blog/posts/2021/03/04/not-long-till-d-0-day/"
+  to = "https://iohk.io/en/blog/posts/2021/03/31/decentralization-to-d-0-day-and-beyond/"
+  status = 302
+
+[[redirects]]
+  from = "/en/d0/"
+  to = "https://iohk.io/en/blog/posts/2021/03/31/decentralization-to-d-0-day-and-beyond/"
   status = 302
 
 [[redirects]]
   from = "/ja/d0/"
-  to = "https://forum.cardano.org/t/iohk-d-0/51965"
+  to = "https://forum.cardano.org/t/iohk-d-0/55770"
   status = 302

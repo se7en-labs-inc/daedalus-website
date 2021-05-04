@@ -17,6 +17,7 @@ content:
   verify_checksum: チェックサムの検証
   pgp_signature: PGP署名
   sha_256_checksum: SHA256 チェックサム
+  warning: "DaedalusはPC（Microsoft Windows / Linux）およびApple Macアプリケーションとしてのみ利用可能であり、Daedalusのモバイル（Android / iOS）バージョンはありません。"
   os:
     windows: 64 ビット版 Windows
     darwin: 64 ビット版 macOS
@@ -31,20 +32,20 @@ content:
     label: Release notes
     url: https://iohk.zendesk.com/hc/ja/sections/900000592286
   supported_platforms:
-    heading: サポート対象のプラットフォーム
+    heading: オペーレーティングシステム
     mac: MacOS 10.13, MacOS 10.14, MacOS 10.15, MacOS 11.1, MacOS 11.2
     win: Windows 8.1、Windows 10（64ビットWindowsのみサポート）
     linux:
       aimed_at: すべてのLinuxディストリビューションをサポート予定です。
       tested_against:
-        label: テスト対象
-        linuxa: Ubuntu 18.04 LTS
-        linuxb: Ubuntu 20.04 LTS
-        linuxc: Fedora 28
+        label: Linux OSは以下のバージョンに対してテスト済み
+        linuxa: Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
+        linuxb: Fedora 28
+        linuxc: すべてのLinuxディストリビューションをサポート予定です。
   recommended_hardware:
     heading: 推奨する最低ハードウェア要件
     item1: 64ビットデュアルコアプロセッサ
-    item2: 4GBのRAM
-    item3: 10GBの空きディスク容量
+    item2: 8GBのRAM
+    item3: 15GBの空きディスク容量
     item4: ブロードバンドインターネット接続
 ---

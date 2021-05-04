@@ -17,6 +17,7 @@ content:
   verify_checksum: Verify checksum instructions
   pgp_signature: PGP signature
   sha_256_checksum: SHA256 checksum
+  warning: "Daedalus is available only as a PC (Microsoft Windows/Linux) and Apple Mac application, there is no mobile (Android/iOS) version of Daedalus."
   os:
     windows: Windows 8.1 and 10, 64 bit
     darwin: macOS 64 bit
@@ -31,20 +32,20 @@ content:
     label: Release notes
     url: https://iohk.zendesk.com/hc/en-us/sections/900000592286
   supported_platforms:
-    heading: Supported Platforms
+    heading: Operating Systems
     mac: MacOS 10.13, MacOS 10.14, MacOS 10.15, MacOS 11.1, MacOS 11.2
     win: Windows 8.1, Windows 10 (Only 64-bit Windows is supported)
     linux:
       aimed_at: Aimed at all Linux distributions
       tested_against:
-        label: "Aimed at all Linux distributions - Tested against"
-        linuxa: Ubuntu 18.04 LTS
-        linuxb: Ubuntu 20.04 LTS
-        linuxc: Fedora 28
+        label: "Linux OS Tested against"
+        linuxa: Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
+        linuxb: Fedora 28
+        linuxc: Aimed at all Linux distributions
   recommended_hardware:
-    heading: Recommended minimum hardware requirements
+    heading: Recommended hardware requirements
     item1: 64-bit dual core processors
-    item2: 4 GB of RAM
-    item3: 10 GB of free drive space
+    item2: 8 GB of RAM
+    item3: 15 GB of free drive space
     item4: Broadband Internet connection 
 ---

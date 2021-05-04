@@ -42,6 +42,7 @@ const DownloadPageQuery = ({ render }) => (
                         verify_checksum
                         pgp_signature
                         sha_256_checksum
+                        warning
                         os {
                           windows
                           darwin

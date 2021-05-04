@@ -20,7 +20,7 @@ const Columns = styled.div`
   width: 100%;
   text-align: center;
   ul {
-    list-style-position: outside;
+    list-style-position: inside;
   }
   li {
     text-align: left;
@@ -67,6 +67,17 @@ const LoadingContainer = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+`
+
+const WarningList = styled.div`
+  list-style: none;
+  list-style-position: inside;
+  li {
+    color: ${({ theme }) => theme.colors.primary.main};
+   h5 {
+     font-weight:700;
+   }
+  }
 `
 
 const pickWalletString = (type, normal, flight, catalyst) => {
@@ -125,10 +136,15 @@ const Download = ({ walletType = 'normal' }) => (
               </Columns>
               <Columns>
                 <h4>{common.frontmatter.content.supported_platforms.heading}</h4>
+                <WarningList>
+                  <li>
+                    <h5>{common.frontmatter.content.warning}</h5>
+                  </li>
+                </WarningList>
                 <ul>
                   <li>{common.frontmatter.content.supported_platforms.win}</li>
                   <li>{common.frontmatter.content.supported_platforms.mac}</li>
-                  <li>Linux - {common.frontmatter.content.supported_platforms.linux.tested_against.label}:
+                  <li>{common.frontmatter.content.supported_platforms.linux.tested_against.label}:
                     <ul>
                       <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
                       <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxb}</li>

@@ -6,7 +6,11 @@ const config = require('./node/config')
 
 const getRandomString = () => {
   let s = ''
-  const characterRange = new Array(123 - 97).fill(null).map((_, i) => i + 97).concat(...new Array(58 - 48).fill(null).map((_, i) => i + 48)).map(n => String.fromCharCode(n))
+  const characterRange = new Array(123 - 97)
+    .fill(null)
+    .map((_, i) => i + 97)
+    .concat(...new Array(58 - 48).fill(null).map((_, i) => i + 48))
+    .map((n) => String.fromCharCode(n))
   while (s.length < 16) {
     const index = Math.round(Math.random() * (characterRange.length - 1))
     s += characterRange[index]
@@ -19,15 +23,19 @@ const bundleOutput = `netlify.bundle.${getRandomString()}.js`
 const adminIndex = path.join(__dirname, 'public/admin/index.html')
 const adminTemplate = path.join(__dirname, 'static/admin/index.html')
 const adminContents = fs.readFileSync(adminTemplate, { encoding: 'utf8' })
-fs.writeFileSync(adminIndex, adminContents.replace('{{bundle}}', bundleOutput), { encoding: 'utf8' })
+fs.writeFileSync(
+  adminIndex,
+  adminContents.replace('{{bundle}}', bundleOutput),
+  { encoding: 'utf8' },
+)
 
 module.exports = {
   entry: {
-    netlify: path.join(__dirname, 'netlify/index.js')
+    netlify: path.join(__dirname, 'netlify/index.js'),
   },
   output: {
     path: path.join(__dirname, 'public/admin'),
-    filename: bundleOutput
+    filename: bundleOutput,
   },
   module: {
     rules: [
@@ -35,14 +43,14 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.md$/,
-        loader: 'frontmatter-markdown-loader'
-      }
-    ]
+        loader: 'frontmatter-markdown-loader',
+      },
+    ],
   },
   devtool: !environment.isProduction() && 'inline-source-map',
   mode: environment.isProduction() ? 'production' : 'development',
@@ -52,7 +60,7 @@ module.exports = {
       // Branch exposed by netlify build https://www.netlify.com/docs/continuous-deployment/#environment-variables
       HEAD: 'staging',
       UPLOADCARE_PUBLIC_KEY: 'demopublickey',
-      GATSBY_IOHK_STARTER_CONFIG: JSON.stringify(config)
-    })
-  ]
+      GATSBY_IOHK_STARTER_CONFIG: JSON.stringify(config),
+    }),
+  ],
 }

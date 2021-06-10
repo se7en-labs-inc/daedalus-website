@@ -62,11 +62,11 @@ const Container = styled.div`
 `
 
 const OpenMedusa = ({ name }) => (
-  <Container id='browser-testing-open-medusa-component'>
+  <Container id="browser-testing-open-medusa-component">
     <ModalTrigger
       name={name}
-      id='browser-testing-open-medusa-toggle'
-      className='open-medusa'
+      id="browser-testing-open-medusa-toggle"
+      className="open-medusa"
     >
       <DiGithubBadge />
     </ModalTrigger>
@@ -74,7 +74,7 @@ const OpenMedusa = ({ name }) => (
 )
 
 OpenMedusa.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 }
 
 export default OpenMedusa

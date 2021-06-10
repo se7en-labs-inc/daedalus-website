@@ -23,7 +23,7 @@ const Content = styled(Markdown)`
 
 export default () => (
   <Query
-    render={markdown => (
+    render={(markdown) => (
       <Container>
         <Title>{markdown.frontmatter.use.title}</Title>
         <Content>{markdown.frontmatter.use.content}</Content>

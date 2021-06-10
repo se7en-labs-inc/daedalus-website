@@ -56,31 +56,37 @@ const isSupported = () => isMedusaSupported()
 const Medusa = ({ fullScreen, lang }) => {
   return (
     <Container className={fullScreen && 'fullscreen'}>
-      {isSupported() &&
+      {isSupported() && (
         <MedusaFrame
-          title='medusa'
+          title="medusa"
           className={fullScreen ? 'fullscreen' : ''}
-          src={`//webdevm.iohk.io/?lang=${lang}${fullScreen ? '&medusa=fullscreen' : ''}&repo=daedalus${(lang === 'ja') ? '&content=' + encodeURI('Daedalusプルーフオブステークプロトコルを実装した暗号通貨およびブロックチェーンネットワーク') : ''}`}
+          src={`//webdevm.iohk.io/?lang=${lang}${
+            fullScreen ? '&medusa=fullscreen' : ''
+          }&repo=daedalus${
+            lang === 'ja'
+              ? '&content=' +
+                encodeURI(
+                  'Daedalusプルーフオブステークプロトコルを実装した暗号通貨およびブロックチェーンネットワーク',
+                )
+              : ''
+          }`}
         />
-      }
-      {!isSupported() && fullScreen &&
+      )}
+      {!isSupported() && fullScreen && (
         <UnSupported>Medusa Unsupported</UnSupported>
-      }
-      {!isSupported() && !fullScreen &&
+      )}
+      {!isSupported() && !fullScreen && (
         <MedusaStatic>
-          <Image
-            src={StaticMedusaImage}
-            alt='Medusa'
-          />
+          <Image src={StaticMedusaImage} alt="Medusa" />
         </MedusaStatic>
-      }
+      )}
     </Container>
   )
 }
 
 Medusa.propTypes = {
   fullScreen: PropTypes.bool.isRequired,
-  lang: PropTypes.string
+  lang: PropTypes.string,
 }
 
 export default Medusa

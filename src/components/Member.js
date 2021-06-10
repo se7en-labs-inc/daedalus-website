@@ -8,10 +8,10 @@ import { Link } from '@input-output-hk/front-end-core-components'
 
 const TeamContainer = styled.div`
   position: relative;
-  padding-top: ${({ firstItem }) => firstItem ? '0' : '8rem'};
+  padding-top: ${({ firstItem }) => (firstItem ? '0' : '8rem')};
 
   &:first-child {
-    padding-top:8rem;
+    padding-top: 8rem;
   }
 
   > div {
@@ -100,7 +100,7 @@ const ProfileImage = styled.div`
     border-radius: 0.8rem;
     border: 0.1rem solid ${({ theme }) => theme.colors.text.primary};
     transform: translate(50%, -50%);
-    z-index:200;
+    z-index: 200;
   }
 
   @media screen and (max-width: 1200px) {
@@ -152,8 +152,8 @@ const ImageContainer = styled.div`
 `
 
 const MemberTitle = styled.h3`
-  margin-top:0;
-  margin-bottom:0;
+  margin-top: 0;
+  margin-bottom: 0;
 `
 
 const JobTitle = styled.p`
@@ -187,10 +187,8 @@ const JobTitle = styled.p`
 const Location = styled.p`
   position: relative;
   color: ${({ theme }) => theme.colors.primary.contrastText};
-  margin-top:0;
+  margin-top: 0;
   margin-bottom: 2rem;
-
-  
 
   span {
     vertical-align: middle;
@@ -200,17 +198,29 @@ const Location = styled.p`
   @media screen and (max-width: 1200px) {
     font-size: 90%;
   }
-
-  
 `
 const Description = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
   margin-top: 3rem;
 `
 
-const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobTitle, imagePath, description, firstItem }) => {
+const Member = ({
+  member,
+  twitter,
+  linkedin,
+  github,
+  iohkProfile,
+  location,
+  jobTitle,
+  imagePath,
+  description,
+  firstItem,
+}) => {
   return (
-    <TeamContainer firstItem={firstItem} className='browser-testing-member-component'>
+    <TeamContainer
+      firstItem={firstItem}
+      className="browser-testing-member-component"
+    >
       <ProfileImage>
         <ImageContainer>
           <Link href={`https://iohk.io/team/${iohkProfile}/`}>
@@ -224,43 +234,44 @@ const Member = ({ member, twitter, linkedin, github, iohkProfile, location, jobT
         </Link>
         <JobTitle>
           {jobTitle}
-          {twitter &&
+          {twitter && (
             <Link
               href={`https://twitter.com/${twitter}`}
               title={`${member} twitter`}
-              target='_blank'
+              target="_blank"
               tracking={{ label: `member_twitter_${member}` }}
             >
               <FiTwitter />
             </Link>
-          }
-          {linkedin &&
+          )}
+          {linkedin && (
             <Link
               href={`https://www.linkedin.com/in/${linkedin}`}
               title={`${member} linkedIn`}
-              target='_blank'
+              target="_blank"
               tracking={{ label: `member_linkedin_${member}` }}
             >
               <FiLinkedin />
             </Link>
-          }
-          {github &&
+          )}
+          {github && (
             <Link
               href={`https://github.com/${github}`}
               title={`${member} GitHub`}
-              target='_blank'
+              target="_blank"
               tracking={{ label: `member_github_${member}` }}
             >
               <FiGithub />
             </Link>
-          }
+          )}
         </JobTitle>
         <Location>
-          <span><FaMapMarkerAlt /></span>{location}
+          <span>
+            <FaMapMarkerAlt />
+          </span>
+          {location}
         </Location>
-        <Description>
-          {description}
-        </Description>
+        <Description>{description}</Description>
       </Profile>
     </TeamContainer>
   )
@@ -276,7 +287,7 @@ Member.propTypes = {
   location: PropTypes.string.isRequired,
   jobTitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 }
 
 export default Member

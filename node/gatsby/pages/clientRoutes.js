@@ -2,7 +2,15 @@ const path = require('path')
 const config = require('../../config')
 
 module.exports = async ({ graphql, createPage }) => {
-  const fallbackRoute = path.join(__dirname, '..', '..', '..', 'src', 'routes', 'Fallback.js')
+  const fallbackRoute = path.join(
+    __dirname,
+    '..',
+    '..',
+    '..',
+    'src',
+    'routes',
+    'Fallback.js',
+  )
   config.routes.forEach(({ path: routePath }) => {
     const staticPath = routePath.split(':').shift()
 
@@ -12,7 +20,7 @@ module.exports = async ({ graphql, createPage }) => {
           path: staticPath,
           component: fallbackRoute,
           context: { routePath },
-          matchPath: `${staticPath}*`
+          matchPath: `${staticPath}*`,
         })
       }
 
@@ -21,7 +29,7 @@ module.exports = async ({ graphql, createPage }) => {
           path: `/${lang}${staticPath}`,
           component: fallbackRoute,
           context: { routePath },
-          matchPath: `/${lang}${staticPath}*`
+          matchPath: `/${lang}${staticPath}*`,
         })
       }
     })

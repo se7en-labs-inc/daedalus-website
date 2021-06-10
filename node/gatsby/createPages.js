@@ -3,7 +3,7 @@ const createClientRoutePages = require('./pages/clientRoutes')
 
 module.exports = async ({ graphql, actions }) => {
   const { createPage } = actions
-  function createPageAction () {
+  function createPageAction() {
     addToSitemap(arguments[0].path)
     createPage.apply(createPage, arguments)
   }

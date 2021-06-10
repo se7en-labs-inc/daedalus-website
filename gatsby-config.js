@@ -5,15 +5,15 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `resources`,
-        path: `${__dirname}/resources`
-      }
+        path: `${__dirname}/resources`,
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Remove dead code
-        pure: true
-      }
+        pure: true,
+      },
     },
     'gatsby-transformer-remark',
     {
@@ -27,18 +27,18 @@ module.exports = {
         display: 'minimal-ui',
         icon: 'resources/images/icon.png',
         icon_options: {
-          purpose: 'maskable'
-        }
-      }
+          purpose: 'maskable',
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
         stylesProvider: {
-          injectFirst: true
-        }
-      }
+          injectFirst: true,
+        },
+      },
     },
-    'gatsby-plugin-offline'
-  ]
+    'gatsby-plugin-offline',
+  ],
 }

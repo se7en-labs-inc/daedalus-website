@@ -1,6 +1,7 @@
 ---
 title: MacOS PGP signature verification instructions
 ---
+
   <ol>
     <li>Obtain both the Daedalus installer .pkg file and its corresponding .pkg.asc signature file &ndash; put them in the same directory.</li>
     <li>If you already have the GPG Suite installed, and a personal key generated, please skip to step 5, and if not, proceed with the next step.</li>

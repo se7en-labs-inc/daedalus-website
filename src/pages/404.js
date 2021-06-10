@@ -7,7 +7,7 @@ export default () => (
   <NotFoundPageQuery
     render={(content) => (
       <Layout>
-        <Container maxWidth='lg'>
+        <Container maxWidth="lg">
           <h1>{content.title}</h1>
         </Container>
       </Layout>

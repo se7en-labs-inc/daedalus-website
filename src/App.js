@@ -21,7 +21,12 @@ DefaultRoute.propTypes = { element: PropTypes.node.isRequired }
 const Link = forwardRef((props, ref) => {
   const componentProps = { ...props }
   let Component = GatsbyLink
-  if (props.isStatic || !props.isRelative || props.href.match(/^#/) || (componentProps.target && componentProps.target !== '_self')) {
+  if (
+    props.isStatic ||
+    !props.isRelative ||
+    props.href.match(/^#/) ||
+    (componentProps.target && componentProps.target !== '_self')
+  ) {
     Component = 'a'
     if (!props.isRelative) {
       componentProps.target = '_blank'
@@ -35,16 +40,18 @@ const Link = forwardRef((props, ref) => {
   if (!tracking && props.href) tracking = { label: props.href }
   if (tracking) {
     componentProps.onClick = (e) => {
-      analytics.click({ category: tracking.category || 'link', label: tracking.label, event: e })
+      analytics.click({
+        category: tracking.category || 'link',
+        label: tracking.label,
+        event: e,
+      })
       props.onClick && props.onClick(e)
     }
   }
   delete componentProps.isStatic
   delete componentProps.isRelative
   delete componentProps.tracking
-  return (
-    <Component ref={ref} {...componentProps} />
-  )
+  return <Component ref={ref} {...componentProps} />
 })
 
 Link.propTypes = {
@@ -54,33 +61,55 @@ Link.propTypes = {
   href: PropTypes.string,
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,
-    category: PropTypes.string
+    category: PropTypes.string,
   }),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 const App = ({ element }) => {
-  function languageOnUpdate ({ lang, prevLang, url, prevURL }) {
+  function languageOnUpdate({ lang, prevLang, url, prevURL }) {
     if (prevURL && url !== prevURL) navigate(url)
-    if (prevLang && lang !== prevLang) analytics.autoCapture({ category: analytics.constants.LANGUAGE, action: 'language_updated', label: lang })
+    if (prevLang && lang !== prevLang)
+      analytics.autoCapture({
+        category: analytics.constants.LANGUAGE,
+        action: 'language_updated',
+        label: lang,
+      })
   }
 
-  function themeOnUpdate ({ theme, prevTheme }) {
-    if (prevTheme && theme !== prevTheme) analytics.autoCapture({ category: analytics.constants.THEME, action: 'theme_updated', label: theme })
+  function themeOnUpdate({ theme, prevTheme }) {
+    if (prevTheme && theme !== prevTheme)
+      analytics.autoCapture({
+        category: analytics.constants.THEME,
+        action: 'theme_updated',
+        label: theme,
+      })
   }
 
-  function getRoutes (lang) {
+  function getRoutes(lang) {
     const routes = config.routes.map(({ path, component, props }) => {
       const Component = require(`./routes/${component}.js`).default
-      const routes = [ <Component {...props} path={path} key={path} /> ]
-      if (config.localization.createLocalizedPages && config.localization.createDefaultPages) {
-        routes.push(<Component {...props} key={`/${lang}${path}`} path={`/${lang}${path}`} />)
+      const routes = [<Component {...props} path={path} key={path} />]
+      if (
+        config.localization.createLocalizedPages &&
+        config.localization.createDefaultPages
+      ) {
+        routes.push(
+          <Component
+            {...props}
+            key={`/${lang}${path}`}
+            path={`/${lang}${path}`}
+          />,
+        )
       }
 
       return routes
     })
 
-    return routes.reduce((accumulator, currentValue) => [ ...accumulator, ...currentValue ], [])
+    return routes.reduce(
+      (accumulator, currentValue) => [...accumulator, ...currentValue],
+      [],
+    )
   }
 
   return (
@@ -98,7 +127,9 @@ const App = ({ element }) => {
           <Theme.Provider
             themes={getThemes()}
             onUpdate={themeOnUpdate}
-            transformTheme={({ config }) => theme.convertThemeToMaterial(config)}
+            transformTheme={({ config }) =>
+              theme.convertThemeToMaterial(config)
+            }
           >
             <Theme.Consumer>
               {({ theme, originalTheme }) => (
@@ -129,7 +160,7 @@ const App = ({ element }) => {
 }
 
 App.propTypes = {
-  element: PropTypes.node.isRequired
+  element: PropTypes.node.isRequired,
 }
 
 export default App

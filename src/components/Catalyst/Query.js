@@ -8,11 +8,13 @@ const Query = ({ render }) => (
     {({ lang }) => (
       <StaticQuery
         query={graphql`
-          query{
-            allFile(filter:{relativePath:{glob:"content/pages/catalyst/*.md"}}) {
-              nodes{
-                relativePath,
-                childMarkdownRemark{
+          query {
+            allFile(
+              filter: { relativePath: { glob: "content/pages/catalyst/*.md" } }
+            ) {
+              nodes {
+                relativePath
+                childMarkdownRemark {
                   frontmatter {
                     content {
                       title
@@ -34,8 +36,16 @@ const Query = ({ render }) => (
           }
         `}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === `content/pages/catalyst/${lang}.md`).shift()
-          if (!content) throw new Error(`No content found for flght page using language ${lang}`)
+          const content = allFile.nodes
+            .filter(
+              (node) =>
+                node.relativePath === `content/pages/catalyst/${lang}.md`,
+            )
+            .shift()
+          if (!content)
+            throw new Error(
+              `No content found for flght page using language ${lang}`,
+            )
           return render(content.childMarkdownRemark)
         }}
       />
@@ -44,7 +54,7 @@ const Query = ({ render }) => (
 )
 
 Query.propTypes = {
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 }
 
 export default Query

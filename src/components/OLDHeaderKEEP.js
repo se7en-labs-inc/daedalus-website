@@ -18,26 +18,39 @@ const FlexGrid = styled(Grid)`
 `
 
 export default () => (
-  <AppBar position='static'>
-    <Container maxWidth='lg'>
+  <AppBar position="static">
+    <Container maxWidth="lg">
       <Box marginTop={2} marginBottom={2}>
         <Grid container>
           <FlexGrid item xs={12} md={6}>
-            <Box flex={1} display='flex' flexDirection='column' justifyContent='center'>
+            <Box
+              flex={1}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+            >
               <GlobalContentQuery
-                render={(content) => (
-                  <Title>{content.main_title}</Title>
-                )}
+                render={(content) => <Title>{content.main_title}</Title>}
               />
             </Box>
           </FlexGrid>
           <FlexGrid item xs={12} md={3}>
-            <Box flex={1} display='flex' flexDirection='column' justifyContent='center'>
+            <Box
+              flex={1}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+            >
               <SelectLanguage />
             </Box>
           </FlexGrid>
           <FlexGrid item xs={12} md={3}>
-            <Box flex={1} display='flex' flexDirection='column' justifyContent='center'>
+            <Box
+              flex={1}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+            >
               <SelectTheme />
             </Box>
           </FlexGrid>

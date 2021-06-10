@@ -119,16 +119,16 @@ const FeaturesWrap = styled.div`
   }
 
   h4 {
-    display:flex;
+    display: flex;
     align-items: center;
-    @media (max-width:899px) {
+    @media (max-width: 899px) {
       justify-content: center;
     }
 
     span {
       font-size: 1.5rem;
       & ~ span {
-        padding-left:2rem;
+        padding-left: 2rem;
       }
     }
   }
@@ -159,7 +159,18 @@ const FeaturesWrap = styled.div`
   }
 `
 
-const Features = ({ securityTitle, securityDesc, accountTitle, accountDesc, platformTitle, platformDesc, newsFeedTitle, newsFeedDesc, personalTitle, personalDesc }) => (
+const Features = ({
+  securityTitle,
+  securityDesc,
+  accountTitle,
+  accountDesc,
+  platformTitle,
+  platformDesc,
+  newsFeedTitle,
+  newsFeedDesc,
+  personalTitle,
+  personalDesc,
+}) => (
   <Container>
     <FeaturesWrap>
       <div>
@@ -169,27 +180,21 @@ const Features = ({ securityTitle, securityDesc, accountTitle, accountDesc, plat
           </span>
           <span>{securityTitle}</span>
         </h4>
-        <p>
-          {securityDesc}
-        </p>
+        <p>{securityDesc}</p>
         <h4>
           <span>
             <Image src={WalletIcon} alt={accountTitle} />
           </span>
           <span>{accountTitle}</span>
         </h4>
-        <p>
-          {accountDesc}
-        </p>
+        <p>{accountDesc}</p>
         <h4>
           <span>
             <Image src={DesktopIcon} alt={platformTitle} />
           </span>
           <span>{platformTitle}</span>
         </h4>
-        <p>
-          {platformDesc}
-        </p>
+        <p>{platformDesc}</p>
       </div>
     </FeaturesWrap>
     <FeaturesWrap>
@@ -201,18 +206,14 @@ const Features = ({ securityTitle, securityDesc, accountTitle, accountDesc, plat
           </span>
           <span>{newsFeedTitle}</span>
         </h4>
-        <p>
-          {newsFeedDesc}
-        </p>
+        <p>{newsFeedDesc}</p>
         <h4>
           <span>
             <Image src={ThemeIcon} alt={personalTitle} />
           </span>
           <span>{personalTitle}</span>
         </h4>
-        <p>
-          {personalDesc}
-        </p>
+        <p>{personalDesc}</p>
       </div>
     </FeaturesWrap>
   </Container>
@@ -228,7 +229,7 @@ Features.propTypes = {
   newsFeedTitle: PropTypes.string,
   newsFeedDesc: PropTypes.string,
   personalTitle: PropTypes.string,
-  personalDesc: PropTypes.string
+  personalDesc: PropTypes.string,
 }
 
 export default Features

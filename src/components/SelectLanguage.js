@@ -14,7 +14,7 @@ const StyledSelect = styled(Box)`
 export default () => (
   <Language.Consumer>
     {({ key: lang, availableLanguages, setLang }) => (
-      <Grid container className='select-lang'>
+      <Grid container className="select-lang">
         {/* <Grid item xs={6}>
           <GlobalContentQuery
             render={(content) => (
@@ -23,12 +23,8 @@ export default () => (
           />
         </Grid> */}
         <StyledSelect>
-          <Select
-            value={lang}
-            onChange={e => setLang(e.target.value)}
-            native
-          >
-            {availableLanguages.map(language => (
+          <Select value={lang} onChange={(e) => setLang(e.target.value)} native>
+            {availableLanguages.map((language) => (
               <option key={language.key} value={language.key}>
                 {language.flag} {language.label}
               </option>

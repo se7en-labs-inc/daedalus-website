@@ -9,10 +9,12 @@ const TeamPageQuery = ({ render }) => (
       <StaticQuery
         query={graphql`
           query {
-            allFile(filter:{relativePath:{glob:"content/pages/team/*.md"}}) {
-              nodes{
-                relativePath,
-                childMarkdownRemark{
+            allFile(
+              filter: { relativePath: { glob: "content/pages/team/*.md" } }
+            ) {
+              nodes {
+                relativePath
+                childMarkdownRemark {
                   frontmatter {
                     content {
                       default_content
@@ -35,8 +37,14 @@ const TeamPageQuery = ({ render }) => (
           }
         `}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === `content/pages/team/team-${lang}.md`).shift()
-          if (!content || !content.childMarkdownRemark) throw new Error(`No team translations found for language ${lang}`)
+          const content = allFile.nodes
+            .filter(
+              (node) =>
+                node.relativePath === `content/pages/team/team-${lang}.md`,
+            )
+            .shift()
+          if (!content || !content.childMarkdownRemark)
+            throw new Error(`No team translations found for language ${lang}`)
           return render(content.childMarkdownRemark.frontmatter.content)
         }}
       />
@@ -45,7 +53,7 @@ const TeamPageQuery = ({ render }) => (
 )
 
 TeamPageQuery.propTypes = {
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 }
 
 export default TeamPageQuery

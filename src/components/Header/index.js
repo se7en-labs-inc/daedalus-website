@@ -3,10 +3,7 @@ import styled from 'styled-components'
 import GlobalContentQuery from '../../queries/GlobalContentQuery'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
 import SelectLanguage from '../../components/SelectLanguage'
-import {
-  Container as MuiContainer,
-  Hidden
-} from '@material-ui/core'
+import { Container as MuiContainer, Hidden } from '@material-ui/core'
 import DesktopNavigation from './DesktopNavigation'
 import MobileNavigation from './MobileNavigation'
 import Medusa from './Medusa'
@@ -24,7 +21,11 @@ const TopGradient = styled.div`
   width: 100%;
   height: 7rem;
   top: 0;
-  background: linear-gradient(to bottom, ${({ theme }) => theme.colors.primary} 0%, ${({ theme }) => theme.colors.primary} 100%);
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.primary} 100%
+  );
 `
 
 const BottomGradient = styled.div`
@@ -32,7 +33,11 @@ const BottomGradient = styled.div`
   width: 100%;
   height: 7rem;
   bottom: 0;
-  background: linear-gradient(to top, ${({ theme }) => theme.colors.primary} 0%, ${({ theme }) => theme.colors.primary} 100%);
+  background: linear-gradient(
+    to top,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.primary} 100%
+  );
 `
 
 const HeaderSpace = styled(MuiContainer)`
@@ -94,32 +99,35 @@ const Header = () => (
   <GlobalContentQuery
     render={(content) => (
       <Fragment>
-        <Hidden only={[ 'md', 'lg', 'xl' ]}>
+        <Hidden only={['md', 'lg', 'xl']}>
           <MobileNavigation navigation={content.navigation} />
         </Hidden>
         <Container>
-          <HeaderSpace id='browser-testing-header-space' maxWidth='lg'>
-            <Hidden only={[ 'xs', 'sm' ]}>
+          <HeaderSpace id="browser-testing-header-space" maxWidth="lg">
+            <Hidden only={['xs', 'sm']}>
               <DesktopNavigation navigation={content.navigation} />
             </Hidden>
             <SelectLanguageWrap>
               <SelectLanguage />
             </SelectLanguageWrap>
           </HeaderSpace>
-          <SubContainer id='browser-testing-header-sub-container'>
+          <SubContainer id="browser-testing-header-sub-container">
             <Wrapper>
               <Language.Consumer>
                 {({ key: lang, availableLanguages, setLang }) => (
                   <Fragment>
-                    <MedusaContainer id='browser-testing-header-medusa-container'>
+                    <MedusaContainer id="browser-testing-header-medusa-container">
                       <Medusa fullScreen={false} lang={lang} />
                     </MedusaContainer>
                     <TopGradient />
                     <BottomGradient />
                     <OpenMedusaContainer>
-                      <OpenMedusa name='header_medusa' />
+                      <OpenMedusa name="header_medusa" />
                     </OpenMedusaContainer>
-                    <Modal name='header_medusa' id='browser-testing-fullscreen-medusa-modal'>
+                    <Modal
+                      name="header_medusa"
+                      id="browser-testing-fullscreen-medusa-modal"
+                    >
                       <Medusa fullScreen lang={lang} />
                     </Modal>
                     <MainTitleLogo>

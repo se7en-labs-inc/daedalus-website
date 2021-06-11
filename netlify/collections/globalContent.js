@@ -8,7 +8,7 @@ export default {
     {
       label: 'Title',
       name: 'title',
-      widget: 'string'
+      widget: 'string',
     },
     {
       label: 'Global content',
@@ -18,19 +18,19 @@ export default {
         {
           name: 'main_title',
           label: 'Main title',
-          widget: 'string'
+          widget: 'string',
         },
         {
           name: 'select_language',
           label: 'Select language label',
-          widget: 'string'
+          widget: 'string',
         },
         {
           name: 'select_theme',
           label: 'Select theme label',
-          widget: 'string'
-        }
-      ]
-    }
-  ]
+          widget: 'string',
+        },
+      ],
+    },
+  ],
 }

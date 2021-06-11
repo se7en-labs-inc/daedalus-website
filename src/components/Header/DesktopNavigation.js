@@ -27,28 +27,38 @@ const Nav = styled.nav`
     &:hover,
     &.active,
     &:focus {
-      color: ${({ theme }) => theme.palette.primary.main}
+      color: ${({ theme }) => theme.palette.primary.main};
     }
   }
 
   .navGradients {
-    display:flex;
-    align-items:baseline;
-    justify-content:center;
-    width:100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
     .gradLeft,
     .gradRight {
-      opacity:0.7;
+      opacity: 0.7;
       position: relative;
-      top:-0.4rem;
+      top: -0.4rem;
       height: 0.1rem;
-      min-width:10vw;
+      min-width: 10vw;
     }
     .gradLeft {
-      background: linear-gradient(270deg,${({ theme }) => theme.palette.background.overlay05} 0, ${({ theme }) => theme.palette.background.overlay05} 65%,hsla(0,0%,100%,0));
+      background: linear-gradient(
+        270deg,
+        ${({ theme }) => theme.palette.background.overlay05} 0,
+        ${({ theme }) => theme.palette.background.overlay05} 65%,
+        hsla(0, 0%, 100%, 0)
+      );
     }
     .gradRight {
-      background: linear-gradient(90deg,${({ theme }) => theme.palette.background.overlay05} 0,${({ theme }) => theme.palette.background.overlay05} 65%,hsla(0,0%,100%,0));
+      background: linear-gradient(
+        90deg,
+        ${({ theme }) => theme.palette.background.overlay05} 0,
+        ${({ theme }) => theme.palette.background.overlay05} 65%,
+        hsla(0, 0%, 100%, 0)
+      );
     }
   }
 
@@ -59,9 +69,9 @@ const Nav = styled.nav`
       padding: 0 1rem;
       position: relative;
 
-      @media (max-width:990px) {
-        font-size:80%;
-        padding:0 0.8rem;
+      @media (max-width: 990px) {
+        font-size: 80%;
+        padding: 0 0.8rem;
       }
 
       &:before {
@@ -93,11 +103,11 @@ const Nav = styled.nav`
 
 const DesktopNavigation = ({ navigation }) => {
   const dropdownRef = createRef()
-  const [ dropdownVisible, setDropdownVisible ] = useState(false)
+  const [dropdownVisible, setDropdownVisible] = useState(false)
 
   const closeDropdown = () => setDropdownVisible(false)
 
-  const documentClickHandler = e => {
+  const documentClickHandler = (e) => {
     if (!dropdownRef.current) return
     if (!dropdownRef.current.contains(e.target)) closeDropdown()
   }
@@ -113,19 +123,19 @@ const DesktopNavigation = ({ navigation }) => {
     return () => {
       global.document.removeEventListener('click', documentClickHandler)
     }
-  }, [ dropdownVisible ])
+  }, [dropdownVisible])
 
   return (
     <Container>
       <Nav>
-        <div className='navGradients'>
-          <div className='gradLeft' />
+        <div className="navGradients">
+          <div className="gradLeft" />
           <ul>
             <li>
               <Link
-                href='/'
-                activeClassName='active'
-                id='browser-testing-navigation-link-home'
+                href="/"
+                activeClassName="active"
+                id="browser-testing-navigation-link-home"
                 tracking={{ label: 'desktop_navigation_home' }}
               >
                 {navigation.labels.home}
@@ -133,9 +143,9 @@ const DesktopNavigation = ({ navigation }) => {
             </li>
             <li>
               <Link
-                href='/team/'
-                activeClassName='active'
-                id='browser-testing-navigation-link-team'
+                href="/team/"
+                activeClassName="active"
+                id="browser-testing-navigation-link-team"
                 tracking={{ label: 'desktop_navigation_team' }}
               >
                 {navigation.labels.team}
@@ -143,9 +153,9 @@ const DesktopNavigation = ({ navigation }) => {
             </li>
             <li>
               <Link
-                href='/download/'
-                activeClassName='active'
-                id='browser-testing-navigation-link-download'
+                href="/download/"
+                activeClassName="active"
+                id="browser-testing-navigation-link-download"
                 tracking={{ label: 'desktop_navigation_download' }}
               >
                 {navigation.labels.download}
@@ -153,16 +163,16 @@ const DesktopNavigation = ({ navigation }) => {
             </li>
             <li>
               <Link
-                href='/flight/'
-                activeClassName='active'
-                id='browser-testing-navigation-link-flight'
+                href="/flight/"
+                activeClassName="active"
+                id="browser-testing-navigation-link-flight"
                 tracking={{ label: 'desktop_navigation_flight' }}
               >
                 {navigation.labels.flight}
               </Link>
             </li>
           </ul>
-          <div className='gradRight' />
+          <div className="gradRight" />
         </div>
       </Nav>
     </Container>
@@ -170,7 +180,8 @@ const DesktopNavigation = ({ navigation }) => {
 }
 
 DesktopNavigation.propTypes = {
-  navigation: PropTypes.shape(PropTypes.arrayOf(PropTypes.string).isRequired).isRequired
+  navigation: PropTypes.shape(PropTypes.arrayOf(PropTypes.string).isRequired)
+    .isRequired,
 }
 
 export default DesktopNavigation

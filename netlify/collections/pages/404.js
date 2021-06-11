@@ -8,7 +8,7 @@ export default {
     {
       label: 'Title',
       name: 'title',
-      widget: 'string'
+      widget: 'string',
     },
     {
       name: 'content',
@@ -18,9 +18,9 @@ export default {
         {
           name: 'title',
           label: 'Title',
-          widget: 'string'
-        }
-      ]
-    }
-  ]
+          widget: 'string',
+        },
+      ],
+    },
+  ],
 }

@@ -1,12 +1,12 @@
 ---
 title: en (English) team page content
 content:
-  default_content: ''
+  default_content: ""
   team:
     - member: Darko Mijić
       twitter: darkomijic
       linkedin: darkomijic
-      github: ''
+      github: ""
       iohkProfile: darko-mijic
       location: Croatia
       jobTitle: Team Daedalus Manager
@@ -22,7 +22,7 @@ content:
       imagePath: /images/uploads/nikola-glumac.png
       description: Nikola Glumac has been working with web technologies since 2007. He discovered his love for web development during his studies at Faculty of Mechanical Engineering at University of Zagreb, Croatia, where he earned his Master of Engineering degree in Mechatronics and Robotics. As a part of his master’s degree thesis he developed a Javascript WebGL-based web application for marking and analyzing medieval books and manuscripts. This application was used as a primary research tool by a PhD candidate for her thesis at Faculty of Humanities and Social Sciences at University of Zagreb. Today his main focus lies on latest web technologies and Javascript frameworks, and development of responsive and reactive cross-platform applications.
     - member: Dominik Guzei
-      twitter: ''
+      twitter: ""
       linkedin: dominik-guzei-774a381a
       github: DominikGuzei
       iohkProfile: dominik-guzei
@@ -31,9 +31,9 @@ content:
       imagePath: /images/uploads/dominik-guzei.png
       description: Dominik Guzei is working with web technologies since 2008 and holds an BSc in Computer Science from Salzburg University of Applied Sciences, where he studied Multi Media Technology, specializing on web & communities. He has a deep understanding of Javascript and his passion is writing clean, well-tested and maintainable code that is easy to understand and extend. Since he is also a graphics designer, Dominik has great feeling for UI design patterns and crafting unique user experiences.
     - member: Alexander Rukin
-      twitter: ''
+      twitter: ""
       linkedin: arukin
-      github: ''
+      github: ""
       iohkProfile: alexander-rukin
       location: Russia
       jobTitle: UX/UI Designer
@@ -58,7 +58,7 @@ content:
       imagePath: /images/uploads/danilo-prates.png
       description: Danilo Prates is a front-end developer from Brazil, who has worked for nine years at large companies in the UK, US, and Brazil, including on award-winning projects. He originally graduated with a bachelor’s degree in advertising from Faculdade Cásper Líbero and worked as a web designer. But it was in coding that he was able to fulfill his passion for creating great user interfaces, and, ultimately, the best user experiences. He joined IOHK in 2018. Danilo is currently focused on the React operating system and the latest web technologies.
     - member: Gabriela Ponce
-      twitter: 
+      twitter:
       linkedin: gnpf
       github: gnpf
       iohkProfile: gabriela-ponce
@@ -67,34 +67,16 @@ content:
       imagePath: /images/uploads/gabriela-ponce.png
       description: Gabriela Ponce has worked as a software tester and quality assurance engineer on various projects since 2014. She is constantly looking for ways to improve her skills and is always interested in exchanging approaches to improve the quality of the product. Gabriela is an amateur photographer who also enjoys travel, reading, and baking. She joined IOHK in 2019.
     - member: Manus McCole
-      twitter: 
-      linkedin: 
-      github: 
+      twitter:
+      linkedin:
+      github:
       iohkProfile: manus-mccole
       location: Ireland
       jobTitle: Software Test Engineer
       imagePath: /images/uploads/manus-mccole.png
       description: Manus McCole holds a postgraduate diploma in enterprise application development from the Letterkenny Institute of Technology. He began working as a quality assurance engineer in the financial sector in 2016 and joined IOHK three years later. Manus has a particular interest in test automation and how advances in artificial intelligence and machine learning are shaping its future. He is passionate about blockchain and its potential as a global store of value.
-    - member: Rhys Bartels-Waller
-      twitter: rhyslbw
-      linkedin: rhyslbw
-      github: rhyslbw
-      iohkProfile: rhys-bartels-waller
-      location: Australia
-      jobTitle: Front-End Developer
-      imagePath: /images/uploads/rhys-bartels-waller.png
-      description: After graduating from Western Sydney University with a bachelor degree in design studies, Rhys was drawn to software development with a desire to streamline processes and improve the experience of users. Since 2012 he has been developing web applications and contributing to open-source projects. He uses domain-driven design principles along with reactive, task-based UI design and event sourcing to store domain state in an append-only manner. Rhys has experience in managing containerised production stacks on scalable cloud infrastructure. He joined IOHK in 2018.
-    - member: Sam Jeston
-      twitter: samjeston
-      linkedin: sam-jeston-06b24b64
-      github: Sam-Jeston
-      iohkProfile: sam-jeston
-      location: Australia
-      jobTitle: Application Containerization Specialist
-      imagePath: /images/uploads/sam-jeston.png
-      description: Sam Jeston graduated as a bachelor of engineering from the University of Queensland in 2012. After a short stint as a process optimization engineer, he decided to follow his passion and pivot into web development. Since 2014 Sam has been developing secure, highly scalable web platforms across a range of technologies. He is passionate about cloud security and enabling developers to develop and deploy secure applications. Sam got interested in blockchain technology and has since been involved in several projects, from developing Solidity smart contracts to asset-based systems built on the Stellar protocol. He joined IOHK in 2019.
     - member: Tomislav Horaček
-      twitter: 
+      twitter:
       linkedin: tomislav-horaček-46172b100
       github: tomothespian
       iohkProfile: tomislav-horacek
@@ -102,13 +84,14 @@ content:
       jobTitle: Software Engineer
       imagePath: /images/uploads/tomislav-horacek.png
       description: Tomislav Horaček has been working with web technologies since 2011 and holds a master of computer engineering degree from the University of Osijek, Croatia. He started his professional career as a backend PHP developer and moved to frontend development when he discovered Javascript frameworks such as ReactJS. These remain his main focus to this day. Tomislav has a passion for writing modular, component-based code that is independent, reusable and easy to extend. He joined IOHK in 2019.
-    - member: Yakov Karavelov
-      twitter: YakovKaravelov
-      linkedin: yakov-karavelov-89834987
-      github: yakovkaravelov
-      iohkProfile: yakov-karavelov
-      location: Bulgaria
-      jobTitle: Front-End Developer
-      imagePath: /images/uploads/yakov-karavelov.png
-      description: Yakov Karavelov has been deeply passionate about information technology since he began working as a web developer in 2009. He studied at the Technical University of Sofia, and holds a master’s degree in computer science. He is used to working with Javascript, PHP, and Ruby on Rails, and is skilled in using libraries and frameworks such as React, Angular, Vue, Ext JS, and D3. He joined IOHK in 2019.
----    
+    - member: Daniel Main
+      twitter: 
+      linkedin: 
+      github: 
+      iohkProfile: daniel-main
+      location: Germany
+      jobTitle: Software Engineer
+      imagePath: /images/uploads/daniel-main.png
+      description:
+        Daniel Main started coding right after getting his degree as a computer science engineer in 2002. Mottos such as ‘Do one thing and do it well’ and ‘Less is more’ are etched into Daniel’s thinking as a software engineer. He joined IOHK in 2021, having spent five years coding in React and React Native. Daniel is qualified as a Solidity smart contracts developer as well.
+---

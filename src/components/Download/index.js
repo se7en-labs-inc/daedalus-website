@@ -13,7 +13,7 @@ import Catalyst from '../../components/Catalyst'
 import { FaCogs } from 'react-icons/fa'
 
 const Kontainer = styled(Container)`
-  margin-bottom:9rem;
+  margin-bottom: 9rem;
 `
 
 const Columns = styled.div`
@@ -57,7 +57,7 @@ const ErrorText = styled.p`
   color: ${({ theme }) => theme.colors.warning};
   font-size: 20px;
   span {
-    font-size:32px;
+    font-size: 32px;
   }
 `
 
@@ -74,16 +74,22 @@ const WarningList = styled.div`
   list-style-position: inside;
   li {
     color: ${({ theme }) => theme.colors.primary.main};
-   h5 {
-     font-weight:700;
-   }
+    h5 {
+      font-weight: 700;
+    }
   }
 `
 
 const pickWalletString = (type, normal, flight, catalyst) => {
-  if (type === 'normal') { return normal }
-  if (type === 'flight') { return flight }
-  if (type === 'catalyst') { return catalyst }
+  if (type === 'normal') {
+    return normal
+  }
+  if (type === 'flight') {
+    return flight
+  }
+  if (type === 'catalyst') {
+    return catalyst
+  }
 }
 
 // render={({ common, os, error, loading }) => (
@@ -92,37 +98,57 @@ const Download = ({ walletType = 'normal' }) => (
     walletType={walletType}
     render={({ common, os, error, loading }) => (
       <Layout>
-        <Kontainer maxWidth='lg'>
-          {(walletType === 'flight') &&
-            <Flight />
-          }
-          {(walletType === 'catalyst') &&
-            <Catalyst />
-          }
-          {common && walletType &&
+        <Kontainer maxWidth="lg">
+          {walletType === 'flight' && <Flight />}
+          {walletType === 'catalyst' && <Catalyst />}
+          {common && walletType && (
             <Title
               walletType={walletType}
-              title={pickWalletString(walletType, common.frontmatter.content.title, common.frontmatter.content.flightTitle, common.frontmatter.content.catalystTitle)}
-              subtitle={pickWalletString(walletType, common.frontmatter.content.subtitle, common.frontmatter.content.flightSubtitle, common.frontmatter.content.catalystSubtitle)}
-              noteUrl={pickWalletString(walletType, common.frontmatter.content.release_notes.url, common.frontmatter.content.release_notes_flight.url, common.frontmatter.content.release_notes_catalyst.url)}
-              noteLabel={pickWalletString(walletType, common.frontmatter.content.release_notes.label, common.frontmatter.content.release_notes_flight.label, common.frontmatter.content.release_notes_catalyst.label)}
+              title={pickWalletString(
+                walletType,
+                common.frontmatter.content.title,
+                common.frontmatter.content.flightTitle,
+                common.frontmatter.content.catalystTitle,
+              )}
+              subtitle={pickWalletString(
+                walletType,
+                common.frontmatter.content.subtitle,
+                common.frontmatter.content.flightSubtitle,
+                common.frontmatter.content.catalystSubtitle,
+              )}
+              noteUrl={pickWalletString(
+                walletType,
+                common.frontmatter.content.release_notes.url,
+                common.frontmatter.content.release_notes_flight.url,
+                common.frontmatter.content.release_notes_catalyst.url,
+              )}
+              noteLabel={pickWalletString(
+                walletType,
+                common.frontmatter.content.release_notes.label,
+                common.frontmatter.content.release_notes_flight.label,
+                common.frontmatter.content.release_notes_catalyst.label,
+              )}
             />
-          }
-          {error &&
-            <ErrorText id='browser-testing-download-error'>
-              <span><FaCogs /></span><br />
-              We're working on a new version of Daedalus {walletType} right now. Please check back soon!
+          )}
+          {error && (
+            <ErrorText id="browser-testing-download-error">
+              <span>
+                <FaCogs />
+              </span>
+              <br />
+              We're working on a new version of Daedalus {walletType} right now.
+              Please check back soon!
             </ErrorText>
-          }
-          {loading && !error &&
-            <LoadingContainer key='loading-container'>
+          )}
+          {loading && !error && (
+            <LoadingContainer key="loading-container">
               <Loader />
             </LoadingContainer>
-          }
-          {!loading && !error &&
+          )}
+          {!loading && !error && (
             <Fragment>
               <Columns>
-                {Object.keys(os).map(key => (
+                {Object.keys(os).map((key) => (
                   <Column key={key}>
                     <OSColumn
                       common={common}
@@ -135,7 +161,9 @@ const Download = ({ walletType = 'normal' }) => (
                 ))}
               </Columns>
               <Columns>
-                <h4>{common.frontmatter.content.supported_platforms.heading}</h4>
+                <h4>
+                  {common.frontmatter.content.supported_platforms.heading}
+                </h4>
                 <WarningList>
                   <li>
                     <h5>{common.frontmatter.content.warning}</h5>
@@ -144,26 +172,56 @@ const Download = ({ walletType = 'normal' }) => (
                 <ul>
                   <li>{common.frontmatter.content.supported_platforms.win}</li>
                   <li>{common.frontmatter.content.supported_platforms.mac}</li>
-                  <li>{common.frontmatter.content.supported_platforms.linux.tested_against.label}:
+                  <li>
+                    {
+                      common.frontmatter.content.supported_platforms.linux
+                        .tested_against.label
+                    }
+                    :
                     <ul>
-                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxa}</li>
-                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxb}</li>
-                      <li>{common.frontmatter.content.supported_platforms.linux.tested_against.linuxc}</li>
+                      <li>
+                        {
+                          common.frontmatter.content.supported_platforms.linux
+                            .tested_against.linuxa
+                        }
+                      </li>
+                      <li>
+                        {
+                          common.frontmatter.content.supported_platforms.linux
+                            .tested_against.linuxb
+                        }
+                      </li>
+                      <li>
+                        {
+                          common.frontmatter.content.supported_platforms.linux
+                            .tested_against.linuxc
+                        }
+                      </li>
                     </ul>
                   </li>
                 </ul>
               </Columns>
               <Columns>
-                <h4>{common.frontmatter.content.recommended_hardware.heading}</h4>
+                <h4>
+                  {common.frontmatter.content.recommended_hardware.heading}
+                </h4>
                 <ul>
-                  <li>{common.frontmatter.content.recommended_hardware.item1}</li>
-                  <li>{common.frontmatter.content.recommended_hardware.item2}</li>
-                  <li>{common.frontmatter.content.recommended_hardware.item3}</li>
-                  <li>{common.frontmatter.content.recommended_hardware.item4}</li>
+                  <li>
+                    {common.frontmatter.content.recommended_hardware.item1}
+                  </li>
+                  <li>
+                    {common.frontmatter.content.recommended_hardware.item2}
+                  </li>
+                  <li>
+                    {common.frontmatter.content.recommended_hardware.item3}
+                  </li>
+                  <li>
+                    {common.frontmatter.content.recommended_hardware.item4}
+                  </li>
                 </ul>
               </Columns>
             </Fragment>
-          }
+          )}
         </Kontainer>
       </Layout>
     )}
@@ -171,7 +229,7 @@ const Download = ({ walletType = 'normal' }) => (
 )
 
 Download.propTypes = {
-  walletType: PropTypes.string
+  walletType: PropTypes.string,
 }
 
 export default Download

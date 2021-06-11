@@ -9,10 +9,12 @@ const CatalystPageQuery = ({ render }) => (
       <StaticQuery
         query={graphql`
           query {
-            allFile(filter:{relativePath:{glob:"content/pages/catalyst/*.md"}}) {
-              nodes{
-                relativePath,
-                childMarkdownRemark{
+            allFile(
+              filter: { relativePath: { glob: "content/pages/catalyst/*.md" } }
+            ) {
+              nodes {
+                relativePath
+                childMarkdownRemark {
                   frontmatter {
                     content {
                       title
@@ -34,8 +36,17 @@ const CatalystPageQuery = ({ render }) => (
           }
         `}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === `content/pages/catalyst/catalyst-${lang}.md`).shift()
-          if (!content || !content.childMarkdownRemark) throw new Error(`No catalyst translations found for language ${lang}`)
+          const content = allFile.nodes
+            .filter(
+              (node) =>
+                node.relativePath ===
+                `content/pages/catalyst/catalyst-${lang}.md`,
+            )
+            .shift()
+          if (!content || !content.childMarkdownRemark)
+            throw new Error(
+              `No catalyst translations found for language ${lang}`,
+            )
           return render(content.childMarkdownRemark.frontmatter.content)
         }}
       />
@@ -44,7 +55,7 @@ const CatalystPageQuery = ({ render }) => (
 )
 
 CatalystPageQuery.propTypes = {
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 }
 
 export default CatalystPageQuery

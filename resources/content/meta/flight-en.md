@@ -3,8 +3,18 @@ title: en (English) site content
 head:
   title: Daedalus Flight - The pre-release version cryptocurrency wallet
   meta:
-    - { name: "twitter:title", content: "Daedalus Flight - The pre-release version cryptocurrency wallet", file: "" }
-    - { name: "og:title", content: "Daedalus Flight - The pre-release version cryptocurrency wallet", file: "" }
-    - { name: "og:image", content: "", file: "/images/uploads/meta.jpg" }
-    - { name: "twitter:image", content: "", file: "/images/uploads/meta.jpg" }
+    - {
+        name: 'twitter:title',
+        content:
+          'Daedalus Flight - The pre-release version cryptocurrency wallet',
+        file: '',
+      }
+    - {
+        name: 'og:title',
+        content:
+          'Daedalus Flight - The pre-release version cryptocurrency wallet',
+        file: '',
+      }
+    - { name: 'og:image', content: '', file: '/images/uploads/meta.jpg' }
+    - { name: 'twitter:image', content: '', file: '/images/uploads/meta.jpg' }
 ---

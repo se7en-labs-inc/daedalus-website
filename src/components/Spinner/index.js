@@ -27,17 +27,17 @@ const Container = styled.div`
 `
 
 const Spinner = ({ spinTime }) => (
-  <Container spinTime={spinTime} className='browser-testing-spinner-component'>
-    <img src={spinner} alt='Daedalus' />
+  <Container spinTime={spinTime} className="browser-testing-spinner-component">
+    <img src={spinner} alt="Daedalus" />
   </Container>
 )
 
 Spinner.propTypes = {
-  spinTime: PropTypes.string
+  spinTime: PropTypes.string,
 }
 
 Spinner.defaultProps = {
-  spinTime: '240s'
+  spinTime: '240s',
 }
 
 export default Spinner

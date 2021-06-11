@@ -36,7 +36,8 @@ content:
     content: >-
       Daedalus is a secure wallet for the ada cryptocurrency. Download and
       install the wallet so you can keep your ada safe.
-  subtitle: 'The open source wallet for ada, built to grow with the Cardano blockchain.'
+  subtitle:
+    'The open source wallet for ada, built to grow with the Cardano blockchain.'
   title: Welcome to Daedalus Wallet
   uiComponentsTitle: DAEDALUS ICONOGRAPHY AND INTERFACE
   ui_points:
@@ -81,23 +82,38 @@ content:
   wallet_features:
     advanced_security:
       description: >-
-        Daedalus is a full node wallet. This means that unlike light wallets (e.g.Yoroi, Adalite etc.) Daedalus downloads a full copy of the Cardano blockchain and independently validates every transaction in its history. That way you get maximum security and completely trustless operation, without centrally hosted 3rd party servers.
+        Daedalus is a full node wallet. This means that unlike light wallets
+        (e.g.Yoroi, Adalite etc.) Daedalus downloads a full copy of the Cardano
+        blockchain and independently validates every transaction in its history.
+        That way you get maximum security and completely trustless operation,
+        without centrally hosted 3rd party servers.
       title: Maximum security and fully trustless operation
     title: Wallet features
     unlimited_accounting:
       description: >-
-        Manage any number of wallets with our hierarchical deterministic (HD) wallet implementation. Have more control over how your funds are organized. Use our powerful back-up and restoration features to recover your funds if necessary.
+        Manage any number of wallets with our hierarchical deterministic (HD)
+        wallet implementation. Have more control over how your funds are
+        organized. Use our powerful back-up and restoration features to recover
+        your funds if necessary.
       title: Unlimited accounting
     desktop_platforms:
       description: >-
-        All major desktop operating systems are supported. Daedalus runs on Windows, macOS, and Linux. Daedalus is built with web technologies on top of Electron, a battle-proven open-source platform for writing cross-platform desktop applications.
+        All major desktop operating systems are supported. Daedalus runs on
+        Windows, macOS, and Linux. Daedalus is built with web technologies on
+        top of Electron, a battle-proven open-source platform for writing
+        cross-platform desktop applications.
       title: Supporting all desktop platforms
     newsfeed:
       description: >-
-        The newsfeed delivers news to Daedalus users directly via the user interface. News can be delivered in two ways, depending on its importance. News can be delivered in the newsfeed sidebar, to the right of the Daedalus window – where it can be opened and closed. Vital news may cover the whole screen.
+        The newsfeed delivers news to Daedalus users directly via the user
+        interface. News can be delivered in two ways, depending on its
+        importance. News can be delivered in the newsfeed sidebar, to the right
+        of the Daedalus window – where it can be opened and closed. Vital news
+        may cover the whole screen.
       title: Newsfeed
     personalization:
       description: >-
-        Themes allow users to customize the look and feel of the Daedalus wallet. Currently, there are 6 themes available.
+        Themes allow users to customize the look and feel of the Daedalus
+        wallet. Currently, there are 6 themes available.
       title: Personalization with user interface themes
 ---

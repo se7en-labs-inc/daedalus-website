@@ -10,27 +10,36 @@ if (!fs.existsSync(publicDir) || !fs.statSync(publicDir).isDirectory) {
   process.exit(1)
 }
 
-function bindRoute (app, routePath) {
+function bindRoute(app, routePath) {
   const globPath = routePath.replace(/:[^/]+/g, '*')
 
   config.availableLanguages.forEach(({ key: lang }, index) => {
     if (config.localization.createDefaultPages && index === 0) {
       app.get(globPath, (_, response) => {
         const staticPath = globPath.split('*').shift()
-        response.sendFile(path.join(__dirname, '..', 'public', `${staticPath}index.html`))
+        response.sendFile(
+          path.join(__dirname, '..', 'public', `${staticPath}index.html`),
+        )
       })
     }
 
     if (config.localization.createLocalizedPages) {
       app.get(`/${lang}${globPath}`, (_, response) => {
         const staticPath = globPath.split('*').shift()
-        response.sendFile(path.join(__dirname, '..', 'public', `${lang}${staticPath}index.html`))
+        response.sendFile(
+          path.join(
+            __dirname,
+            '..',
+            'public',
+            `${lang}${staticPath}index.html`,
+          ),
+        )
       })
     }
   })
 }
 
-async function serve () {
+async function serve() {
   const app = express()
   app.use(express.static(path.join(__dirname, '..', 'public')))
 
@@ -38,17 +47,23 @@ async function serve () {
 
   config.availableLanguages.forEach(({ key: lang }) => {
     app.get(`/${lang}/*`, (_, response) => {
-      response.status(404).sendFile(path.join(__dirname, '..', 'public', lang, '404', 'index.html'))
+      response
+        .status(404)
+        .sendFile(
+          path.join(__dirname, '..', 'public', lang, '404', 'index.html'),
+        )
     })
   })
 
   app.get('*', (_, response) => {
-    response.status(404).sendFile(path.join(__dirname, '..', 'public', '404.html'))
+    response
+      .status(404)
+      .sendFile(path.join(__dirname, '..', 'public', '404.html'))
   })
 
   const port = await portfinder.getPortPromise({
     port: 9000,
-    stopPort: 9100
+    stopPort: 9100,
   })
 
   app.listen(port)

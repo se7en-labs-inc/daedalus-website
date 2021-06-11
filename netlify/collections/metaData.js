@@ -8,7 +8,7 @@ export default {
     {
       label: 'Title',
       name: 'title',
-      widget: 'string'
+      widget: 'string',
     },
     {
       label: 'Head data (<head />)',
@@ -24,26 +24,28 @@ export default {
             {
               name: 'name',
               label: 'name attribute',
-              widget: 'string'
+              widget: 'string',
             },
             {
               name: 'content',
-              label: 'content attribute, if no value is given then value will be taken from "File"',
+              label:
+                'content attribute, if no value is given then value will be taken from "File"',
               widget: 'string',
               required: false,
-              default: ''
+              default: '',
             },
             {
               name: 'file',
-              label: 'Used instead of content where the meta tag is a URL to a file such as image etc.',
+              label:
+                'Used instead of content where the meta tag is a URL to a file such as image etc.',
               widget: 'file',
               required: false,
               default: '',
-              allow_multiple: false
-            }
-          ]
-        }
-      ]
-    }
-  ]
+              allow_multiple: false,
+            },
+          ],
+        },
+      ],
+    },
+  ],
 }

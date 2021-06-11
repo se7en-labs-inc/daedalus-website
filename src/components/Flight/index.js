@@ -30,8 +30,8 @@ const Content = styled(Markdown)`
 
 export default () => (
   <FlightPageQuery
-    render={data => (
-      <Kontainer maxWidth='md'>
+    render={(data) => (
+      <Kontainer maxWidth="md">
         <Title>{data.title}</Title>
         <Subtitle>{data.subtitle}</Subtitle>
         <Content>{data.content}</Content>

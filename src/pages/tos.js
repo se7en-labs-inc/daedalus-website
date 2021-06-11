@@ -9,14 +9,15 @@ import styled from 'styled-components'
 
 const StyledContainer = styled(Container)`
   h2 {
-    display:inline-block;
-    width:100%;
+    display: inline-block;
+    width: 100%;
   }
   p {
     display: initial;
   }
-  ol, ul {
-    list-style-position:outside;
+  ol,
+  ul {
+    list-style-position: outside;
   }
   ol li {
     padding-left: 1rem;
@@ -30,7 +31,7 @@ export default () => (
   <TosPageQuery
     render={(content) => (
       <Layout>
-        <StyledContainer maxWidth='lg'>
+        <StyledContainer maxWidth="lg">
           <Box marginTop={6} marginBottom={10}>
             <Grid container spacing={2}>
               <Grid item xs={12}>

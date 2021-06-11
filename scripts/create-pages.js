@@ -1,15 +1,24 @@
 const fs = require('fs')
 const path = require('path')
 const config = require('../node/config')
-const { createDirectory, getResolvedPath, getQueryName, getMetaDataFilename, capitalize, getNetlifyImport } = require('./helpers')
+const {
+  createDirectory,
+  getResolvedPath,
+  getQueryName,
+  getMetaDataFilename,
+  capitalize,
+  getNetlifyImport,
+} = require('./helpers')
 
 const paths = process.argv.slice(2)
 
-function createNetlifyCollection (normalizedPath) {
-  const [ markdownRelativePath ] = getResolvedPath(normalizedPath)
-  const [ resolvedPath, name ] = getResolvedPath(normalizedPath, 'home')
+function createNetlifyCollection(normalizedPath) {
+  const [markdownRelativePath] = getResolvedPath(normalizedPath)
+  const [resolvedPath, name] = getResolvedPath(normalizedPath, 'home')
   const jsContent = `export default {
-  name: '${(normalizedPath && normalizedPath.split('/').join('_')) || name}_page',
+  name: '${
+    (normalizedPath && normalizedPath.split('/').join('_')) || name
+  }_page',
   label: '${name} page',
   folder: 'resources/content/${markdownRelativePath}',
   create: false,
@@ -36,7 +45,14 @@ function createNetlifyCollection (normalizedPath) {
 }
 `
 
-  const fullPath = path.join(__dirname, '..', 'netlify', 'collections', 'pages', `${resolvedPath}.js`)
+  const fullPath = path.join(
+    __dirname,
+    '..',
+    'netlify',
+    'collections',
+    'pages',
+    `${resolvedPath}.js`,
+  )
   if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile) {
     console.log(`Netlify collection for page ${resolvedPath}.js already exists`)
     return
@@ -46,11 +62,21 @@ function createNetlifyCollection (normalizedPath) {
   fs.writeFileSync(fullPath, jsContent, { encoding: 'utf8' })
   console.log(`Netlify collection created ${resolvedPath}.js`)
 
-  const indexPath = path.join(__dirname, '..', 'netlify', 'collections', 'pages', 'index.js')
+  const indexPath = path.join(
+    __dirname,
+    '..',
+    'netlify',
+    'collections',
+    'pages',
+    'index.js',
+  )
   const indexContent = fs.readFileSync(indexPath, { encoding: 'utf8' })
-  const [ importName, importPath ] = getNetlifyImport(resolvedPath)
+  const [importName, importPath] = getNetlifyImport(resolvedPath)
   const newIndexContent = indexContent
-    .replace(/(import\s[^\s]+\sfrom\s'[^']+'\n)/, `$1import ${importName} from '${importPath}'\n`)
+    .replace(
+      /(import\s[^\s]+\sfrom\s'[^']+'\n)/,
+      `$1import ${importName} from '${importPath}'\n`,
+    )
     .replace(/(export\sdefault\s\[)([^\]]+)(\])/, (_, a, b, c) => {
       return `${a}${b.replace(/\n$/, `,\n  ${importName}\n`)}${c}`
     })
@@ -59,23 +85,38 @@ function createNetlifyCollection (normalizedPath) {
   console.log('Netlify collection index updated')
 }
 
-function createMarkdown (normalizedPath) {
+function createMarkdown(normalizedPath) {
   const contentRelativePath = path.join('resources', 'content', 'pages')
-  const [ markdownRelativePath, markdownName ] = getResolvedPath(normalizedPath)
+  const [markdownRelativePath, markdownName] = getResolvedPath(normalizedPath)
 
-  config.availableLanguages.forEach(language => {
-    const markdownFileRelativePath = path.join(contentRelativePath, markdownRelativePath, `${markdownRelativePath.split(path.sep).join('-')}-${language.key}.md`)
-    const markdownFilePath = path.join(__dirname, '..', markdownFileRelativePath)
+  config.availableLanguages.forEach((language) => {
+    const markdownFileRelativePath = path.join(
+      contentRelativePath,
+      markdownRelativePath,
+      `${markdownRelativePath.split(path.sep).join('-')}-${language.key}.md`,
+    )
+    const markdownFilePath = path.join(
+      __dirname,
+      '..',
+      markdownFileRelativePath,
+    )
     const markdown = `---
 title: ${language.key} (${language.label}) ${markdownName} page content
 content:
   default_content: |
-    This page was created using npm run create-pages. This content can be edited in ${markdownFileRelativePath}. The query can be updated in src/queries/${getQueryName(normalizedPath)}Page.js. The Netlify collection can be updated in netlify/collections/pages/${markdownRelativePath}.js.
+    This page was created using npm run create-pages. This content can be edited in ${markdownFileRelativePath}. The query can be updated in src/queries/${getQueryName(
+      normalizedPath,
+    )}Page.js. The Netlify collection can be updated in netlify/collections/pages/${markdownRelativePath}.js.
 ---    
 `
 
-    if (fs.existsSync(markdownFilePath) && fs.statSync(markdownFilePath).isFile) {
-      console.log(`Markdown file for page ${markdownFileRelativePath} already exists`)
+    if (
+      fs.existsSync(markdownFilePath) &&
+      fs.statSync(markdownFilePath).isFile
+    ) {
+      console.log(
+        `Markdown file for page ${markdownFileRelativePath} already exists`,
+      )
     } else {
       createDirectory(markdownFilePath)
       fs.writeFileSync(markdownFilePath, markdown, { encoding: 'utf8' })
@@ -84,10 +125,14 @@ content:
   })
 }
 
-function createQuery (normalizedPath) {
+function createQuery(normalizedPath) {
   const queryName = getQueryName(normalizedPath)
-  const queryRelativePath = path.join('src', 'queries', `${queryName}PageQuery.js`)
-  const [ markdownRelativePath ] = getResolvedPath(normalizedPath)
+  const queryRelativePath = path.join(
+    'src',
+    'queries',
+    `${queryName}PageQuery.js`,
+  )
+  const [markdownRelativePath] = getResolvedPath(normalizedPath)
   const queryContent = `import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
@@ -114,8 +159,12 @@ const ${queryName}PageQuery = ({ render }) => (
           }
         \`}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === \`content/pages/${markdownRelativePath}/${markdownRelativePath.split(path.sep).join('-')}-\${lang}.md\`).shift()
-          if (!content || !content.childMarkdownRemark) throw new Error(\`No ${markdownRelativePath.split(path.sep).join('-')} translations found for language \${lang}\`)
+          const content = allFile.nodes.filter(node => node.relativePath === \`content/pages/${markdownRelativePath}/${markdownRelativePath
+    .split(path.sep)
+    .join('-')}-\${lang}.md\`).shift()
+          if (!content || !content.childMarkdownRemark) throw new Error(\`No ${markdownRelativePath
+            .split(path.sep)
+            .join('-')} translations found for language \${lang}\`)
           return render(content.childMarkdownRemark.frontmatter.content)
         }}
       />
@@ -140,15 +189,21 @@ export default ${queryName}PageQuery
   console.log(`Query created ${queryRelativePath}`)
 }
 
-function createMeta (normalizedPath) {
+function createMeta(normalizedPath) {
   let title = normalizedPath.split('/').pop() || 'home'
-  title = title.split('-').map(word => capitalize(word)).join(' ')
+  title = title
+    .split('-')
+    .map((word) => capitalize(word))
+    .join(' ')
 
   const metaDataName = getMetaDataFilename(normalizedPath)
   const metaRelativePath = path.join('resources', 'content', 'meta')
-  config.availableLanguages.forEach(language => {
+  config.availableLanguages.forEach((language) => {
     const localizedMetaFileName = `${metaDataName}-${language.key}.md`
-    const metaFileRelativePath = path.join(metaRelativePath, localizedMetaFileName)
+    const metaFileRelativePath = path.join(
+      metaRelativePath,
+      localizedMetaFileName,
+    )
     const metaContent = `---
 title: ${language.key} (${language.label}) site content
 head:
@@ -169,10 +224,13 @@ head:
   })
 }
 
-function createPage (normalizedPath) {
+function createPage(normalizedPath) {
   const queryName = getQueryName(normalizedPath)
-  const [ pageRelativePath ] = getResolvedPath(normalizedPath)
-  const previousDirectories = normalizedPath.split('/').map(() => '..').join('/')
+  const [pageRelativePath] = getResolvedPath(normalizedPath)
+  const previousDirectories = normalizedPath
+    .split('/')
+    .map(() => '..')
+    .join('/')
   const pageContent = `import React from 'react'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -199,7 +257,13 @@ export default () => (
 )
 `
 
-  const fullPath = path.join(__dirname, '..', 'src', 'pages', `${pageRelativePath}.js`)
+  const fullPath = path.join(
+    __dirname,
+    '..',
+    'src',
+    'pages',
+    `${pageRelativePath}.js`,
+  )
   if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile) {
     console.log(`Page already exists ${pageRelativePath}.js`)
     return
@@ -210,7 +274,7 @@ export default () => (
   console.log(`Page created ${pageRelativePath}.js`)
 }
 
-paths.forEach(path => {
+paths.forEach((path) => {
   console.log(`Creating page ${path}`)
   const normalizedPath = path.replace(/^\//, '').replace(/\/$/, '')
   createNetlifyCollection(normalizedPath)

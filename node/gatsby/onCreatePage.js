@@ -4,19 +4,24 @@ const { addToSitemap } = require('./sitemap')
 const defaultPagesToIgnore = [
   '/dev-404-page/',
   '/404.html',
-  '/offline-plugin-app-shell-fallback/'
+  '/offline-plugin-app-shell-fallback/',
 ]
 
 const pagesToIgnore = [
   ...defaultPagesToIgnore,
-  ...((config.build && config.localization && config.localization.ignore) || [])
+  ...((config.build && config.localization && config.localization.ignore) ||
+    []),
 ]
 
-function createLocalized404Pages ({ createPage, page }) {
-  return new Promise(resolve => {
+function createLocalized404Pages({ createPage, page }) {
+  return new Promise((resolve) => {
     config.availableLanguages.forEach(({ key }) => {
       let createLocalizedPages = true
-      if (config.build && config.localization && typeof config.localization.createLocalizedPages === 'boolean') {
+      if (
+        config.build &&
+        config.localization &&
+        typeof config.localization.createLocalizedPages === 'boolean'
+      ) {
         createLocalizedPages = config.localization.createLocalizedPages
       }
 
@@ -25,7 +30,7 @@ function createLocalized404Pages ({ createPage, page }) {
         createPage({
           ...page,
           path: localizedPath,
-          matchPath: `/${key}/*`
+          matchPath: `/${key}/*`,
         })
       }
     })
@@ -36,16 +41,21 @@ function createLocalized404Pages ({ createPage, page }) {
 
 module.exports = ({ page, actions }) => {
   const { createPage } = actions
-  if (page.path === '/404/') return createLocalized404Pages({ createPage, page })
+  if (page.path === '/404/')
+    return createLocalized404Pages({ createPage, page })
   if (pagesToIgnore.includes(page.path)) {
     if (!defaultPagesToIgnore.includes(page.path)) addToSitemap(page.path)
     return Promise.resolve()
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     config.availableLanguages.forEach(({ key }, index) => {
       let createLocalizedPages = true
-      if (config.build && config.localization && typeof config.localization.createLocalizedPages === 'boolean') {
+      if (
+        config.build &&
+        config.localization &&
+        typeof config.localization.createLocalizedPages === 'boolean'
+      ) {
         createLocalizedPages = config.localization.createLocalizedPages
       }
 
@@ -53,21 +63,25 @@ module.exports = ({ page, actions }) => {
         const localizedPath = `/${key}${page.path}`
         createPage({
           ...page,
-          path: localizedPath
+          path: localizedPath,
         })
 
         addToSitemap(localizedPath)
       }
 
       let createDefaultPages = true
-      if (config.build && config.localization && typeof config.localization.createDefaultPages === 'boolean') {
+      if (
+        config.build &&
+        config.localization &&
+        typeof config.localization.createDefaultPages === 'boolean'
+      ) {
         createDefaultPages = config.localization.createDefaultPages
       }
 
       if (index === 0 && createDefaultPages) {
         createPage({
           ...page,
-          path: page.path
+          path: page.path,
         })
 
         addToSitemap(page.path)

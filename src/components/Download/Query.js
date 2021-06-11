@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { get as getDaedalusData, getCached as getCachedDaedalusData } from '../../connectors/daedalusData'
+import {
+  get as getDaedalusData,
+  getCached as getCachedDaedalusData,
+} from '../../connectors/daedalusData'
 import DownloadPageQuery from '../../queries/DownloadPageQuery'
 
-function renderHTMLTemplate (html, data) {
+function renderHTMLTemplate(html, data) {
   return html.replace(/{{\s?[^\s}]+\s?}}/g, (match) => {
     const identifier = match.replace(/[{{\s\s}}]/g, '')
     return data[identifier] || match
@@ -12,11 +15,13 @@ function renderHTMLTemplate (html, data) {
 
 const Query = ({ render, walletType = 'normal' }) => {
   let isMounted = true
-  const [ daedalusData, setDaedalusData ] = useState(getCachedDaedalusData(walletType))
-  const [ error, setError ] = useState(null)
+  const [daedalusData, setDaedalusData] = useState(
+    getCachedDaedalusData(walletType),
+  )
+  const [error, setError] = useState(null)
   useEffect(() => {
     const loadData = async () => {
-      const [ data, error ] = await getDaedalusData(walletType)
+      const [data, error] = await getDaedalusData(walletType)
       if (!isMounted) return
       if (error && !data) return setError(error)
       setDaedalusData(data)
@@ -26,14 +31,14 @@ const Query = ({ render, walletType = 'normal' }) => {
     return () => {
       isMounted = false
     }
-  }, [ setDaedalusData ])
+  }, [setDaedalusData])
 
   if (error) return render({ error })
   if (!daedalusData) return render({ loading: true })
 
   return (
     <DownloadPageQuery
-      render={data => {
+      render={(data) => {
         const formattedData = {
           ...data,
           os: {
@@ -41,43 +46,55 @@ const Query = ({ render, walletType = 'normal' }) => {
             windows: {
               ...data.os.windows,
               checksum: {
-                ...data.os.windows.checksum
-              }
+                ...data.os.windows.checksum,
+              },
             },
             linux: {
               ...data.os.linux,
               checksum: {
-                ...data.os.linux.checksum
-              }
+                ...data.os.linux.checksum,
+              },
             },
             darwin: {
               ...data.os.darwin,
               checksum: {
-                ...data.os.darwin.checksum
-              }
-            }
-          }
+                ...data.os.darwin.checksum,
+              },
+            },
+          },
         }
 
         try {
-          Object.keys(formattedData.os).forEach(os => {
-            formattedData.os[os].checksum.html = renderHTMLTemplate(formattedData.os[os].checksum.html, {
-              binary: daedalusData.platforms[os].URL,
-              checksum: daedalusData.platforms[os].SHA256,
-              version: daedalusData.platforms[os].version,
-              hash: daedalusData.platforms[os].hash,
-              signature: daedalusData.platforms[os].signature,
-              filename: daedalusData.platforms[os].URL.replace(/^.*\/(.*)$/, '$1')
-            })
+          Object.keys(formattedData.os).forEach((os) => {
+            formattedData.os[os].checksum.html = renderHTMLTemplate(
+              formattedData.os[os].checksum.html,
+              {
+                binary: daedalusData.platforms[os].URL,
+                checksum: daedalusData.platforms[os].SHA256,
+                version: daedalusData.platforms[os].version,
+                hash: daedalusData.platforms[os].hash,
+                signature: daedalusData.platforms[os].signature,
+                filename: daedalusData.platforms[os].URL.replace(
+                  /^.*\/(.*)$/,
+                  '$1',
+                ),
+              },
+            )
 
-            formattedData.os[os].signature.html = renderHTMLTemplate(formattedData.os[os].signature.html, {
-              binary: daedalusData.platforms[os].URL,
-              checksum: daedalusData.platforms[os].SHA256,
-              version: daedalusData.platforms[os].version,
-              hash: daedalusData.platforms[os].hash,
-              signature: daedalusData.platforms[os].signature,
-              filename: daedalusData.platforms[os].URL.replace(/^.*\/(.*)$/, '$1')
-            })
+            formattedData.os[os].signature.html = renderHTMLTemplate(
+              formattedData.os[os].signature.html,
+              {
+                binary: daedalusData.platforms[os].URL,
+                checksum: daedalusData.platforms[os].SHA256,
+                version: daedalusData.platforms[os].version,
+                hash: daedalusData.platforms[os].hash,
+                signature: daedalusData.platforms[os].signature,
+                filename: daedalusData.platforms[os].URL.replace(
+                  /^.*\/(.*)$/,
+                  '$1',
+                ),
+              },
+            )
 
             formattedData.os[os].osData = {
               ...formattedData.os[os].osData,
@@ -85,7 +102,7 @@ const Query = ({ render, walletType = 'normal' }) => {
               checksum: daedalusData.platforms[os].SHA256,
               version: daedalusData.platforms[os].version,
               hash: daedalusData.platforms[os].hash,
-              signature: daedalusData.platforms[os].signature
+              signature: daedalusData.platforms[os].signature,
             }
           })
 
@@ -93,8 +110,8 @@ const Query = ({ render, walletType = 'normal' }) => {
         } catch (error) {
           console.error({
             description: `error processing content for daedalus download`,
-            args: [ data ],
-            error
+            args: [data],
+            error,
           })
           return render({ error })
         }
@@ -105,7 +122,7 @@ const Query = ({ render, walletType = 'normal' }) => {
 
 Query.propTypes = {
   render: PropTypes.func.isRequired,
-  walletType: PropTypes.string
+  walletType: PropTypes.string,
 }
 
 export default Query

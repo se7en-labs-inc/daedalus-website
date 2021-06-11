@@ -2,9 +2,12 @@ import { autoCapture, timing } from '../helpers/analytics'
 import { XHR_RESPONSE, XHR_REQUEST, XHR_TIMING } from '../constants/analytics'
 
 const endpointArray = {
-  normal: 'https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-latest-version.json',
-  flight: 'https://update-cardano-mainnet-flight.iohk.io/daedalus-latest-version.json',
-  catalyst: 'https://iohk-vit-installers.s3.amazonaws.com/daedalus-latest-version.json'
+  normal:
+    'https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-latest-version.json',
+  flight:
+    'https://update-cardano-mainnet-flight.iohk.io/daedalus-latest-version.json',
+  catalyst:
+    'https://iohk-vit-installers.s3.amazonaws.com/daedalus-latest-version.json',
 }
 
 const data = { cached: {} }
@@ -18,18 +21,24 @@ export const get = async (walletType) => {
     autoCapture({ category: XHR_REQUEST, action: 'request_daedalus_data' })
     const startTime = Date.now()
     const endpoint = endpointArray[walletType]
-    const result = await window.fetch(`${endpoint}?date=${Math.floor(Date.now() / 1000)}`)
-    timing({ category: XHR_TIMING, value: Date.now() - startTime, variable: 'daedalus_download_data' })
+    const result = await window.fetch(
+      `${endpoint}?date=${Math.floor(Date.now() / 1000)}`,
+    )
+    timing({
+      category: XHR_TIMING,
+      value: Date.now() - startTime,
+      variable: 'daedalus_download_data',
+    })
     const JSONRes = await result.json()
     data.cached[endpoint] = JSONRes
     autoCapture({ category: XHR_RESPONSE, action: 'received_daedalus_data' })
-    return [ JSONRes, null ]
+    return [JSONRes, null]
   } catch (error) {
     console.error({
       description: 'error fetching latest Daedalus data',
       args: [],
-      error
+      error,
     })
-    return [ getCached(walletType), error ]
+    return [getCached(walletType), error]
   }
 }

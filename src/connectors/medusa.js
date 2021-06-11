@@ -7,7 +7,7 @@ export const isSupported = () => {
     'OES_texture_float',
     'OES_texture_float_linear',
     'OES_texture_half_float',
-    'OES_texture_half_float_linear'
+    'OES_texture_half_float_linear',
   ]
 
   while (supported && requiredFeatures.length > 0) {

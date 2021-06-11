@@ -1,14 +1,15 @@
-const helpers = module.exports = {}
+const helpers = (module.exports = {})
 const fs = require('fs')
 const path = require('path')
 
-helpers.capitalize = (word) => `${word[0].toUpperCase()}${word.split('').slice(1).join('').toLowerCase()}`
+helpers.capitalize = (word) =>
+  `${word[0].toUpperCase()}${word.split('').slice(1).join('').toLowerCase()}`
 
 helpers.createDirectory = (filePath) => {
   const leadingDirectory = filePath.split(path.sep)
   leadingDirectory.pop()
   let nextPath
-  leadingDirectory.forEach(segment => {
+  leadingDirectory.forEach((segment) => {
     nextPath = nextPath ? path.join(nextPath, segment) : `${path.sep}${segment}`
     if (!fs.existsSync(nextPath) || !fs.statSync(nextPath).isDirectory) {
       fs.mkdirSync(nextPath)
@@ -26,20 +27,26 @@ helpers.getResolvedPath = (normalizedPath, rootName = 'index') => {
     resolvedPath = path.join(...normalizedPath.split('/'))
   }
 
-  return [ resolvedPath, resolvedName ]
+  return [resolvedPath, resolvedName]
 }
 
 helpers.getQueryName = (normalizedPath) => {
   if (!normalizedPath) return 'Index'
-  return normalizedPath.split('/').map(part => {
-    return part.split('-').map(word => `${helpers.capitalize(word)}`).join('')
-  }).join('')
+  return normalizedPath
+    .split('/')
+    .map((part) => {
+      return part
+        .split('-')
+        .map((word) => `${helpers.capitalize(word)}`)
+        .join('')
+    })
+    .join('')
 }
 
 helpers.getNetlifyImport = (relativePath) => {
   const importName = relativePath.split(path.sep).join('').split('-').join('')
   const importPath = `./${relativePath.split(path.sep).join('/')}`
-  return [ importName, importPath ]
+  return [importName, importPath]
 }
 
 helpers.deleteEmptyDirectory = (filePath) => {

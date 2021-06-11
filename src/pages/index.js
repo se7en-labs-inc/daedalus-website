@@ -12,7 +12,7 @@ import {
   Title,
   Overview,
   Features,
-  FeaturesTitle
+  FeaturesTitle,
 } from '../components/Home'
 
 const CTAContainer = styled.div`
@@ -46,11 +46,8 @@ export default () => (
   <IndexPageQuery
     render={(content) => (
       <Layout>
-        <section id='browser-testing-cta-section'>
-          <Title
-            title={content.title}
-            subtitle={content.subtitle}
-          />
+        <section id="browser-testing-cta-section">
+          <Title title={content.title} subtitle={content.subtitle} />
           <CTAContainer>
             <Cta
               learnLink={content.cta.learn_link}
@@ -61,11 +58,14 @@ export default () => (
           </CTAContainer>
         </section>
         <SectionContainer>
-          <Container maxWidth='lg'>
-            <Overview title={content.overview.title} content={content.overview.content} />
+          <Container maxWidth="lg">
+            <Overview
+              title={content.overview.title}
+              content={content.overview.content}
+            />
           </Container>
         </SectionContainer>
-        <section id='browser-testing-features-section'>
+        <section id="browser-testing-features-section">
           <FeaturesTitle featureTitle={content.wallet_features.title} />
           <SectionContainer>
             <SpinnerInnerContainer>
@@ -73,18 +73,28 @@ export default () => (
             </SpinnerInnerContainer>
           </SectionContainer>
           <SectionContainer>
-            <Container maxWidth='lg'>
+            <Container maxWidth="lg">
               <Features
                 securityTitle={content.wallet_features.advanced_security.title}
-                securityDesc={content.wallet_features.advanced_security.description}
-                accountTitle={content.wallet_features.unlimited_accounting.title}
-                accountDesc={content.wallet_features.unlimited_accounting.description}
+                securityDesc={
+                  content.wallet_features.advanced_security.description
+                }
+                accountTitle={
+                  content.wallet_features.unlimited_accounting.title
+                }
+                accountDesc={
+                  content.wallet_features.unlimited_accounting.description
+                }
                 platformTitle={content.wallet_features.desktop_platforms.title}
-                platformDesc={content.wallet_features.desktop_platforms.description}
+                platformDesc={
+                  content.wallet_features.desktop_platforms.description
+                }
                 newsFeedTitle={content.wallet_features.newsfeed.title}
                 newsFeedDesc={content.wallet_features.newsfeed.description}
                 personalTitle={content.wallet_features.personalization.title}
-                personalDesc={content.wallet_features.personalization.description}
+                personalDesc={
+                  content.wallet_features.personalization.description
+                }
               />
             </Container>
           </SectionContainer>

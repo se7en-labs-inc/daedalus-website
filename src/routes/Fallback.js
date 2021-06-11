@@ -5,30 +5,26 @@ import Language from '@input-output-hk/front-end-core-components/components/Lang
 import NotFoundPage from '../pages/404'
 
 const FallbackPage = ({ routePath, path, lang }) => {
-  const [ missingParams, setMissingParams ] = useState(false)
+  const [missingParams, setMissingParams] = useState(false)
 
   useEffect(() => {
-    const pattern = new RegExp(`^(/${lang})?${routePath.replace(/:[^/]+/g, '[^/]+')}`)
+    const pattern = new RegExp(
+      `^(/${lang})?${routePath.replace(/:[^/]+/g, '[^/]+')}`,
+    )
     if (!path.match(pattern)) {
       setMissingParams(true)
     } else {
       setMissingParams(false)
     }
-  }, [ path ])
+  }, [path])
 
-  return (
-    <Fragment>
-      {missingParams &&
-        <NotFoundPage />
-      }
-    </Fragment>
-  )
+  return <Fragment>{missingParams && <NotFoundPage />}</Fragment>
 }
 
 FallbackPage.propTypes = {
   routePath: PropTypes.string.isRequired,
   path: PropTypes.string,
-  lang: PropTypes.string.isRequired
+  lang: PropTypes.string.isRequired,
 }
 
 const Fallback = ({ pageContext: { routePath } }) => (
@@ -36,7 +32,11 @@ const Fallback = ({ pageContext: { routePath } }) => (
     {({ key: lang }) => (
       <Location>
         {({ location }) => (
-          <FallbackPage routePath={routePath} path={location.pathname} lang={lang} />
+          <FallbackPage
+            routePath={routePath}
+            path={location.pathname}
+            lang={lang}
+          />
         )}
       </Location>
     )}
@@ -45,8 +45,8 @@ const Fallback = ({ pageContext: { routePath } }) => (
 
 Fallback.propTypes = {
   pageContext: PropTypes.shape({
-    routePath: PropTypes.string.isRequired
-  }).isRequired
+    routePath: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default Fallback

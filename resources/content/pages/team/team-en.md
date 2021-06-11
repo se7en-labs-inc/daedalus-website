@@ -84,4 +84,14 @@ content:
       jobTitle: Software Engineer
       imagePath: /images/uploads/tomislav-horacek.png
       description: Tomislav Horaček has been working with web technologies since 2011 and holds a master of computer engineering degree from the University of Osijek, Croatia. He started his professional career as a backend PHP developer and moved to frontend development when he discovered Javascript frameworks such as ReactJS. These remain his main focus to this day. Tomislav has a passion for writing modular, component-based code that is independent, reusable and easy to extend. He joined IOHK in 2019.
+    - member: Daniel Main
+      twitter: 
+      linkedin: 
+      github: 
+      iohkProfile: daniel-main
+      location: Germany
+      jobTitle: Software Engineer
+      imagePath: /images/uploads/daniel-main.png
+      description:
+        Daniel Main started coding right after getting his degree as a computer science engineer in 2002. Mottos such as ‘Do one thing and do it well’ and ‘Less is more’ are etched into Daniel’s thinking as a software engineer. He joined IOHK in 2021, having spent five years coding in React and React Native. Daniel is qualified as a Solidity smart contracts developer as well.
 ---

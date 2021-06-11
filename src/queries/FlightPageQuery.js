@@ -9,10 +9,12 @@ const FlightPageQuery = ({ render }) => (
       <StaticQuery
         query={graphql`
           query {
-            allFile(filter:{relativePath:{glob:"content/pages/flight/*.md"}}) {
-              nodes{
-                relativePath,
-                childMarkdownRemark{
+            allFile(
+              filter: { relativePath: { glob: "content/pages/flight/*.md" } }
+            ) {
+              nodes {
+                relativePath
+                childMarkdownRemark {
                   frontmatter {
                     content {
                       title
@@ -34,8 +36,14 @@ const FlightPageQuery = ({ render }) => (
           }
         `}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === `content/pages/flight/flight-${lang}.md`).shift()
-          if (!content || !content.childMarkdownRemark) throw new Error(`No flight translations found for language ${lang}`)
+          const content = allFile.nodes
+            .filter(
+              (node) =>
+                node.relativePath === `content/pages/flight/flight-${lang}.md`,
+            )
+            .shift()
+          if (!content || !content.childMarkdownRemark)
+            throw new Error(`No flight translations found for language ${lang}`)
           return render(content.childMarkdownRemark.frontmatter.content)
         }}
       />
@@ -44,7 +52,7 @@ const FlightPageQuery = ({ render }) => (
 )
 
 FlightPageQuery.propTypes = {
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 }
 
 export default FlightPageQuery

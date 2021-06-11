@@ -9,12 +9,13 @@ const config = {
   media_library: {
     name: 'uploadcare',
     config: {
-      publicKey: process.env.UPLOADCARE_PUBLIC_KEY
-    }
+      publicKey: process.env.UPLOADCARE_PUBLIC_KEY,
+    },
   },
-  logo_url: 'https://ucarecdn.com/0a28215f-a3f0-40e2-ac7e-d7dc93288d16/-/resize/150/-/progressive/yes/',
+  logo_url:
+    'https://ucarecdn.com/0a28215f-a3f0-40e2-ac7e-d7dc93288d16/-/resize/150/-/progressive/yes/',
   show_preview_links: true,
-  collections
+  collections,
 }
 
 if (getBranch() === 'staging') config.publish_mode = 'editorial_workflow'

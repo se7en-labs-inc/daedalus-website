@@ -5,12 +5,19 @@ import { Location } from '@reach/router'
 import { analytics } from '@input-output-hk/front-end-core-libraries'
 
 const AdminRedirector = ({ hash }) => {
-  function adminRedirect () {
-    const hashParams = hash.replace(/^#\/?/, '').split('&').map(p => p.split('='))
-    const tokenParams = [ 'invite_token', 'access_token' ]
-    const hasToken = hashParams.filter(p => tokenParams.includes(p[0])).length > 0
+  function adminRedirect() {
+    const hashParams = hash
+      .replace(/^#\/?/, '')
+      .split('&')
+      .map((p) => p.split('='))
+    const tokenParams = ['invite_token', 'access_token']
+    const hasToken =
+      hashParams.filter((p) => tokenParams.includes(p[0])).length > 0
     if (hasToken) {
-      analytics.autoCapture({ category: analytics.constants.REDIRECT, action: 'redirect_to_admin' })
+      analytics.autoCapture({
+        category: analytics.constants.REDIRECT,
+        action: 'redirect_to_admin',
+      })
       navigate(`/admin/${hash}`)
     }
   }
@@ -23,7 +30,7 @@ const AdminRedirector = ({ hash }) => {
 }
 
 AdminRedirector.propTypes = {
-  hash: PropTypes.string.isRequired
+  hash: PropTypes.string.isRequired,
 }
 
 const Root = ({ element }) => (
@@ -38,7 +45,7 @@ const Root = ({ element }) => (
 )
 
 Root.propTypes = {
-  element: PropTypes.node.isRequired
+  element: PropTypes.node.isRequired,
 }
 
 export default Root

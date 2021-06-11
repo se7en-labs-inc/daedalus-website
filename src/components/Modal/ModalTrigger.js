@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import { setHashParam } from '../../helpers/url'
 import { Link } from '@input-output-hk/front-end-core-components'
 
-export const openModal = name => setHashParam('modal', name)
+export const openModal = (name) => setHashParam('modal', name)
 
 const ModalTrigger = (props) => {
   const filteredProps = { ...props }
-  const exclude = [ 'href', 'onClick', 'tracking' ]
-  exclude.forEach(p => delete filteredProps[p])
+  const exclude = ['href', 'onClick', 'tracking']
+  exclude.forEach((p) => delete filteredProps[p])
   return (
     <Link
       {...filteredProps}
-      href='#'
+      href="#"
       onClick={(e) => {
         e.preventDefault()
         openModal(props.name)
@@ -26,10 +26,7 @@ const ModalTrigger = (props) => {
 
 ModalTrigger.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node
-  ]).isRequired
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 }
 
 export default ModalTrigger

@@ -13,20 +13,18 @@ const StyledMain = styled.main`
 `
 
 const FooterContainer = styled(Container)`
-  .body-text p:first-of-type{
-    color: ${({ theme }) => theme.palette.primary.main}
+  .body-text p:first-of-type {
+    color: ${({ theme }) => theme.palette.primary.main};
   }
 `
 
 const Main = ({ children }) => (
   <Fragment>
-    <StyledMain>
-      {children}
-    </StyledMain>
-    <FooterContainer maxWidth='lg'>
+    <StyledMain>{children}</StyledMain>
+    <FooterContainer maxWidth="lg">
       <Theme.Consumer>
         {({ theme }) => (
-          <Footer theme={theme.palette.type} variant='daedalus' />
+          <Footer theme={theme.palette.type} variant="daedalus" />
         )}
       </Theme.Consumer>
     </FooterContainer>
@@ -34,7 +32,7 @@ const Main = ({ children }) => (
 )
 
 Main.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Main

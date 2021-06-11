@@ -4,7 +4,12 @@ import styled from 'styled-components'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from '@input-output-hk/front-end-core-components'
 import { MdMenu, MdClose } from 'react-icons/md'
-import { addEventListener, removeEventListener, getScrollOffset, scrollTo } from '../../helpers/dom'
+import {
+  addEventListener,
+  removeEventListener,
+  getScrollOffset,
+  scrollTo,
+} from '../../helpers/dom'
 
 const Container = styled.div`
   position: fixed;
@@ -12,13 +17,13 @@ const Container = styled.div`
   width: 100%;
   z-index: 4;
   left: 0;
-  
+
   .toggle-menu {
-    position:absolute;
-    z-index:5;
-    top:1rem;
-    right:1rem;
-    height:3.2rem;
+    position: absolute;
+    z-index: 5;
+    top: 1rem;
+    right: 1rem;
+    height: 3.2rem;
     color: ${({ theme }) => theme.palette.primary.main};
     font-size: 3.4rem;
   }
@@ -31,12 +36,12 @@ const Nav = styled.nav`
   padding-top: 6rem;
   height: 100vh;
   width: 100%;
-  position:relative;
+  position: relative;
   transform: translate(0, 0);
   background-color: ${({ theme }) => theme.palette.secondary.main};
-  z-index:2;
-  width:100%;
-  padding:0 1rem;
+  z-index: 2;
+  width: 100%;
+  padding: 0 1rem;
   position: absolute;
   overflow: scroll;
 
@@ -67,7 +72,7 @@ const Nav = styled.nav`
       &:hover,
       &.active,
       &:focus {
-        color: ${({ theme }) => theme.palette.text.primary}
+        color: ${({ theme }) => theme.palette.text.primary};
       }
     }
   }
@@ -92,15 +97,15 @@ const Nav = styled.nav`
 `
 
 const MobileNavigation = ({ navigation }) => {
-  const [ scrollPosition, setScrollPosition ] = useState(getScrollOffset())
-  const [ mobileNavVisible, setMobileNavVisible ] = useState(false)
+  const [scrollPosition, setScrollPosition] = useState(getScrollOffset())
+  const [mobileNavVisible, setMobileNavVisible] = useState(false)
 
-  const toggleMobileNav = e => {
+  const toggleMobileNav = (e) => {
     e.preventDefault()
     setMobileNavVisible(!mobileNavVisible)
   }
 
-  const closeNav = e => {
+  const closeNav = (e) => {
     setMobileNavVisible(false)
   }
 
@@ -126,35 +131,39 @@ const MobileNavigation = ({ navigation }) => {
     return () => {
       removeEventListeners()
     }
-  }, [ mobileNavVisible ])
+  }, [mobileNavVisible])
 
   return (
     <Container>
       <Fragment>
         <Link
-          href='/'
+          href="/"
           onClick={toggleMobileNav}
-          id='browser-testing-toggle-navigation'
-          className='toggle-menu'
-          tracking={{ label: `mobile_navigation_${mobileNavVisible ? 'close' : 'open'}` }}
+          id="browser-testing-toggle-navigation"
+          className="toggle-menu"
+          tracking={{
+            label: `mobile_navigation_${mobileNavVisible ? 'close' : 'open'}`,
+          }}
         >
-          {!mobileNavVisible && <MdMenu id='browser-testing-toggle-collapsed' />}
-          {mobileNavVisible && <MdClose id='browser-testing-toggle-expanded' />}
+          {!mobileNavVisible && (
+            <MdMenu id="browser-testing-toggle-collapsed" />
+          )}
+          {mobileNavVisible && <MdClose id="browser-testing-toggle-expanded" />}
         </Link>
         <ReactCSSTransitionGroup
-          transitionName='mobileNav'
+          transitionName="mobileNav"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={350}
         >
-          {mobileNavVisible &&
-            <Nav key='nav'>
+          {mobileNavVisible && (
+            <Nav key="nav">
               <ul>
                 <li>
                   <Link
-                    href='/'
+                    href="/"
                     onClick={closeNav}
-                    activeClassName='active'
-                    id='browser-testing-navigation-link-home'
+                    activeClassName="active"
+                    id="browser-testing-navigation-link-home"
                     tracking={{ label: 'mobile_navigation_home' }}
                   >
                     {navigation.labels.home}
@@ -162,10 +171,10 @@ const MobileNavigation = ({ navigation }) => {
                 </li>
                 <li>
                   <Link
-                    href='/team/'
+                    href="/team/"
                     onClick={closeNav}
-                    activeClassName='active'
-                    id='browser-testing-navigation-link-team'
+                    activeClassName="active"
+                    id="browser-testing-navigation-link-team"
                     tracking={{ label: 'mobile_navigation_team' }}
                   >
                     {navigation.labels.team}
@@ -173,10 +182,10 @@ const MobileNavigation = ({ navigation }) => {
                 </li>
                 <li>
                   <Link
-                    href='/download/'
+                    href="/download/"
                     onClick={closeNav}
-                    activeClassName='active'
-                    id='browser-testing-navigation-link-download'
+                    activeClassName="active"
+                    id="browser-testing-navigation-link-download"
                     tracking={{ label: 'mobile_navigation_download' }}
                   >
                     {navigation.labels.download}
@@ -184,10 +193,10 @@ const MobileNavigation = ({ navigation }) => {
                 </li>
                 <li>
                   <Link
-                    href='/flight/'
+                    href="/flight/"
                     onClick={closeNav}
-                    activeClassName='active'
-                    id='browser-testing-navigation-link-flight'
+                    activeClassName="active"
+                    id="browser-testing-navigation-link-flight"
                     tracking={{ label: 'mobile_navigation_flight' }}
                   >
                     {navigation.labels.flight}
@@ -195,7 +204,7 @@ const MobileNavigation = ({ navigation }) => {
                 </li>
               </ul>
             </Nav>
-          }
+          )}
         </ReactCSSTransitionGroup>
       </Fragment>
     </Container>
@@ -203,7 +212,8 @@ const MobileNavigation = ({ navigation }) => {
 }
 
 MobileNavigation.propTypes = {
-  navigation: PropTypes.shape(PropTypes.arrayOf(PropTypes.string).isRequired).isRequired
+  navigation: PropTypes.shape(PropTypes.arrayOf(PropTypes.string).isRequired)
+    .isRequired,
 }
 
 export default MobileNavigation

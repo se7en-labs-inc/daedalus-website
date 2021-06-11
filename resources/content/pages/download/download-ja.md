@@ -13,11 +13,14 @@ content:
   catalyst_cta_string: Daedalus Catalystをダウンロードする
   pgp_download: ダウンロード Signature
   version_string: バージョン
-  verify_signature: 署名の検証 
+  verify_signature: 署名の検証
   verify_checksum: チェックサムの検証
   pgp_signature: PGP署名
   sha_256_checksum: SHA256 チェックサム
-  warning: "DaedalusはPC（Microsoft Windows / Linux）およびApple Macアプリケーションとしてのみ利用可能であり、Daedalusのモバイル（Android / iOS）バージョンはありません。"
+  warning:
+    'DaedalusはPC（Microsoft Windows / Linux）およびApple
+    Macアプリケーションとしてのみ利用可能であり、Daedalusのモバイル（Android /
+    iOS）バージョンはありません。'
   os:
     windows: 64 ビット版 Windows
     darwin: 64 ビット版 macOS

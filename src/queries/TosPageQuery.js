@@ -9,10 +9,12 @@ const TosPageQuery = ({ render }) => (
       <StaticQuery
         query={graphql`
           query {
-            allFile(filter:{relativePath:{glob:"content/pages/tos/*.md"}}) {
-              nodes{
-                relativePath,
-                childMarkdownRemark{
+            allFile(
+              filter: { relativePath: { glob: "content/pages/tos/*.md" } }
+            ) {
+              nodes {
+                relativePath
+                childMarkdownRemark {
                   frontmatter {
                     content {
                       title
@@ -25,8 +27,14 @@ const TosPageQuery = ({ render }) => (
           }
         `}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === `content/pages/tos/tos-${lang}.md`).shift()
-          if (!content || !content.childMarkdownRemark) throw new Error(`No tos translations found for language ${lang}`)
+          const content = allFile.nodes
+            .filter(
+              (node) =>
+                node.relativePath === `content/pages/tos/tos-${lang}.md`,
+            )
+            .shift()
+          if (!content || !content.childMarkdownRemark)
+            throw new Error(`No tos translations found for language ${lang}`)
           return render(content.childMarkdownRemark.frontmatter.content)
         }}
       />
@@ -35,7 +43,7 @@ const TosPageQuery = ({ render }) => (
 )
 
 TosPageQuery.propTypes = {
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 }
 
 export default TosPageQuery

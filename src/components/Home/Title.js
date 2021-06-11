@@ -22,18 +22,16 @@ const SubTitle = styled(Typography)`
 const Title = ({ title, subtitle }) => (
   <Container>
     {/* The inline style below removes horrid onload positioning issue */}
-    <MainTitle variant='h1' style={{ margin: '0 auto' }}>
+    <MainTitle variant="h1" style={{ margin: '0 auto' }}>
       {title}
     </MainTitle>
-    <SubTitle variant='h4'>
-      {subtitle}
-    </SubTitle>
+    <SubTitle variant="h4">{subtitle}</SubTitle>
   </Container>
 )
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
 }
 
 export default Title

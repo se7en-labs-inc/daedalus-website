@@ -22,7 +22,7 @@ const FeaturesTitle = ({ featureTitle }) => (
 )
 
 FeaturesTitle.propTypes = {
-  featureTitle: PropTypes.string
+  featureTitle: PropTypes.string,
 }
 
 export default FeaturesTitle

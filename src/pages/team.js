@@ -10,16 +10,12 @@ export default () => (
   <TeamPageQuery
     render={(content) => (
       <Layout>
-        <Container maxWidth='lg'>
+        <Container maxWidth="lg">
           <Box marginTop={6} marginBottom={10}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 {content.team.map((teamMember, index) => (
-                  <Member
-                    {...teamMember}
-                    key={index}
-                    firstItem={index === 0}
-                  />
+                  <Member {...teamMember} key={index} firstItem={index === 0} />
                 ))}
               </Grid>
             </Grid>

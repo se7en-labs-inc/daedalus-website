@@ -57,61 +57,98 @@ const Layout = ({ children, headData = {}, template = Main }) => {
                       }
                     `}
                     render={({ siteHeadData, pageHeadData }) => {
-                      function getURIPathWithoutLang () {
-                        return location.pathname.replace(new RegExp(`^\\/${lang}`), '')
+                      function getURIPathWithoutLang() {
+                        return location.pathname.replace(
+                          new RegExp(`^\\/${lang}`),
+                          '',
+                        )
                       }
 
                       const uriPathWithoutLang = getURIPathWithoutLang()
-                      const pageContentPath = uriPathWithoutLang === '/'
-                        ? 'index'
-                        : uriPathWithoutLang.replace(/^\//, '').replace(/\/$/, '').replace(/\//g, '___')
+                      const pageContentPath =
+                        uriPathWithoutLang === '/'
+                          ? 'index'
+                          : uriPathWithoutLang
+                              .replace(/^\//, '')
+                              .replace(/\/$/, '')
+                              .replace(/\//g, '___')
 
-                      const page = pageHeadData.nodes.filter(node => node.relativePath === `content/meta/${pageContentPath}-${lang}.md`).shift()
-                      const site = siteHeadData.nodes.filter(node => node.relativePath === `content/meta/__site-${lang}.md`).shift()
+                      const page = pageHeadData.nodes
+                        .filter(
+                          (node) =>
+                            node.relativePath ===
+                            `content/meta/${pageContentPath}-${lang}.md`,
+                        )
+                        .shift()
+                      const site = siteHeadData.nodes
+                        .filter(
+                          (node) =>
+                            node.relativePath ===
+                            `content/meta/__site-${lang}.md`,
+                        )
+                        .shift()
 
                       return (
                         <Head
                           site={{
-                            title: (site &&
-                              site.childMarkdownRemark &&
-                              site.childMarkdownRemark.frontmatter &&
-                              site.childMarkdownRemark.frontmatter.head &&
-                              site.childMarkdownRemark.frontmatter.head.title) || '',
-                            meta: (site &&
-                              site.childMarkdownRemark &&
-                              site.childMarkdownRemark.frontmatter &&
-                              site.childMarkdownRemark.frontmatter.head &&
-                              site.childMarkdownRemark.frontmatter.head.meta) || []
+                            title:
+                              (site &&
+                                site.childMarkdownRemark &&
+                                site.childMarkdownRemark.frontmatter &&
+                                site.childMarkdownRemark.frontmatter.head &&
+                                site.childMarkdownRemark.frontmatter.head
+                                  .title) ||
+                              '',
+                            meta:
+                              (site &&
+                                site.childMarkdownRemark &&
+                                site.childMarkdownRemark.frontmatter &&
+                                site.childMarkdownRemark.frontmatter.head &&
+                                site.childMarkdownRemark.frontmatter.head
+                                  .meta) ||
+                              [],
                           }}
                           page={{
-                            title: (page &&
-                              page.childMarkdownRemark &&
-                              page.childMarkdownRemark.frontmatter &&
-                              page.childMarkdownRemark.frontmatter.head &&
-                              page.childMarkdownRemark.frontmatter.head.title) || '',
-                            meta: (page &&
-                              page.childMarkdownRemark &&
-                              page.childMarkdownRemark.frontmatter &&
-                              page.childMarkdownRemark.frontmatter.head &&
-                              page.childMarkdownRemark.frontmatter.head.meta) || []
+                            title:
+                              (page &&
+                                page.childMarkdownRemark &&
+                                page.childMarkdownRemark.frontmatter &&
+                                page.childMarkdownRemark.frontmatter.head &&
+                                page.childMarkdownRemark.frontmatter.head
+                                  .title) ||
+                              '',
+                            meta:
+                              (page &&
+                                page.childMarkdownRemark &&
+                                page.childMarkdownRemark.frontmatter &&
+                                page.childMarkdownRemark.frontmatter.head &&
+                                page.childMarkdownRemark.frontmatter.head
+                                  .meta) ||
+                              [],
                           }}
                           component={{
                             title: headData.title,
-                            meta: headData.meta
+                            meta: headData.meta,
                           }}
                           locale={locale}
-                          availableLocales={availableLanguages.map(({ locale }) => locale).filter(locale => Boolean(locale))}
+                          availableLocales={availableLanguages
+                            .map(({ locale }) => locale)
+                            .filter((locale) => Boolean(locale))}
                           lang={lang}
                           url={process.env.GATSBY_URL}
                         >
-                          {theme.typography.googleFontsURL && <link rel='stylesheet' type='text/css' href={theme.typography.googleFontsURL} />}
+                          {theme.typography.googleFontsURL && (
+                            <link
+                              rel="stylesheet"
+                              type="text/css"
+                              href={theme.typography.googleFontsURL}
+                            />
+                          )}
                         </Head>
                       )
                     }}
                   />
-                  <Template>
-                    {children}
-                  </Template>
+                  <Template>{children}</Template>
                 </Fragment>
               )}
             </Language.Consumer>
@@ -126,13 +163,15 @@ Layout.propTypes = {
   children: PropTypes.node,
   headData: PropTypes.shape({
     title: PropTypes.string,
-    meta: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      content: PropTypes.string,
-      file: PropTypes.string
-    }))
+    meta: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        content: PropTypes.string,
+        file: PropTypes.string,
+      }),
+    ),
   }),
-  template: PropTypes.func
+  template: PropTypes.func,
 }
 
 export default Layout

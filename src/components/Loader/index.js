@@ -37,19 +37,19 @@ const Container = styled.div`
 `
 
 const Loader = ({ size }) => (
-  <Container size={size} className='browser-testing-loader-component'>
+  <Container size={size} className="browser-testing-loader-component">
     <div>
-      <Spinner spinTime='8s' />
+      <Spinner spinTime="8s" />
     </div>
   </Container>
 )
 
 Loader.propTypes = {
-  size: PropTypes.number
+  size: PropTypes.number,
 }
 
 Loader.defaultProps = {
-  size: 20
+  size: 20,
 }
 
 export default Loader

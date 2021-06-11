@@ -16,35 +16,35 @@ const CTAContainer = styled.div`
 const BigButtonText = styled(Button)`
   &:hover {
     color: ${({ theme }) => theme.palette.primary.contrastText};
-  } 
+  }
 `
 
 const BigButtonTextSecondary = styled(BigButtonText)`
   &:hover {
     color: ${({ theme }) => theme.palette.secondary.contrastText};
-  } 
+  }
 `
 
 const Cta = ({ learnLink, learn, supportLink, support }) => {
   return (
     <CTAContainer>
       <BigButtonText
-        size='large'
+        size="large"
         href={learnLink}
-        id='browser-testing-learn-more-cta'
+        id="browser-testing-learn-more-cta"
         tracking={{ label: 'home_cta_learn' }}
         component={Link}
-        variant='contained'
-        color='primary'
+        variant="contained"
+        color="primary"
       >
         {learn}
       </BigButtonText>
       <BigButtonTextSecondary
-        size='large'
+        size="large"
         href={supportLink}
-        variant='contained'
-        color='secondary'
-        id='browser-testing-support-cta'
+        variant="contained"
+        color="secondary"
+        id="browser-testing-support-cta"
         tracking={{ label: 'home_cta_support' }}
       >
         {support}
@@ -57,7 +57,7 @@ Cta.propTypes = {
   learnLink: PropTypes.string,
   learn: PropTypes.string,
   supportLink: PropTypes.string,
-  support: PropTypes.string
+  support: PropTypes.string,
 }
 
 export default Cta

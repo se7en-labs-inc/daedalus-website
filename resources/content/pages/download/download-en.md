@@ -5,9 +5,14 @@ content:
   title: Download
   flightTitle: Download Flight
   catalystTitle: Download Catalyst
-  subtitle: Download the latest version of Daedalus for your preferred operating system.
-  catalystSubtitle: Download the latest version of Daedalus Catalyst to your preferred operating system.
-  flightSubtitle: Download the latest version of Daedalus Flight for your preferred operating system.
+  subtitle:
+    Download the latest version of Daedalus for your preferred operating system.
+  catalystSubtitle:
+    Download the latest version of Daedalus Catalyst to your preferred operating
+    system.
+  flightSubtitle:
+    Download the latest version of Daedalus Flight for your preferred operating
+    system.
   cta_string: Download Daedalus
   flight_cta_string: Download Daedalus Flight
   catalyst_cta_string: Download Daedalus Catalyst
@@ -17,7 +22,9 @@ content:
   verify_checksum: Verify checksum instructions
   pgp_signature: PGP signature
   sha_256_checksum: SHA256 checksum
-  warning: "Daedalus is available only as a PC (Microsoft Windows/Linux) and Apple Mac application, there is no mobile (Android/iOS) version of Daedalus."
+  warning:
+    'Daedalus is available only as a PC (Microsoft Windows/Linux) and Apple Mac
+    application, there is no mobile (Android/iOS) version of Daedalus.'
   os:
     windows: Windows 8.1 and 10, 64 bit
     darwin: macOS 64 bit
@@ -38,7 +45,7 @@ content:
     linux:
       aimed_at: Aimed at all Linux distributions
       tested_against:
-        label: "Linux OS Tested against"
+        label: 'Linux OS Tested against'
         linuxa: Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
         linuxb: Fedora 28
         linuxc: Aimed at all Linux distributions
@@ -47,5 +54,5 @@ content:
     item1: 64-bit dual core processors
     item2: 8 GB of RAM
     item3: 15 GB of free drive space
-    item4: Broadband Internet connection 
+    item4: Broadband Internet connection
 ---

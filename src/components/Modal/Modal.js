@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import styled, { keyframes } from 'styled-components'
 import { IoMdClose } from 'react-icons/io'
-import { getBody, getScrollOffset, scrollTo, addEventListener, removeEventListener } from '../../helpers/dom'
+import {
+  getBody,
+  getScrollOffset,
+  scrollTo,
+  addEventListener,
+  removeEventListener,
+} from '../../helpers/dom'
 import { getHashParam, setHashParam } from '../../helpers/url'
 import { modalView } from '../../helpers/analytics'
 import { Link } from '@input-output-hk/front-end-core-components'
@@ -51,9 +57,9 @@ const ModalContainer = styled.div`
     border: 0 solid ${({ theme }) => theme.palette.primary.main};
     border-top-width: 1.5rem;
     border-bottom-width: 1.5rem;
-    @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
-        border-top-width: 0.5rem;
-        border-bottom-width: 0.5rem;
+    @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+      border-top-width: 0.5rem;
+      border-bottom-width: 0.5rem;
     }
 
     .modal-content-inner-wrapper {
@@ -65,7 +71,7 @@ const ModalContainer = styled.div`
       border: 0 solid ${({ theme }) => theme.palette.primary.main};
       border-left-width: 1.5rem;
       border-right-width: 1.5rem;
-      @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
         border-left-width: 0.5rem;
         border-right-width: 0.5rem;
       }
@@ -76,13 +82,14 @@ const ModalContainer = styled.div`
     transition: opacity 500ms ease-in-out;
     opacity: 1;
     height: 100%;
-    ul, ol {
+    ul,
+    ol {
       list-style-position: outside;
     }
     ol {
       li {
         p {
-          display:inline-block;
+          display: inline-block;
         }
       }
     }
@@ -122,7 +129,7 @@ const CloseContainer = styled.div`
   z-index: 1;
   width: 15rem;
   height: 15rem;
-  @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
     width: 8rem;
     height: 9rem;
   }
@@ -137,8 +144,8 @@ const CloseContainer = styled.div`
     top: 50%;
     font-size: 4rem;
     transform: translate(-100%, -10%);
-    @media (max-width:${({ theme }) => theme.breakpoints.values.sm}px) {
-      font-size:3rem;
+    @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+      font-size: 3rem;
       top: 60%;
     }
   }
@@ -149,12 +156,16 @@ export default class Modal extends Component {
     children: PropTypes.node.isRequired,
     id: PropTypes.string.isRequired,
     // Modal name for tracking
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.state = { renderModal: false, scrollPosition: getScrollOffset(), isVisible: getHashParam('modal') === props.name }
+    this.state = {
+      renderModal: false,
+      scrollPosition: getScrollOffset(),
+      isVisible: getHashParam('modal') === props.name,
+    }
   }
 
   handleClose = (e) => {
@@ -162,77 +173,83 @@ export default class Modal extends Component {
     setHashParam('modal', '')
   }
 
-  renderCloseComponent () {
+  renderCloseComponent() {
     return (
       <CloseContainer>
-        <Link href='#' onClick={this.handleClose} tracking={{ label: `modal_close_${this.props.name}` }}>
+        <Link
+          href="#"
+          onClick={this.handleClose}
+          tracking={{ label: `modal_close_${this.props.name}` }}
+        >
           <IoMdClose />
         </Link>
       </CloseContainer>
     )
   }
 
-  trackView () {
+  trackView() {
     modalView(this.props.name)
   }
 
   onHashChange = () => {
-    if (getHashParam('modal') === this.props.name && !this.state.isVisible) this.setState({ isVisible: true })
-    if (getHashParam('modal') !== this.props.name && this.state.isVisible) this.setState({ isVisible: false })
+    if (getHashParam('modal') === this.props.name && !this.state.isVisible)
+      this.setState({ isVisible: true })
+    if (getHashParam('modal') !== this.props.name && this.state.isVisible)
+      this.setState({ isVisible: false })
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.setState({ renderModal: true })
     this.addEventListeners()
     if (this.state.isVisible) this.trackView()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.removeEventListeners()
   }
 
   onScroll = () => {
-    if (!this.state.isVisible) this.setState({ scrollPosition: getScrollOffset() })
+    if (!this.state.isVisible)
+      this.setState({ scrollPosition: getScrollOffset() })
     if (this.state.isVisible) scrollTo(this.state.scrollPosition)
   }
 
-  addEventListeners () {
+  addEventListeners() {
     addEventListener('hashchange', this.onHashChange)
     addEventListener('touchmove', this.onScroll)
     addEventListener('scroll', this.onScroll)
   }
 
-  removeEventListeners () {
+  removeEventListeners() {
     removeEventListener('hashchange', this.onHashChange)
     removeEventListener('touchmove', this.onScroll)
     removeEventListener('scroll', this.onScroll)
   }
 
-  componentDidUpdate (_, prevState) {
+  componentDidUpdate(_, prevState) {
     if (this.state.isVisible && !prevState.isVisible) this.trackView()
   }
 
-  render () {
+  render() {
     if (!this.state.renderModal) return null
-    return createPortal((
+    return createPortal(
       <ModalContainer id={this.props.id}>
         <ReactCSSTransitionGroup
-          transitionName='cardano-modal'
+          transitionName="cardano-modal"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={1000}
         >
-          {this.state.isVisible &&
-            <div className='modal-content-wrapper' key='modal-content-wrapper'>
-              <div className='modal-content-inner-wrapper'>
+          {this.state.isVisible && (
+            <div className="modal-content-wrapper" key="modal-content-wrapper">
+              <div className="modal-content-inner-wrapper">
                 {this.renderCloseComponent()}
-                <div className='modal-content'>
-                  {this.props.children}
-                </div>
+                <div className="modal-content">{this.props.children}</div>
               </div>
             </div>
-          }
+          )}
         </ReactCSSTransitionGroup>
-      </ModalContainer>
-    ), getBody())
+      </ModalContainer>,
+      getBody(),
+    )
   }
 }

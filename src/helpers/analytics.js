@@ -6,7 +6,7 @@ import { getHashParam, getHostname } from './url'
 const options = {
   debug: process.env.NODE_ENV !== 'production',
   titleCase: false,
-  gaOptions: { cookieDomain: getHostname(), cookieName: 'gaDaedalus' }
+  gaOptions: { cookieDomain: getHostname(), cookieName: 'gaDaedalus' },
 }
 
 ReactGA.initialize(config.ga.trackingID, options)
@@ -22,8 +22,8 @@ export const pageView = (path) => {
   } catch (error) {
     console.error({
       description: 'Failed to track page view',
-      args: [ path ],
-      error
+      args: [path],
+      error,
     })
   }
 }
@@ -39,8 +39,8 @@ export const modalView = (name) => {
   } catch (error) {
     console.error({
       description: 'Failed to track modal view',
-      args: [ name ],
-      error
+      args: [name],
+      error,
     })
   }
 }
@@ -59,8 +59,8 @@ export const capture = ({ category, action, label, value }) => {
   } catch (error) {
     console.error({
       description: 'Failed to track capture',
-      args: [ { category, action, label, value } ],
-      error
+      args: [{ category, action, label, value }],
+      error,
     })
   }
 }
@@ -72,7 +72,7 @@ const getRelativeCoordinates = (event) => {
   return {
     x: (event.pageX / documentWidth).toFixed(2),
     y: (event.pageY / documentHeight).toFixed(2),
-    modal: getHashParam('modal')
+    modal: getHashParam('modal'),
   }
 }
 
@@ -88,13 +88,18 @@ export const click = ({ category, label, event }) => {
     capture({ category, label, action: 'click' })
     if (event) {
       const relativeCoordinates = getRelativeCoordinates(event)
-      if (relativeCoordinates) capture({ category, label: JSON.stringify(relativeCoordinates), action: 'click_coordinates' })
+      if (relativeCoordinates)
+        capture({
+          category,
+          label: JSON.stringify(relativeCoordinates),
+          action: 'click_coordinates',
+        })
     }
   } catch (error) {
     console.error({
       description: 'Failed to track click',
-      args: [ { category, label } ],
-      error
+      args: [{ category, label }],
+      error,
     })
   }
 }
@@ -113,8 +118,8 @@ export const autoCapture = ({ category, action, label, value }) => {
   } catch (error) {
     console.error({
       description: 'Failed to track auto capture',
-      args: [ { category, action, label, value } ],
-      error
+      args: [{ category, action, label, value }],
+      error,
     })
   }
 }
@@ -133,8 +138,8 @@ export const timing = ({ category, label, value, variable }) => {
   } catch (error) {
     console.error({
       description: 'Failed to track timing',
-      args: [ { category, label, value, variable } ],
-      error
+      args: [{ category, label, value, variable }],
+      error,
     })
   }
 }
@@ -151,6 +156,10 @@ export const exception = ({ description, fatal, args, error }) => {
   try {
     ReactGA.exception({ description, fatal })
   } catch (err) {
-    console.error('failed to track exception', [ { description, fatal, args, error } ], err)
+    console.error(
+      'failed to track exception',
+      [{ description, fatal, args, error }],
+      err,
+    )
   }
 }

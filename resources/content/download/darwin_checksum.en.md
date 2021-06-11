@@ -1,6 +1,7 @@
 ---
 title: MacOS checksum verification instructions
 ---
+
 <p>
   SHA256 checksum can be verified using the following command:
 </p>

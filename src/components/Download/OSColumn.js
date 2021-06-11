@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 
   Button {
-    cursor:pointer;
+    cursor: pointer;
   }
 
   a {
@@ -32,10 +32,10 @@ const Container = styled.div`
       color: ${({ theme }) => theme.palette.primary.contrastText};
     }
     &.secondaryBtn {
-      font-weight:300;
+      font-weight: 300;
       &:hover {
         color: ${({ theme }) => theme.palette.secondary.contrastText};
-      } 
+      }
     }
   }
 
@@ -120,7 +120,7 @@ const ModalBody = styled.div`
 const TextArea = styled.textarea`
   font-size: 1.6rem;
   line-height: 1.6;
-  font-weight:300;
+  font-weight: 300;
   background-color: ${({ theme }) => theme.palette.secondary.main};
   color: ${({ theme }) => theme.palette.secondary.contrastText};
   border: none;
@@ -146,7 +146,8 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
   const checksumTextAreaRef = createRef()
   const pgpName = osData.binary.split('/').pop()
   const getPGPFilename = () => `${pgpName}.asc`
-  const getPGPBlog = () => window.Blob && new window.Blob([ osData.signature ], { type: 'text/txt' })
+  const getPGPBlog = () =>
+    window.Blob && new window.Blob([osData.signature], { type: 'text/txt' })
   const getPGPSignatureHref = () => {
     const blob = getPGPBlog()
     return blob ? URL.createObjectURL(blob) : '#'
@@ -156,11 +157,12 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
     analytics.click({
       category: analytics.constants.EXTERNAL_LINK,
       label: getTrackingLabel(`download_pgp_${os}`),
-      event: e
+      event: e,
     })
 
     if (window.navigator.msSaveBlob || e.target.href === '#') e.preventDefault()
-    if (window.navigator.msSaveBlob) window.navigator.msSaveBlob(getPGPBlog(), getPGPFilename())
+    if (window.navigator.msSaveBlob)
+      window.navigator.msSaveBlob(getPGPBlog(), getPGPFilename())
   }
 
   const copyChecksumToClipboard = (e) => {
@@ -169,39 +171,45 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
     window.document && window.document.execCommand('copy')
   }
 
-  const getTrackingLabel = label => `${(walletType === 'normal') ? '' : walletType + '_'}${label}_${osData.version}`
+  const getTrackingLabel = (label) =>
+    `${walletType === 'normal' ? '' : walletType + '_'}${label}_${
+      osData.version
+    }`
 
   const titleArray = {
     normal: common.frontmatter.content.cta_string,
     flight: common.frontmatter.content.flight_cta_string,
-    catalyst: common.frontmatter.content.catalyst_cta_string
+    catalyst: common.frontmatter.content.catalyst_cta_string,
   }
 
   const buttonTitle = titleArray[walletType]
 
   const unCacheURL = (url) => {
-    return url + '?t=' + (new Date().getTime())
+    return url + '?t=' + new Date().getTime()
   }
 
-  const trackDownload = (os) => (event) => analytics.click({
-    category: analytics.constants.EXTERNAL_LINK,
-    label: getTrackingLabel(`download_cta_${osData.key}`),
-    event
-  })
+  const trackDownload = (os) => (event) =>
+    analytics.click({
+      category: analytics.constants.EXTERNAL_LINK,
+      label: getTrackingLabel(`download_cta_${osData.key}`),
+      event,
+    })
 
   return (
     <Container id={`browser-testing-download-${osData.key}-component`}>
       <Image src={osData.image} alt={osData.os} />
       <Title>{osData.os}</Title>
-      <Version id={`browser-testing-download-${osData.key}-version`}>{common.frontmatter.content.version_string}: {osData.version}</Version>
+      <Version id={`browser-testing-download-${osData.key}-version`}>
+        {common.frontmatter.content.version_string}: {osData.version}
+      </Version>
       <Button
-        color='primary'
-        size='large'
-        variant='contained'
+        color="primary"
+        size="large"
+        variant="contained"
         href={unCacheURL(osData.binary) || ''}
         id={`browser-testing-download-${osData.key}-cta`}
         onClick={trackDownload(osData.key)}
-        className={(walletType === 'normal') ? '' : 'beta-btn'}
+        className={walletType === 'normal' ? '' : 'beta-btn'}
       >
         {buttonTitle}
       </Button>
@@ -209,21 +217,21 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
         {common.frontmatter.content.pgp_signature}
       </PGPSignatureTitle>
       <Button
-        color='secondary'
-        size='small'
-        variant='contained'
+        color="secondary"
+        size="small"
+        variant="contained"
         href={getPGPSignatureHref()}
         onClick={onDownloadPGPSignature(osData.key)}
         download={getPGPFilename()}
         id={`browser-testing-download-${osData.key}-pgp-signature`}
-        className='secondaryBtn'
+        className="secondaryBtn"
       >
         {common.frontmatter.content.pgp_download}
       </Button>
       <ModalTrigger
         id={`browser-testing-download-${osData.key}-open-pgp-instructions`}
         name={`download_pgp_instructions_${osData.key}`}
-        className='pgp-signature-verify'
+        className="pgp-signature-verify"
       >
         ({common.frontmatter.content.verify_signature})
       </ModalTrigger>
@@ -232,31 +240,25 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
         name={`download_pgp_instructions_${osData.key}`}
       >
         <ModalContent>
-          <ModalTitle>
-            {signature.frontmatter.title}
-          </ModalTitle>
+          <ModalTitle>{signature.frontmatter.title}</ModalTitle>
           <ModalBodyWrapper>
-            <ModalBody
-              dangerouslySetInnerHTML={{ __html: signature.html }}
-            />
+            <ModalBody dangerouslySetInnerHTML={{ __html: signature.html }} />
           </ModalBodyWrapper>
         </ModalContent>
       </Modal>
-      <p>
-        {common.frontmatter.content.sha_256_checksum}
-      </p>
+      <p>{common.frontmatter.content.sha_256_checksum}</p>
       <ChecksumArea id={`browser-testing-download-${osData.key}-checksum`}>
         <TextArea
           ref={checksumTextAreaRef}
           value={osData.checksum}
           readonly
-          rows='3'
-          onChange={() => { }}
+          rows="3"
+          onChange={() => {}}
         />
         <Link
-          href='#'
+          href="#"
           onClick={copyChecksumToClipboard}
-          className='clipboard'
+          className="clipboard"
           tracking={{ label: getTrackingLabel(`copy_checksum_${osData.key}`) }}
         >
           <FiClipboard />
@@ -264,7 +266,7 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
       </ChecksumArea>
       <ModalTrigger
         id={`browser-testing-download-${osData.key}-open-checksum-instructions`}
-        className='checksum-instructions'
+        className="checksum-instructions"
         name={`download_checksum_instructions_${osData.key}`}
       >
         ({common.frontmatter.content.verify_checksum})
@@ -274,13 +276,9 @@ const OSColumn = ({ common, osData, checksum, signature, walletType }) => {
         name={`download_checksum_instructions_${osData.key}`}
       >
         <ModalContent>
-          <ModalTitle>
-            {checksum.frontmatter.title}
-          </ModalTitle>
+          <ModalTitle>{checksum.frontmatter.title}</ModalTitle>
           <ModalBodyWrapper>
-            <ModalBody
-              dangerouslySetInnerHTML={{ __html: checksum.html }}
-            />
+            <ModalBody dangerouslySetInnerHTML={{ __html: checksum.html }} />
           </ModalBodyWrapper>
         </ModalContent>
       </Modal>
@@ -303,9 +301,9 @@ OSColumn.propTypes = {
         verify_signature: PropTypes.string.isRequired,
         verify_checksum: PropTypes.string.isRequired,
         pgp_signature: PropTypes.string.isRequired,
-        sha_256_checksum: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
+        sha_256_checksum: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   }).isRequired,
   osData: PropTypes.shape({
     image: PropTypes.string.isRequired,
@@ -315,20 +313,20 @@ OSColumn.propTypes = {
     hash: PropTypes.string.isRequired,
     signature: PropTypes.string.isRequired,
     os: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired
+    key: PropTypes.string.isRequired,
   }).isRequired,
   checksum: PropTypes.shape({
     html: PropTypes.string.isRequired,
     frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired
-    })
+      title: PropTypes.string.isRequired,
+    }),
   }).isRequired,
   signature: PropTypes.shape({
     html: PropTypes.string.isRequired,
     frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired
-    })
-  }).isRequired
+      title: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 }
 
 export default OSColumn

@@ -1,9 +1,13 @@
 const packageConfig = require('../package.json')
 
-function mergeConfig (base, custom) {
+function mergeConfig(base, custom) {
   const config = {}
-  Object.keys(base).forEach(key => {
-    if (typeof base[key] === 'object' && base[key] !== null && !Array.isArray(base[key])) {
+  Object.keys(base).forEach((key) => {
+    if (
+      typeof base[key] === 'object' &&
+      base[key] !== null &&
+      !Array.isArray(base[key])
+    ) {
       config[key] = mergeConfig(base[key], custom[key] || {})
     } else {
       if (typeof custom[key] === 'undefined') {
@@ -17,24 +21,24 @@ function mergeConfig (base, custom) {
   return config
 }
 
-function getConfig () {
+function getConfig() {
   const defaultConfig = {
     availableLanguages: [
       {
         key: 'en',
         label: 'English',
         flag: '🇺🇸',
-        locale: 'en_US'
+        locale: 'en_US',
       },
       {
         key: 'ja',
         label: '日本語',
         flag: '🇯🇵',
-        locale: 'ja_JP'
-      }
+        locale: 'ja_JP',
+      },
     ],
     alternativeLanguages: [],
-    themes: [ 'cardano' ],
+    themes: ['cardano'],
     ga: { trackingID: null },
     localization: {
       createLocalizedPages: true,
@@ -42,9 +46,9 @@ function getConfig () {
       createDefaultPages: true,
       useURL: true,
       useNavigator: true,
-      persistLang: true
+      persistLang: true,
     },
-    routes: []
+    routes: [],
   }
 
   const customConfig = packageConfig['gatsby-iohk-default-starter'] || {}

@@ -16,5 +16,7 @@ export const supportsWebGL = () => {
   return !!getGLContext()
 }
 
-const getSupportedWebGLExtensions = () => supportsWebGL() ? getGLContext().getSupportedExtensions() : []
-export const webGLSupportsExtension = (extension) => getSupportedWebGLExtensions().includes(extension)
+const getSupportedWebGLExtensions = () =>
+  supportsWebGL() ? getGLContext().getSupportedExtensions() : []
+export const webGLSupportsExtension = (extension) =>
+  getSupportedWebGLExtensions().includes(extension)

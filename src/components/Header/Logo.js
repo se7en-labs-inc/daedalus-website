@@ -23,9 +23,14 @@ const LogoText = styled.p`
 `
 
 const Logo = () => (
-  <Container className='logo-container' id='browser-testing-header-logo-component'>
-    <LogoImage src={DaedalusLogo} alt='Daedalus logo' />
-    <LogoText className='logo-text'>Daedalus <span>Wallet</span></LogoText>
+  <Container
+    className="logo-container"
+    id="browser-testing-header-logo-component"
+  >
+    <LogoImage src={DaedalusLogo} alt="Daedalus logo" />
+    <LogoText className="logo-text">
+      Daedalus <span>Wallet</span>
+    </LogoText>
   </Container>
 )
 

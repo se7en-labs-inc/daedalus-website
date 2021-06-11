@@ -9,10 +9,10 @@ const GlobalContentQuery = ({ render }) => (
       <StaticQuery
         query={graphql`
           query {
-            allFile(filter:{relativePath:{glob:"content/global/*.md"}}) {
-              nodes{
-                relativePath,
-                childMarkdownRemark{
+            allFile(filter: { relativePath: { glob: "content/global/*.md" } }) {
+              nodes {
+                relativePath
+                childMarkdownRemark {
                   frontmatter {
                     content {
                       main_title
@@ -35,8 +35,14 @@ const GlobalContentQuery = ({ render }) => (
           }
         `}
         render={({ allFile }) => {
-          const content = allFile.nodes.filter(node => node.relativePath === `content/global/global-${lang}.md`).shift()
-          if (!content || !content.childMarkdownRemark) throw new Error(`No global translations found for language ${lang}`)
+          const content = allFile.nodes
+            .filter(
+              (node) =>
+                node.relativePath === `content/global/global-${lang}.md`,
+            )
+            .shift()
+          if (!content || !content.childMarkdownRemark)
+            throw new Error(`No global translations found for language ${lang}`)
           return render(content.childMarkdownRemark.frontmatter.content)
         }}
       />
@@ -45,7 +51,7 @@ const GlobalContentQuery = ({ render }) => (
 )
 
 GlobalContentQuery.propTypes = {
-  render: PropTypes.func.isRequired
+  render: PropTypes.func.isRequired,
 }
 
 export default GlobalContentQuery

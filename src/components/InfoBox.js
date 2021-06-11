@@ -27,15 +27,13 @@ const InfoBox = ({ title, children }) => (
   <Container>
     <Triangle />
     <h3>{title}</h3>
-    <div>
-      {children}
-    </div>
+    <div>{children}</div>
   </Container>
 )
 
 InfoBox.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 }
 
 export default InfoBox

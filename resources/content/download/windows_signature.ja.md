@@ -23,6 +23,7 @@ title: Windows PGP signature verification instructions
    - File -&gt; Lookup on Server
    - プロンプトが表示された場合は、'dirmngr'へのネットワークアクセスを許可します
    - signing.authority@iohk.io を検索します
+   - 鍵が見つからない場合は、hkp://Keys.Openpgp.org（または使用している他のPGP鍵サーバー）がKleopatraのデフォルト鍵サーバーに指定されているか確認してください。
    - 鍵をインポートします
    - 鍵の認証はまだしないでください
    - 鍵を右クリックして、"Details"を選択します

@@ -48,7 +48,7 @@ content:
   recommended_hardware:
     heading: 推奨する最低ハードウェア要件
     item1: 64ビットデュアルコアプロセッサ
-    item2: 8GBのRAM
-    item3: 15GBの空きディスク容量
+    item2: 16GBのRAM
+    item3: 25GBの空きディスク容量
     item4: ブロードバンドインターネット接続
 ---

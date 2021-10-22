@@ -52,7 +52,7 @@ content:
   recommended_hardware:
     heading: Recommended hardware requirements
     item1: 64-bit dual core processors
-    item2: 8 GB of RAM
-    item3: 15 GB of free drive space
+    item2: 16 GB of RAM
+    item3: 25 GB of free drive space
     item4: Broadband Internet connection
 ---

@@ -154,6 +154,7 @@ const ImageContainer = styled.div`
 const MemberTitle = styled.h3`
   margin-top: 0;
   margin-bottom: 0;
+  color: rgb(44, 187, 105);
 `
 
 const JobTitle = styled.p`
@@ -223,15 +224,24 @@ const Member = ({
     >
       <ProfileImage>
         <ImageContainer>
-          <Link href={`https://iohk.io/team/${iohkProfile}/`}>
+          {!iohkProfile ? (
             <img src={imagePath} alt={member} />
-          </Link>
+          ) : (
+            <Link href={`https://iohk.io/team/${iohkProfile}/`}>
+              <img src={imagePath} alt={member} />
+            </Link>
+          )}
         </ImageContainer>
       </ProfileImage>
       <Profile>
-        <Link href={`https://iohk.io/team/${iohkProfile}/`}>
+        {!iohkProfile ? (
           <MemberTitle>{member}</MemberTitle>
-        </Link>
+        ) : (
+          <Link href={`https://iohk.io/team/${iohkProfile}/`}>
+            <MemberTitle>{member}</MemberTitle>
+          </Link>
+        )}
+
         <JobTitle>
           {jobTitle}
           {twitter && (

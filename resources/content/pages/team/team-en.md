@@ -195,7 +195,7 @@ content:
       iohkProfile:
       location: United Kingdom
       jobTitle: Software Test Engineer
-      imagePath: /images/uploads/renan.png
+      imagePath: /images/uploads/mior.jpeg
       description:
         Mior Sufian has a Masters degree in Bioinformatics from Sheffield Hallam
         University, United Kingdom. He joined IOHK in 2020. He has been working

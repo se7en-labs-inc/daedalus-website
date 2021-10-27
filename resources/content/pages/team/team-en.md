@@ -188,4 +188,19 @@ content:
       description:
         Software Engineer focused on front end development using ReactJS. Making
         indie game is my favorite hobby.
+    - member: Mior Sufian
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Software Test Engineer
+      imagePath: /images/uploads/renan.png
+      description:
+        Mior Sufian has a Masters degree in Bioinformatics from Sheffield Hallam
+        University, United Kingdom. He joined IOHK in 2020. He has been working
+        as a Test Engineer for more than 8 years in various industries from
+        gaming to finance. He believes in life long learning and is constantly
+        upgrading his knowledge with latest technologies. During his spare time
+        he enjoys cooking, reading and trading derivatives in the stock market.
 ---

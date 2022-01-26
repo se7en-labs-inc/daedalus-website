@@ -22,7 +22,8 @@ title: Linux PGP signature verification instructions
 
 - Import the IOHK key:
 
-  - <code>gpg2 --keyserver hkp://Keys.Openpgp.org --search-keys  signing.authority@iohk.io</code>
+  - <code>gpg2 --keyserver hkp://keyserver.ubuntu.com/ --search-keys
+    signing.authority@iohk.io</code>
   - In the selection dialogue, choose the key with fingerprint 966E5CB9CBFAA9BA
 
 - Sign the IOHK key (this designates trust and is required for the next step):

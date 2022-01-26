@@ -37,7 +37,7 @@ title: Linux PGP署名検証手順
     <ul>
       <li>
         <code>
-          gpg2 --keyserver hkp://Keys.Openpgp.org --search-keys  signing.authority@iohk.io
+          gpg2 --keyserver hkp://keyserver.ubuntu.com/ --search-keys  signing.authority@iohk.io
         </code>
       </li>
       <li>

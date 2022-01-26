@@ -23,7 +23,9 @@ title: Windows PGP signature verification instructions
    - File -&gt; Lookup on Server
    - Allow network access to 'dirmngr', if the prompt arises
    - Search for signing.authority@iohk.io
-   - If you cannot find the key, please make sure hkp://Keys.Openpgp.org (or any other maintained PGP key server of your choice) is used as Kleopatra's default key server.
+   - If you cannot find the key, please make sure hkp://keyserver.ubuntu.com/
+     (or any other maintained PGP key server of your choice) is used as
+     Kleopatra's default key server.
    - Import the key
    - Do not certify the key just yet
    - Right-click on the key, and choose "Details"

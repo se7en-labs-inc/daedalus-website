@@ -2,6 +2,10 @@ import React, { useState, useEffect, createRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from '@input-output-hk/front-end-core-components'
+import {
+  get as getDaedalusData,
+  getCached as getCachedDaedalusData,
+} from '../../connectors/daedalusData'
 
 const Container = styled.div`
   width: 100%;
@@ -101,6 +105,19 @@ const Nav = styled.nav`
   }
 `
 
+const NewFlightLabel = styled.label`
+  position: relative;
+  bottom: 0.5rem; 
+  left: 0.2rem;
+  font-size: 70%;
+  color: #EE4B2B;
+  font-weight: bold;
+  
+  ${({ showing }) => !showing && `
+    display: none
+  `}
+`
+
 const DesktopNavigation = ({ navigation }) => {
   const dropdownRef = createRef()
   const [dropdownVisible, setDropdownVisible] = useState(false)
@@ -124,6 +141,45 @@ const DesktopNavigation = ({ navigation }) => {
       global.document.removeEventListener('click', documentClickHandler)
     }
   }, [dropdownVisible])
+
+  const [daedalusDownloadData, setDaedalusDownloadData] = useState(
+    getCachedDaedalusData('normal'),
+  )
+  const [daedalusFlightData, setDaedalusFlightData] = useState(
+    getCachedDaedalusData('flight'),
+  )
+  const [error, setError] = useState(null)
+  useEffect(() => {
+    const loadDownloadData = async () => {
+      const [data, error] = await getDaedalusData('normal')
+      if (error && !data) return setError(error)
+      setDaedalusDownloadData(data)
+    }
+
+    const loadFlightData = async () => {
+      const [data, error] = await getDaedalusData('flight')
+      if (error && !data) return setError(error)
+      setDaedalusFlightData(data)
+    }
+
+    loadDownloadData()
+    loadFlightData()
+  }, [])
+
+  if (error) { console.log(error) }
+
+  if (!daedalusDownloadData || !daedalusFlightData) return null
+
+  const shouldShowLabel = () => {
+    if (daedalusDownloadData.platforms.windows.version === daedalusFlightData.platforms.windows.version.slice(0, -4) &&
+      daedalusDownloadData.platforms.darwin.version === daedalusFlightData.platforms.darwin.version.slice(0, -4) &&
+      daedalusDownloadData.platforms.linux.version === daedalusFlightData.platforms.linux.version.slice(0, -4)
+    ) {
+      return false
+    } else {
+      return true
+    }
+  }
 
   return (
     <Container>
@@ -170,6 +226,7 @@ const DesktopNavigation = ({ navigation }) => {
               >
                 {navigation.labels.flight}
               </Link>
+                <NewFlightLabel showing={shouldShowLabel()}>NEW</NewFlightLabel>
             </li>
           </ul>
           <div className="gradRight" />

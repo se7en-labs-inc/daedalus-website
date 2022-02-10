@@ -228,4 +228,30 @@ content:
         in web tech stacks. He loves to mentor teams at startups and help them achieve their best. 
         His passion is to continue increasing his understanding of the blockchain world and 
         contribute to its development.
+    - member: Marcin Mazurek
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Senior Full Stack Developer
+      imagePath: /images/uploads/marcin-mazurek.jpg
+      description:
+        Marcin is a passionate, self-taught programmer from Krakow, Poland who started coding when 
+        he was eleven. He loves crafting beautiful user interfaces with React, as well as building 
+        powerful back-end services with Node.js. Pragmatic - sometimes done is better than perfect. 
+        In his spare time, he enjoys cycling, traveling as well as building smart home systems.
+    - member: Szymon Masłowski
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Software Engineer
+      imagePath: /images/uploads/szymon-masłowski.png
+      description:
+        Szymon is a Software Engineer with a strong Javascript background and a passion for programming. 
+        He loves building frontends as much as backends and constantly evolves his skills and knowledge 
+        of Web development. Szymon is from Poland where he studied Information Technology at Cracow University 
+        of Technology. In his spare time he enjoys watching movies and drinking whiskey.
 ---

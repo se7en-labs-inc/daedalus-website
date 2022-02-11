@@ -3,26 +3,6 @@ title: en (English) team page content
 content:
   default_content: ''
   team:
-    - member: Nikola Glumac
-      twitter: NikolaGlumac
-      linkedin: nikolaglumac
-      github: nikolaglumac
-      iohkProfile: nikola-glumac
-      location: Croatia
-      jobTitle: Software Development Manager
-      imagePath: /images/uploads/nikola-glumac.png
-      description:
-        Nikola Glumac has been working with web technologies since 2007. He
-        discovered his love for web development during his studies at Faculty of
-        Mechanical Engineering at University of Zagreb, Croatia, where he earned
-        his Master of Engineering degree in Mechatronics and Robotics. As a part
-        of his master’s degree thesis he developed a Javascript WebGL-based web
-        application for marking and analyzing medieval books and manuscripts.
-        This application was used as a primary research tool by a PhD candidate
-        for her thesis at Faculty of Humanities and Social Sciences at
-        University of Zagreb. Today his main focus lies on latest web
-        technologies and Javascript frameworks, and development of responsive
-        and reactive cross-platform applications.
     - member: Dominik Guzei
       twitter: ''
       linkedin: dominik-guzei-774a381a
@@ -60,17 +40,13 @@ content:
       github: daniloprates
       iohkProfile: danilo-prates
       location: Brazil
-      jobTitle: Front-End Developer
+      jobTitle: Product Owner
       imagePath: /images/uploads/danilo-prates.png
       description:
-        Danilo Prates is a front-end developer from Brazil, who has worked for
-        nine years at large companies in the UK, US, and Brazil, including on
-        award-winning projects. He originally graduated with a bachelor’s degree
-        in advertising from Faculdade Cásper Líbero and worked as a web
-        designer. But it was in coding that he was able to fulfill his passion
-        for creating great user interfaces, and, ultimately, the best user
-        experiences. He joined IOHK in 2018. Danilo is currently focused on the
-        React operating system and the latest web technologies.
+        Danilo Prates worked for nine years at tech companies in the UK, US, and Brazil, 
+        before joining IOHK in 2018. In 2021 he moved from development into the 
+        Product Owner role. He has a background in User Experience and Marketing and 
+        holds a bachelor's degree in advertising.
     - member: Gabriela Ponce
       twitter:
       linkedin: gnpf
@@ -124,16 +100,16 @@ content:
       linkedin:
       github:
       iohkProfile: daniel-main
-      location: Germany
-      jobTitle: Software Engineer
-      imagePath: /images/uploads/daniel-main.png
+      location: Stuttgart - Germany
+      jobTitle: Software Engineer Manager
+      imagePath: /images/uploads/daniel-main.jpg
       description:
-        Daniel Main started coding right after getting his degree as a computer
-        science engineer in 2002. Mottos such as ‘Do one thing and do it well’
-        and ‘Less is more’ are etched into Daniel’s thinking as a software
-        engineer. He joined IOHK in 2021, having spent five years coding in
-        React and React Native. Daniel is qualified as a Solidity smart
-        contracts developer as well.
+        Daniel Main started coding right after getting his degree as a computer 
+        science engineer in 2002. Mottos such as ‘Do one thing and do it well’ 
+        and ‘Less is more’ are etched into Daniel’s thinking as a software 
+        engineer. He joined IOHK in 2021, having spent five years coding in 
+        React and React Native. Daniel is qualified as a Solidity smart 
+        contract developer as well.
     - member: Dmitrii Gaico
       twitter:
       linkedin:
@@ -203,4 +179,79 @@ content:
         gaming to finance. He believes in life long learning and is constantly
         upgrading his knowledge with latest technologies. During his spare time
         he enjoys cooking, reading and trading derivatives in the stock market.
+    - member: Marius Bock
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Project Manager
+      imagePath: /images/uploads/marius-bock.jpg
+      description:
+        Marius Bock is a technical project manager from Cape Town who joined IOHK in 2021. 
+        He started his career as a software developer solving mathematical problems using 
+        the APL programming language. Marius became a project manager to address the risks 
+        from the Year 2000 problem – the Millennium Bug – and has developed in the role 
+        since then. He has delivered financial and payments-based projects all around 
+        the world, including China, Ethiopia, South Africa, and most of Europe. Marius 
+        went down the cryptocurrency rabbit hole in 2015 and runs his own Bitcoin node. 
+        In his spare time, he plays golf or goes hiking in the mountains.
+    - member: Przemysław Włodek
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Senior Full Stack Developer
+      imagePath: /images/uploads/przemysław-włodek.jpg
+      description:
+        Przemysław Włodek started his IT career in 2014. He quickly fell in love with modern 
+        web technologies, community, and things that can be accomplished with it.
+        Holds a Bachelor of Engineering degree from the Cracow University of Technology.
+        As a part of his Bachelor’s degree thesis, he created his first Progressive Web Application 
+        before it became a mainstream practice. Przemysław is still primarily focused on web technologies 
+        and especially JavaScript (TypeScript) but is able to solve problems with different tools, 
+        programming languages, and patterns. He is always trying to keep a positive vibe within the team.
+    - member: Amit Sagar
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Front End Developer
+      imagePath: /images/uploads/amit-sagar.jpg
+      description:
+        Amit Sagar started his development career with a degree in Information Technology from the 
+        National Institute of Science and Technology (NIST), Berhampur. Hailing from India, he has 
+        worked on various domains, including Fintech and E-commerce, and loves to explore new 
+        technologies that solve real-time challenges. He is a blockchain enthusiast and well versed 
+        in web tech stacks. He loves to mentor teams at startups and help them achieve their best. 
+        His passion is to continue increasing his understanding of the blockchain world and 
+        contribute to its development.
+    - member: Marcin Mazurek
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Senior Full Stack Developer
+      imagePath: /images/uploads/marcin-mazurek.jpg
+      description:
+        Marcin is a passionate, self-taught programmer from Krakow, Poland who started coding when 
+        he was eleven. He loves crafting beautiful user interfaces with React, as well as building 
+        powerful back-end services with Node.js. Pragmatic - sometimes done is better than perfect. 
+        In his spare time, he enjoys cycling, traveling as well as building smart home systems.
+    - member: Szymon Masłowski
+      twitter:
+      linkedin:
+      github:
+      iohkProfile:
+      location: United Kingdom
+      jobTitle: Software Engineer
+      imagePath: /images/uploads/szymon-masłowski.png
+      description:
+        Szymon is a Software Engineer with a strong Javascript background and a passion for programming. 
+        He loves building frontends as much as backends and constantly evolves his skills and knowledge 
+        of Web development. Szymon is from Poland where he studied Information Technology at Cracow University 
+        of Technology. In his spare time he enjoys watching movies and drinking whiskey.
 ---

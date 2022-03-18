@@ -50,11 +50,11 @@ content:
     - member: Gabriela Ponce
       twitter:
       linkedin: gnpf
-      github: gnpf
+      github: gabriela-ponce 
       iohkProfile: gabriela-ponce
       location: Argentina
       jobTitle: Software Test Engineer
-      imagePath: /images/uploads/gabriela-ponce.png
+      imagePath: /images/uploads/gabriela-ponce.jpg
       description:
         Gabriela Ponce has worked as a software tester and quality assurance
         engineer on various projects since 2014. She is constantly looking for
@@ -127,20 +127,6 @@ content:
         prefers non-standard testing approaches to obtain a maximum quality
         level. In his spare time, Dmitrii enjoys video games and reading crypto
         news.
-    - member: Michael Chappell
-      twitter:
-      linkedin:
-      github:
-      iohkProfile:
-      location: United Kingdom
-      jobTitle: Software Engineer
-      imagePath: /images/uploads/machael.jpg
-      description:
-        Michael is an experienced full-stack JavaScript developer. He has spent
-        the last few years working as a full-stack senior developer working with
-        AWS cloud infrastructure, and either react, or react-native in
-        TypeScript for frontends, paired with appropriate unit/integration/e2e
-        testing.
     - member: Lucas Araujo
       twitter:
       linkedin:
@@ -184,7 +170,7 @@ content:
       linkedin:
       github:
       iohkProfile:
-      location: United Kingdom
+      location: South Africa
       jobTitle: Project Manager
       imagePath: /images/uploads/marius-bock.jpg
       description:
@@ -201,7 +187,7 @@ content:
       linkedin:
       github:
       iohkProfile:
-      location: United Kingdom
+      location: Poland
       jobTitle: Senior Full Stack Developer
       imagePath: /images/uploads/przemysław-włodek.jpg
       description:
@@ -212,28 +198,12 @@ content:
         before it became a mainstream practice. Przemysław is still primarily focused on web technologies 
         and especially JavaScript (TypeScript) but is able to solve problems with different tools, 
         programming languages, and patterns. He is always trying to keep a positive vibe within the team.
-    - member: Amit Sagar
-      twitter:
-      linkedin:
-      github:
-      iohkProfile:
-      location: United Kingdom
-      jobTitle: Front End Developer
-      imagePath: /images/uploads/amit-sagar.jpg
-      description:
-        Amit Sagar started his development career with a degree in Information Technology from the 
-        National Institute of Science and Technology (NIST), Berhampur. Hailing from India, he has 
-        worked on various domains, including Fintech and E-commerce, and loves to explore new 
-        technologies that solve real-time challenges. He is a blockchain enthusiast and well versed 
-        in web tech stacks. He loves to mentor teams at startups and help them achieve their best. 
-        His passion is to continue increasing his understanding of the blockchain world and 
-        contribute to its development.
     - member: Marcin Mazurek
       twitter:
       linkedin:
       github:
       iohkProfile:
-      location: United Kingdom
+      location: Poland
       jobTitle: Senior Full Stack Developer
       imagePath: /images/uploads/marcin-mazurek.jpg
       description:
@@ -246,7 +216,7 @@ content:
       linkedin:
       github:
       iohkProfile:
-      location: United Kingdom
+      location: Poland
       jobTitle: Software Engineer
       imagePath: /images/uploads/szymon-masłowski.png
       description:
@@ -254,4 +224,19 @@ content:
         He loves building frontends as much as backends and constantly evolves his skills and knowledge 
         of Web development. Szymon is from Poland where he studied Information Technology at Cracow University 
         of Technology. In his spare time he enjoys watching movies and drinking whiskey.
+    - member: Michal Rus
+      twitter:
+      linkedin:
+      github: michalrus
+      iohkProfile: michal-rus
+      location: Poland
+      jobTitle: Software Engineer
+      imagePath: /images/uploads/michal-rus.jpeg
+      description:
+        Michal has a master's degree in computer science from the AGH University of Science and Technology 
+        in Kraków. Having started coding at 12, his previous commercial experience includes working with Haskell, 
+        Scala, and Nix. Interested in music theory, he likes playing the piano, toying with mycology, plants, 
+        DIY, taking long walks, psychology, and cooking in his free time.
+
+        
 ---

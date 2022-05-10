@@ -40,19 +40,19 @@ content:
     url: https://iohk.zendesk.com/hc/en-us/sections/900000592286
   supported_platforms:
     heading: Operating Systems
-    mac: MacOS 10.13, MacOS 10.14, MacOS 10.15, MacOS 11.1, MacOS 11.2
-    win: Windows 8.1, Windows 10 (Only 64-bit Windows is supported)
+    mac: MacOS Big Sur, MacOS Monterey
+    win: Windows 11, Windows 10 (Only 64-bit Windows is supported)
     linux:
       aimed_at: Aimed at all Linux distributions
       tested_against:
         label: 'Linux OS Tested against'
-        linuxa: Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
-        linuxb: Fedora 28
-        linuxc: Aimed at all Linux distributions
+        linuxa: Debian-based
+        linuxb: Arch-based
+        linuxc: RPM-based
   recommended_hardware:
     heading: Recommended hardware requirements
     item1: 64-bit dual core processors
     item2: 16 GB of RAM
-    item3: 25 GB of free drive space
+    item3: 70 GB of free drive space
     item4: Broadband Internet connection
 ---

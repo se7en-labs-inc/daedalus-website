@@ -171,9 +171,9 @@ const DesktopNavigation = ({ navigation }) => {
   if (!daedalusDownloadData || !daedalusFlightData) return null
 
   const shouldShowLabel = () => {
-    if (daedalusDownloadData.platforms.windows.version === daedalusFlightData.platforms.windows.version.slice(0, -4) &&
-      daedalusDownloadData.platforms.darwin.version === daedalusFlightData.platforms.darwin.version.slice(0, -4) &&
-      daedalusDownloadData.platforms.linux.version === daedalusFlightData.platforms.linux.version.slice(0, -4)
+    if (daedalusDownloadData.platforms.windows.version === daedalusFlightData.platforms.windows.version &&
+      daedalusDownloadData.platforms.darwin.version === daedalusFlightData.platforms.darwin.version &&
+      daedalusDownloadData.platforms.linux.version === daedalusFlightData.platforms.linux.version
     ) {
       return false
     } else {
@@ -216,6 +216,7 @@ const DesktopNavigation = ({ navigation }) => {
               >
                 {navigation.labels.download}
               </Link>
+              <NewFlightLabel showing={!shouldShowLabel()}>NEW</NewFlightLabel>
             </li>
             <li>
               <Link

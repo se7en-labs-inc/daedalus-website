@@ -191,17 +191,6 @@ const MobileNavigation = ({ navigation }) => {
                     {navigation.labels.download}
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/flight/"
-                    onClick={closeNav}
-                    activeClassName="active"
-                    id="browser-testing-navigation-link-flight"
-                    tracking={{ label: 'mobile_navigation_flight' }}
-                  >
-                    {navigation.labels.flight}
-                  </Link>
-                </li>
               </ul>
             </Nav>
           )}

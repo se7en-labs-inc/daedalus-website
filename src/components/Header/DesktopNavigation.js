@@ -107,13 +107,15 @@ const Nav = styled.nav`
 
 const NewFlightLabel = styled.label`
   position: relative;
-  bottom: 0.5rem; 
+  bottom: 0.5rem;
   left: 0.2rem;
   font-size: 70%;
-  color: #EE4B2B;
+  color: #ee4b2b;
   font-weight: bold;
-  
-  ${({ showing }) => !showing && `
+
+  ${({ showing }) =>
+    !showing &&
+    `
     display: none
   `}
 `
@@ -166,14 +168,20 @@ const DesktopNavigation = ({ navigation }) => {
     loadFlightData()
   }, [])
 
-  if (error) { console.log(error) }
+  if (error) {
+    console.log(error)
+  }
 
   if (!daedalusDownloadData || !daedalusFlightData) return null
 
   const shouldShowLabel = () => {
-    if (daedalusDownloadData.platforms.windows.version === daedalusFlightData.platforms.windows.version &&
-      daedalusDownloadData.platforms.darwin.version === daedalusFlightData.platforms.darwin.version &&
-      daedalusDownloadData.platforms.linux.version === daedalusFlightData.platforms.linux.version
+    if (
+      daedalusDownloadData.platforms.windows.version ===
+        daedalusFlightData.platforms.windows.version &&
+      daedalusDownloadData.platforms.darwin.version ===
+        daedalusFlightData.platforms.darwin.version &&
+      daedalusDownloadData.platforms.linux.version ===
+        daedalusFlightData.platforms.linux.version
     ) {
       return false
     } else {
@@ -217,17 +225,6 @@ const DesktopNavigation = ({ navigation }) => {
                 {navigation.labels.download}
               </Link>
               <NewFlightLabel showing={!shouldShowLabel()}>NEW</NewFlightLabel>
-            </li>
-            <li>
-              <Link
-                href="/flight/"
-                activeClassName="active"
-                id="browser-testing-navigation-link-flight"
-                tracking={{ label: 'desktop_navigation_flight' }}
-              >
-                {navigation.labels.flight}
-              </Link>
-                <NewFlightLabel showing={shouldShowLabel()}>NEW</NewFlightLabel>
             </li>
           </ul>
           <div className="gradRight" />

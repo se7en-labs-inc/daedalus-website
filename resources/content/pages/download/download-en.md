@@ -26,7 +26,7 @@ content:
     'Daedalus is available only as a PC (Microsoft Windows/Linux) and Apple Mac
     application, there is no mobile (Android/iOS) version of Daedalus.'
   os:
-    windows: Windows 8.1 and 10, 64 bit
+    windows: Windows 11 and 10, 64 bit
     darwin: macOS 64 bit
     linux: Linux 64 bit
   release_notes:

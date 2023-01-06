@@ -2,6 +2,11 @@
 # client side route redirects are auto
 # generated.
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+
 [[redirects]]
   from = "/clock-sync/"
   to = "https://iohk.zendesk.com/hc/en-us/articles/360010230873"

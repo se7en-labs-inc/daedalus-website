@@ -12,6 +12,7 @@ import { navigate, Link as GatsbyLink } from 'gatsby'
 import config from './config'
 import { getThemes } from './themes'
 import Header from './components/Header'
+import GlobalStyles from './styles/global'
 
 // Default route uses SSR from "pages"
 const DefaultRoute = ({ element }) => element
@@ -138,6 +139,7 @@ const App = ({ element }) => {
                     <Language.Consumer>
                       {({ key: lang }) => (
                         <LinkProvider lang={lang} component={Link}>
+                          <GlobalStyles />
                           <Styles theme={originalTheme.config} />
                           <Header />
                           <Router>

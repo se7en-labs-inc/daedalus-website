@@ -29,7 +29,7 @@ title: Windows PGP signature verification instructions
    - Import the key
    - Do not certify the key just yet
    - Right-click on the key, and choose "Details"
-   - Ensure that the fingerprint is D32587D4090FE461CAEE0FF4966E5CB9CBFAA9BA
+   - Ensure that the fingerprint is 53D0FA8DA2B8D1FF4975AECBF99D6C70C2B3FB43
    - If it's not, the wrong key was imported, right click and delete
    - If it is, we are good to go
 
@@ -53,5 +53,5 @@ title: Windows PGP signature verification instructions
    box saying:
    - Valid signature by signing.authority@iohk.io
    - Date of signature
-   - With certificate D325 87D4 090F E461 CAEE 0FF4 966E 5CB9 CBFA A9BA
+   - With certificate 53D0 FA8D A2B8 D1FF 4975 AECB F99D 6C70 C2B3 FB43
    - Anything else would constitute a signature verification failure.

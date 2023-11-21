@@ -2,8 +2,7 @@
 
 Before running the site locally, to ensure that all dependencies can be
 retrieved, please ensure that you create a `.npmrc` file at the root of the
-project containing the following line:
-`@input-output-hk:registry=https://registry.npmjs.org`
+project containing the following line: `@input-output-hk:registry=https://registry.npmjs.org`
 
 Following this, just run an `npm install`
 

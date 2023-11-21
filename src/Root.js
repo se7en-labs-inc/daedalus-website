@@ -36,14 +36,12 @@ AdminRedirector.propTypes = {
 
 const Root = ({ element }) => (
   <Location>
-    <AnalyticsProvider>
-      {({ location }) => (
-        <Fragment>
-          <AdminRedirector hash={location.hash || ''} />
-          {element}
-        </Fragment>
-      )}
-    </AnalyticsProvider>
+    {({ location }) => (
+      <Fragment>
+        <AdminRedirector hash={location.hash || ''} />
+        <AnalyticsProvider>{element}</AnalyticsProvider>
+      </Fragment>
+    )}
   </Location>
 )
 

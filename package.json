@@ -24,7 +24,9 @@
     "react-ga": "^2.7.0",
     "react-markdown": "^4.3.1",
     "styled-components": "^5.0.1",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "dayjs": "^1.11.9",
+    "posthog-js": "^1.76.0"
   },
   "keywords": [
     "gatsby",

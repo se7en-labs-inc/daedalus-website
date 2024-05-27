@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 import { Location } from '@reach/router'
 import { analytics } from '@input-output-hk/front-end-core-libraries'
+import { AnalyticsProvider } from './analytics/AnalyticsContext'
 
 const AdminRedirector = ({ hash }) => {
   function adminRedirect() {
@@ -38,7 +39,7 @@ const Root = ({ element }) => (
     {({ location }) => (
       <Fragment>
         <AdminRedirector hash={location.hash || ''} />
-        {element}
+        <AnalyticsProvider>{element}</AnalyticsProvider>
       </Fragment>
     )}
   </Location>

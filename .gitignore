@@ -71,6 +71,7 @@ yarn.lock
 
 .vscode
 .idea
+.npmrc
 
 # Ignore the netlify.toml file as it is generated
 # incorporating client side routing redirects

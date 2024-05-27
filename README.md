@@ -1,3 +1,13 @@
+# Running https://daedaluswallet.io/ locally:
+
+Before running the site locally, to ensure that all dependencies can be
+retrieved, please ensure that you create a `.npmrc` file at the root of the
+project containing the following line: `@input-output-hk:registry=https://registry.npmjs.org`
+
+Following this, just run an `npm install`
+
+You can then run the site locally using the `npm run start` script
+
 # Daedalus Wallet
 
 The [Gatsby](https://www.gatsbyjs.org/) starter template used by

@@ -6,6 +6,19 @@ project containing the following line: `@input-output-hk:registry=https://regist
 
 Following this, just run an `npm install`
 
+<details><summary>Dependency installation issues?</summary>
+<p>
+Some dependencies are using old versions, and there may be issues running on Apple silicon.
+</p>
+<p>
+If there is a problem building <strong>sharp</strong>, you may need to manually install vips:
+
+```
+brew install vips
+```
+</p>
+</details> 
+
 You can then run the site locally using the `npm run start` script
 
 # Daedalus Wallet

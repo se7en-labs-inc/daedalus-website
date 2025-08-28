@@ -39,7 +39,7 @@ title: MacOS PGP署名検証手順
 	<li>&nbsp;インストーラのバイナリを検証：
 	<ul>
 	<li>ファインダーから ダイダロスインストーラ (.pkg ファイル) を右クリックし (.asc ファイルを右クリックしないでください。これは無効です。)、 Services -&gt; OpenPGP:ファイルの署名を検証　を選択します(.asc 署名ファイルが同じディレクトリにあるはずです)</li>
-	<li>[検証結果(Verification Results )] ダイアログが 赤色のカラム 結果の記述と共に表示されます：&nbsp;&nbsp;<br /><br />信頼できる署名<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />1429 962A 8C47 A3F9 24AE D49F D7B2 E172 D11C 4B3C<br />&nbsp; &nbsp; &nbsp;<br />これ以外の記述は、インストーラに対して有効な署名がされなかったことを意味します。</li>
+	<li>[検証結果(Verification Results )] ダイアログが 赤色のカラム 結果の記述と共に表示されます：&nbsp;&nbsp;<br /><br />信頼できる署名<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />CD1F 21F6 2477 EB42 D7C4 F3DE B3AD 9541 F4DB D0FE<br />&nbsp; &nbsp; &nbsp;<br />これ以外の記述は、インストーラに対して有効な署名がされなかったことを意味します。</li>
 	</ul>
 	</li>
 </ol>

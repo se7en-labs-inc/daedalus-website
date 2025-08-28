@@ -70,5 +70,13 @@ title: Linux PGP署名検証手順
   </li>
 </ol>
 <code>
-gpg: assuming signed data in daedalus-VERSION-cardano-sl-VERSION-mainnet-linux.bin.pkggpg: Signature made ...DATE...gpg: using RSA key 1429962A8C47A3F924AED49FD7B2E172D11C4B3Cgpg: checking the trustdbgpg: marginals needed: 3 completes needed: 1 trust model: pgpgpg: depth: 0 valid: 1 signed: 1 trust: 0-, 0q, 0n, 0m, 0f, 1ugpg: depth: 1 valid: 1 signed: 0 trust: 1-, 0q, 0n, 0m, 0f, 0ugpg: next trustdb check due at ...DATE...gpg: Good signature from IOHK Signing Authority <signing.authority@iohk.io>
+gpg: assuming signed data in daedalus-VERSION-cardano-sl-VERSION-mainnet-linux.bin.pkg
+gpg: Signature made ...DATE...
+gpg: using RSA key CD1F21F62477EB42D7C4F3DEB3AD9541F4DBD0FE
+gpg: checking the trustdb
+gpg: marginals needed: 3 completes needed: 1 trust model: pgp
+gpg: depth: 0 valid: 1 signed: 1 trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1 valid: 1 signed: 0 trust: 1-, 0q, 0n, 0m, 0f, 0u
+gpg: next trustdb check due at ...DATE...
+gpg: Good signature from IOHK Signing Authority <signing.authority@iohk.io>
 </code>

@@ -38,7 +38,7 @@ title: MacOS PGP signature verification instructions
     <li>Verify the installer binary:
       <ul>
       <li>Right-click the Daedalus installer (.pkg file) in Finder (do NOT right click on the .asc file, that will not work), then select Services -&gt; OpenPGP: Verify Signature of File (the .asc signature file must reside in the same directory)</li>
-      <li>The Verification Results dialog will then appear with the verdict:<br /><br />Trusted signature<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />1429 962A 8C47 A3F9 24AE D49F D7B2 E172 D11C 4B3C<br /><br />Anything different means there was no valid signature for the installer.</li>
+      <li>The Verification Results dialog will then appear with the verdict:<br /><br />Trusted signature<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />CD1F 21F6 2477 EB42 D7C4 F3DE B3AD 9541 F4DB D0FE<br /><br />Anything different means there was no valid signature for the installer.</li>
       </ul>
     </li>
   </ol>

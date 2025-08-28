@@ -43,7 +43,7 @@ title: Windows PGP signature verification instructions
    ボタンをクリックします b. ファイルダイアログからダイダロス インストーラ .exe
    ファイルを選択します (同じディレクトリに .asc 署名ファイルがあるはずです) c.
    検証に成功したら、以下が記述された緑色のメッセージボックスを受け取ります： -
-   Signing.authority@iohk.io による有効な署名 - 署名の日付 - 添付の証明書 53D0
-   FA8D A2B8 D1FF 4975 AECB F99D 6C70 C2B3 FB43
+   signing.authority@iohk.io による有効な署名 - 署名の日付 - 添付の証明書 31B3
+   F22F A0CC E2E8 382C 04A2 807F 2ACD 0171 BC90
 
 1. これ以外の表示は署名検証に失敗したことを意味します。

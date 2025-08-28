@@ -36,13 +36,13 @@ title: Linux PGP signature verification instructions
   - Successful verification should produce a message like follows:
 
 <code>
-gpg: assuming signed data in {{ filename }}.pkg
-gpg: Signature made ...DATE...
-gpg: using RSA key CD1F21F62477EB42D7C4F3DEB3AD9541F4DBD0FE
-gpg: checking the trustdb
-gpg: marginals needed: 3 completes needed: 1 trust model: pgp
-gpg: depth: 0 valid: 1 signed: 1 trust: 0-, 0q, 0n, 0m, 0f, 1u
-gpg: depth: 1 valid: 1 signed: 0 trust: 1-, 0q, 0n, 0m, 0f, 0u
-gpg: next trustdb check due at ...DATE...
+gpg: assuming signed data in {{ filename }}.pkg<br/>
+gpg: Signature made ...DATE...<br/>
+gpg: using RSA key CD1F21F62477EB42D7C4F3DEB3AD9541F4DBD0FE<br/>
+gpg: checking the trustdb<br/>
+gpg: marginals needed: 3 completes needed: 1 trust model: pgp<br/>
+gpg: depth: 0 valid: 1 signed: 1 trust: 0-, 0q, 0n, 0m, 0f, 1u<br/>
+gpg: depth: 1 valid: 1 signed: 0 trust: 1-, 0q, 0n, 0m, 0f, 0u<br/>
+gpg: next trustdb check due at ...DATE...<br/>
 gpg: Good signature from IOHK Signing Authority <signing.authority@iohk.io>
 </code>

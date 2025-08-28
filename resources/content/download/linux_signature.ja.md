@@ -41,7 +41,7 @@ title: Linux PGP署名検証手順
         </code>
       </li>
       <li>
-        選択ダイアログで、指紋の付いた鍵を選択してくださいF99D6C70C2B3FB43
+        選択ダイアログで、指紋の付いた鍵を選択してください807F2ACD0171BC90
       </li>
     </ul>
   </li>
@@ -50,7 +50,7 @@ title: Linux PGP署名検証手順
     <ul>
       <li>
         <code>
-          gpg2 --lsign 53D0FA8DA2B8D1FF4975AECBF99D6C70C2B3FB43
+          gpg2 --lsign 31B3F22FA0CCE2E8382C04A2807F2ACD0171BC90
         </code>
       </li>
     </ul>

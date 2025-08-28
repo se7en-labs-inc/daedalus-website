@@ -24,11 +24,11 @@ title: Linux PGP signature verification instructions
 
   - <code>gpg2 --keyserver hkp://keyserver.ubuntu.com/ --search-keys
     signing.authority@iohk.io</code>
-  - In the selection dialogue, choose the key with fingerprint F99D6C70C2B3FB43
+  - In the selection dialogue, choose the key with fingerprint 807F2ACD0171BC90
 
 - Sign the IOHK key (this designates trust and is required for the next step):
 
-  - <code>gpg2 --lsign 53D0FA8DA2B8D1FF4975AECBF99D6C70C2B3FB43</code>
+  - <code>gpg2 --lsign 31B3F22FA0CCE2E8382C04A2807F2ACD0171BC90</code>
 
 - Verify the installer binary using the .asc signature (the .asc signature file
   must reside in the same directory as the installer binary):

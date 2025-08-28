@@ -22,9 +22,9 @@ title: MacOS PGP signature verification instructions
       <ul>
       <li>Select Key -&gt; Lookup Key on Key Server in the application menu</li>
       <li>Search for&nbsp;signing.authority@iohk.io</li>
-      <li>Choose the key with fingerprint C2B3FB43 with the user ID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo;, then click Retrieve Key</li>
+      <li>Choose the key with fingerprint 0171BC90 with the user ID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo;, then click Retrieve Key</li>
       <li>
-      <p>Verify (right-click the imported key, then Details) that the fingerprint of the imported key is 53D0 FA8D A2B8 D1FF 4975 AECB F99D 6C70 C2B3 FB43</p>
+      <p>Verify (right-click the imported key, then Details) that the fingerprint of the imported key is 31B3 F22F A0CC E2E8 382C 04A2 807F 2ACD 0171 BC90</p>
       </li>
       <li>if it&rsquo;s not, the wrong key was imported, right-click and delete</li>
       <li>if it is, we are good to proceed with the next step.</li>

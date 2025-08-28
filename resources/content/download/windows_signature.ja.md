@@ -29,7 +29,7 @@ title: Windows PGP signature verification instructions
    - 鍵をインポートします
    - 鍵の認証はまだしないでください
    - 鍵を右クリックして、"Details"を選択します
-   - 指紋が 53D0FA8DA2B8D1FF4975AECBF99D6C70C2B3FB43 であることを確認します
+   - 指紋が 31B3F22FA0CCE2E8382C04A2807F2ACD0171BC90 であることを確認します
    - 違う場合、誤った鍵がインポートされていますので、右クリックして削除します
    - 正しい場合は続行できます
 

@@ -41,7 +41,7 @@ title: Linux PGP署名検証手順
         </code>
       </li>
       <li>
-        選択ダイアログで、指紋の付いた鍵を選択してくださいF99D6C70C2B3FB43
+        選択ダイアログで、指紋の付いた鍵を選択してください807F2ACD0171BC90
       </li>
     </ul>
   </li>
@@ -50,7 +50,7 @@ title: Linux PGP署名検証手順
     <ul>
       <li>
         <code>
-          gpg2 --lsign 53D0FA8DA2B8D1FF4975AECBF99D6C70C2B3FB43
+          gpg2 --lsign 31B3F22FA0CCE2E8382C04A2807F2ACD0171BC90
         </code>
       </li>
     </ul>
@@ -70,5 +70,13 @@ title: Linux PGP署名検証手順
   </li>
 </ol>
 <code>
-gpg: assuming signed data in daedalus-VERSION-cardano-sl-VERSION-mainnet-linux.bin.pkggpg: Signature made ...DATE...gpg: using RSA key 1429962A8C47A3F924AED49FD7B2E172D11C4B3Cgpg: checking the trustdbgpg: marginals needed: 3 completes needed: 1 trust model: pgpgpg: depth: 0 valid: 1 signed: 1 trust: 0-, 0q, 0n, 0m, 0f, 1ugpg: depth: 1 valid: 1 signed: 0 trust: 1-, 0q, 0n, 0m, 0f, 0ugpg: next trustdb check due at ...DATE...gpg: Good signature from IOHK Signing Authority <signing.authority@iohk.io>
+gpg: assuming signed data in daedalus-VERSION-cardano-sl-VERSION-mainnet-linux.bin.pkg<br/>
+gpg: Signature made ...DATE...<br/>
+gpg: using RSA key CD1F21F62477EB42D7C4F3DEB3AD9541F4DBD0FE<br/>
+gpg: checking the trustdb<br/>
+gpg: marginals needed: 3 completes needed: 1 trust model: pgp<br/>
+gpg: depth: 0 valid: 1 signed: 1 trust: 0-, 0q, 0n, 0m, 0f, 1u<br/>
+gpg: depth: 1 valid: 1 signed: 0 trust: 1-, 0q, 0n, 0m, 0f, 0u<br/>
+gpg: next trustdb check due at ...DATE...<br/>
+gpg: Good signature from IOHK Signing Authority <signing.authority@iohk.io>
 </code>

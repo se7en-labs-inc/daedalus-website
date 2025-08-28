@@ -22,9 +22,9 @@ title: MacOS PGP signature verification instructions
       <ul>
       <li>Select Key -&gt; Lookup Key on Key Server in the application menu</li>
       <li>Search for&nbsp;signing.authority@iohk.io</li>
-      <li>Choose the key with fingerprint C2B3FB43 with the user ID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo;, then click Retrieve Key</li>
+      <li>Choose the key with fingerprint 0171BC90 with the user ID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo;, then click Retrieve Key</li>
       <li>
-      <p>Verify (right-click the imported key, then Details) that the fingerprint of the imported key is 53D0 FA8D A2B8 D1FF 4975 AECB F99D 6C70 C2B3 FB43</p>
+      <p>Verify (right-click the imported key, then Details) that the fingerprint of the imported key is 31B3 F22F A0CC E2E8 382C 04A2 807F 2ACD 0171 BC90</p>
       </li>
       <li>if it&rsquo;s not, the wrong key was imported, right-click and delete</li>
       <li>if it is, we are good to proceed with the next step.</li>
@@ -38,7 +38,7 @@ title: MacOS PGP signature verification instructions
     <li>Verify the installer binary:
       <ul>
       <li>Right-click the Daedalus installer (.pkg file) in Finder (do NOT right click on the .asc file, that will not work), then select Services -&gt; OpenPGP: Verify Signature of File (the .asc signature file must reside in the same directory)</li>
-      <li>The Verification Results dialog will then appear with the verdict:<br /><br />Trusted signature<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />1429 962A 8C47 A3F9 24AE D49F D7B2 E172 D11C 4B3C<br /><br />Anything different means there was no valid signature for the installer.</li>
+      <li>The Verification Results dialog will then appear with the verdict:<br /><br />Trusted signature<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />CD1F 21F6 2477 EB42 D7C4 F3DE B3AD 9541 F4DB D0FE<br /><br />Anything different means there was no valid signature for the installer.</li>
       </ul>
     </li>
   </ol>

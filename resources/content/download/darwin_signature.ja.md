@@ -29,8 +29,8 @@ title: MacOS PGP署名検証手順
 	<ul>
 	<li>アプリケーションメニューで、Select Key -&gt; Lookup Key on Key Server を選択します</li>
 	<li>signing.authority@iohk.ioを検索します</li>
-	<li>ユーザID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo; で指紋付き鍵 C2B3FB43 選択し、[鍵を取得 (Retrieve Key)] をクリックします</li>
-	<li>インポートした鍵の指紋が 53D0 FA8D A2B8 D1FF 4975 AECB F99D 6C70 C2B3 FB43 であることを検証します (インポートした鍵を右クリックして、Detailsを選択)</li>
+	<li>ユーザID &ldquo;IOHK Signing Authority &lt;signing.authority@iohk.io&gt;&rdquo; で指紋付き鍵 0171BC90 選択し、[鍵を取得 (Retrieve Key)] をクリックします</li>
+	<li>インポートした鍵の指紋が 31B3 F22F A0CC E2E8 382C 04A2 807F 2ACD 0171 BC90 であることを検証します (インポートした鍵を右クリックして、Detailsを選択)</li>
 	<li>違う場合、誤った鍵がインポートされていますので、右クリックして削除します</li>
 	<li>正しい場合、次のステップに進めます。</li>
 	</ul>
@@ -39,7 +39,7 @@ title: MacOS PGP署名検証手順
 	<li>&nbsp;インストーラのバイナリを検証：
 	<ul>
 	<li>ファインダーから ダイダロスインストーラ (.pkg ファイル) を右クリックし (.asc ファイルを右クリックしないでください。これは無効です。)、 Services -&gt; OpenPGP:ファイルの署名を検証　を選択します(.asc 署名ファイルが同じディレクトリにあるはずです)</li>
-	<li>[検証結果(Verification Results )] ダイアログが 赤色のカラム 結果の記述と共に表示されます：&nbsp;&nbsp;<br /><br />信頼できる署名<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />1429 962A 8C47 A3F9 24AE D49F D7B2 E172 D11C 4B3C<br />&nbsp; &nbsp; &nbsp;<br />これ以外の記述は、インストーラに対して有効な署名がされなかったことを意味します。</li>
+	<li>[検証結果(Verification Results )] ダイアログが 赤色のカラム 結果の記述と共に表示されます：&nbsp;&nbsp;<br /><br />信頼できる署名<br />IOHK Signing Authority &lt;signing.authority@iohk.io&gt;<br />CD1F 21F6 2477 EB42 D7C4 F3DE B3AD 9541 F4DB D0FE<br />&nbsp; &nbsp; &nbsp;<br />これ以外の記述は、インストーラに対して有効な署名がされなかったことを意味します。</li>
 	</ul>
 	</li>
 </ol>

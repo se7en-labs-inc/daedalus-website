@@ -29,7 +29,7 @@ title: Windows PGP signature verification instructions
    - 鍵をインポートします
    - 鍵の認証はまだしないでください
    - 鍵を右クリックして、"Details"を選択します
-   - 指紋が 53D0FA8DA2B8D1FF4975AECBF99D6C70C2B3FB43 であることを確認します
+   - 指紋が 31B3F22FA0CCE2E8382C04A2807F2ACD0171BC90 であることを確認します
    - 違う場合、誤った鍵がインポートされていますので、右クリックして削除します
    - 正しい場合は続行できます
 
@@ -43,7 +43,7 @@ title: Windows PGP signature verification instructions
    ボタンをクリックします b. ファイルダイアログからダイダロス インストーラ .exe
    ファイルを選択します (同じディレクトリに .asc 署名ファイルがあるはずです) c.
    検証に成功したら、以下が記述された緑色のメッセージボックスを受け取ります： -
-   Signing.authority@iohk.io による有効な署名 - 署名の日付 - 添付の証明書 53D0
-   FA8D A2B8 D1FF 4975 AECB F99D 6C70 C2B3 FB43
+   signing.authority@iohk.io による有効な署名 - 署名の日付 - 添付の証明書 31B3
+   F22F A0CC E2E8 382C 04A2 807F 2ACD 0171 BC90
 
 1. これ以外の表示は署名検証に失敗したことを意味します。

@@ -20,7 +20,7 @@
     packages.default = mkSite {};
     packages.preview = mkSite {
       pathPrefix = "/daedalus/site";
-      # downloadEndpoint = "https://your-test-endpoint/daedalus-latest-version.json";
+      downloadEndpoint = "https://cdn.dripdropz.io/daedalus/7.4/daedalus-latest-version.json";
     };
   };
 }

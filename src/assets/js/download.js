@@ -20,6 +20,8 @@ function renderDownload(root, data) {
     return
   }
 
+  const base = (root.dataset.base || '/').replace(/\/$/, '')
+
   const labels = {
     pgpLabel:        root.dataset.pgpLabel        || 'PGP signature',
     pgpDownload:     root.dataset.pgpDownload      || 'Get Signature',
@@ -38,10 +40,10 @@ function renderDownload(root, data) {
     windows:       'Windows',
   }
   const osIcons = {
-    'darwin-arm': '/images/darwin.svg',
-    darwin:        '/images/darwin.svg',
-    linux:         '/images/linux.svg',
-    windows:       '/images/windows.svg',
+    'darwin-arm': `${base}/images/darwin.svg`,
+    darwin:        `${base}/images/darwin.svg`,
+    linux:         `${base}/images/linux.svg`,
+    windows:       `${base}/images/windows.svg`,
   }
 
   root.innerHTML = `

@@ -3,11 +3,11 @@
   <div class="header-space">
     <div class="lang-switch">
       {% if lang === 'ja' %}
-        {% set enUrl = page.url | replace('/ja/', '/') | replace('/ja', '/') %}
-        {% set jaUrl = page.url %}
+        {% set enUrl = page.url | replace('/ja/', '/') | replace('/ja', '/') | url %}
+        {% set jaUrl = page.url | url %}
       {% else %}
-        {% set enUrl = page.url %}
-        {% set jaUrl = '/ja' + page.url %}
+        {% set enUrl = page.url | url %}
+        {% set jaUrl = ('/ja' + page.url) | url %}
       {% endif %}
       <select id="lang-select" onchange="window.location.href=this.value" aria-label="Select language">
         <option value="{{ enUrl }}" {% if lang === 'en' %}selected{% endif %}>🇺🇸 English</option>
@@ -17,9 +17,9 @@
     <nav class="desktop-nav">
       <div class="nav-line nav-line-left"></div>
       <ul>
-        <li><a href="{{ '/' | langUrl(lang) }}">{{ i18n[lang].global.navigation.labels.home }}</a></li>
-        <li><a href="{{ '/team/' | langUrl(lang) }}">{{ i18n[lang].global.navigation.labels.team }}</a></li>
-        <li><a href="{{ '/download/' | langUrl(lang) }}">{{ i18n[lang].global.navigation.labels.download }}</a></li>
+        <li><a href="{{ '/' | langUrl(lang) | url }}">{{ i18n[lang].global.navigation.labels.home }}</a></li>
+        <li><a href="{{ '/team/' | langUrl(lang) | url }}">{{ i18n[lang].global.navigation.labels.team }}</a></li>
+        <li><a href="{{ '/download/' | langUrl(lang) | url }}">{{ i18n[lang].global.navigation.labels.download }}</a></li>
       </ul>
       <div class="nav-line nav-line-right"></div>
     </nav>
@@ -29,9 +29,9 @@
   <!-- mobile-nav: sibling of header-space so it isn't trapped inside its stacking context -->
   <nav class="mobile-nav hidden" id="mobile-nav">
     <ul>
-      <li><a href="{{ '/' | langUrl(lang) }}">{{ i18n[lang].global.navigation.labels.home }}</a></li>
-      <li><a href="{{ '/team/' | langUrl(lang) }}">{{ i18n[lang].global.navigation.labels.team }}</a></li>
-      <li><a href="{{ '/download/' | langUrl(lang) }}">{{ i18n[lang].global.navigation.labels.download }}</a></li>
+      <li><a href="{{ '/' | langUrl(lang) | url }}">{{ i18n[lang].global.navigation.labels.home }}</a></li>
+      <li><a href="{{ '/team/' | langUrl(lang) | url }}">{{ i18n[lang].global.navigation.labels.team }}</a></li>
+      <li><a href="{{ '/download/' | langUrl(lang) | url }}">{{ i18n[lang].global.navigation.labels.download }}</a></li>
     </ul>
   </nav>
 
@@ -40,14 +40,14 @@
     <div class="header-bg">
       <div class="header-gradient-top"></div>
       <div class="medusa-container">
-        <img class="medusa-static" src="/images/static-medusa.jpg" alt="" aria-hidden="true">
+        <img class="medusa-static" src="{{ '/images/static-medusa.jpg' | url }}" alt="" aria-hidden="true">
         <iframe src="{{ site.medusaSrc }}?lang={{ lang }}&repo=daedalus" title="Medusa visualization" loading="lazy"></iframe>
       </div>
       <div class="header-gradient-bot"></div>
     </div>
     <div class="logo-container">
-      <a href="{{ '/' | langUrl(lang) }}">
-        <img src="/images/daedalus-logo-netlify.svg" alt="Daedalus logo">
+      <a href="{{ '/' | langUrl(lang) | url }}">
+        <img src="{{ '/images/daedalus-logo-netlify.svg' | url }}" alt="Daedalus logo">
         <p class="logo-text">Daedalus <strong>Wallet</strong></p>
       </a>
     </div>

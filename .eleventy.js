@@ -17,6 +17,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setServerOptions({ port: 8080 })
 
   return {
+    pathPrefix: process.env.PATH_PREFIX || '/',
     dir: { input: 'src', output: '_site', includes: '_includes', data: '_data' },
     templateFormats: ['njk', 'html'],
     htmlTemplateEngine: 'njk',

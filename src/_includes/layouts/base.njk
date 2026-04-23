@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ pageTitle }} | {{ i18n[lang].global.main_title }}</title>
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="icon" href="/images/icon.png">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  <link rel="icon" href="{{ '/images/icon.png' | url }}">
   {% if site.osanoSrc %}<script src="{{ site.osanoSrc }}"></script>{% endif %}
 </head>
 <body>
   {% include "partials/header.njk" %}
   <main>{{ content | safe }}</main>
   {% include "partials/footer.njk" %}
-  <script src="/assets/js/modal.js"></script>
-  <script src="/assets/js/nav.js"></script>
+  <script src="{{ '/assets/js/modal.js' | url }}"></script>
+  <script src="{{ '/assets/js/nav.js' | url }}"></script>
 </body>
 </html>

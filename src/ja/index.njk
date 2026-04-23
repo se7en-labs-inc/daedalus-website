@@ -9,7 +9,7 @@ permalink: /ja/
   <h1>{{ c.title }}</h1>
   <p>{{ c.subtitle }}</p>
   <div class="hero-buttons">
-    <a class="btn-primary" href="{{ '/download/' | langUrl(lang) }}">{{ c.cta.learn }}</a>
+    <a class="btn-primary" href="{{ '/download/' | langUrl(lang) | url }}">{{ c.cta.learn }}</a>
     <a class="btn-secondary" href="{{ c.cta.support_link }}" target="_blank" rel="noopener noreferrer">{{ c.cta.support }}</a>
   </div>
 </section>
@@ -23,32 +23,32 @@ permalink: /ja/
 
 {% if c.wallet_features %}
 <section class="features-section">
-  <img class="features-spinner" src="/images/spinner.svg" alt="" aria-hidden="true">
+  <img class="features-spinner" src="{{ '/images/spinner.svg' | url }}" alt="" aria-hidden="true">
   <div class="container">
     <h2 class="features-title">{{ c.wallet_features.title }}</h2>
     <div class="features-grid-wrap">
       <div class="features-grid">
         <div>
           <div class="feature-item">
-            <h4><img src="/images/daedalus_security.svg" alt=""><span>{{ c.wallet_features.advanced_security.title }}</span></h4>
+            <h4><img src="{{ '/images/daedalus_security.svg' | url }}" alt=""><span>{{ c.wallet_features.advanced_security.title }}</span></h4>
             <p>{{ c.wallet_features.advanced_security.description }}</p>
           </div>
           <div class="feature-item">
-            <h4><img src="/images/daedalus_wallet.svg" alt=""><span>{{ c.wallet_features.unlimited_accounting.title }}</span></h4>
+            <h4><img src="{{ '/images/daedalus_wallet.svg' | url }}" alt=""><span>{{ c.wallet_features.unlimited_accounting.title }}</span></h4>
             <p>{{ c.wallet_features.unlimited_accounting.description }}</p>
           </div>
           <div class="feature-item">
-            <h4><img src="/images/daedalus_desktop.svg" alt=""><span>{{ c.wallet_features.desktop_platforms.title }}</span></h4>
+            <h4><img src="{{ '/images/daedalus_desktop.svg' | url }}" alt=""><span>{{ c.wallet_features.desktop_platforms.title }}</span></h4>
             <p>{{ c.wallet_features.desktop_platforms.description }}</p>
           </div>
         </div>
         <div>
           <div class="feature-item">
-            <h4><img src="/images/daedalus_news.svg" alt=""><span>{{ c.wallet_features.newsfeed.title }}</span></h4>
+            <h4><img src="{{ '/images/daedalus_news.svg' | url }}" alt=""><span>{{ c.wallet_features.newsfeed.title }}</span></h4>
             <p>{{ c.wallet_features.newsfeed.description }}</p>
           </div>
           <div class="feature-item">
-            <h4><img src="/images/daedalus_theme.svg" alt=""><span>{{ c.wallet_features.personalization.title }}</span></h4>
+            <h4><img src="{{ '/images/daedalus_theme.svg' | url }}" alt=""><span>{{ c.wallet_features.personalization.title }}</span></h4>
             <p>{{ c.wallet_features.personalization.description }}</p>
           </div>
         </div>
@@ -57,4 +57,3 @@ permalink: /ja/
   </div>
 </section>
 {% endif %}
-

@@ -10,6 +10,7 @@ permalink: /download/
 
   <div id="download-root"
        data-endpoint="{{ site.downloadEndpoint }}"
+       data-base="{{ '/' | url }}"
        data-pgp-label="{{ c.pgp_signature }}"
        data-pgp-download="{{ c.pgp_download }}"
        data-verify-sig="{{ c.verify_signature }}"
@@ -50,4 +51,4 @@ permalink: /download/
   </section>
   {% endif %}
 </div>
-<script src="/assets/js/download.js"></script>
+<script src="{{ '/assets/js/download.js' | url }}"></script>

@@ -40,9 +40,7 @@ content:
     url: https://iohk.zendesk.com/hc/en-us/sections/900000592286
   supported_platforms:
     heading: Operating Systems
-    mac:
-      MacOS ≥10.15, 64-bit (which includes Sequoia, Sonoma, Ventura, Monterey,
-      Big Sur, Catalina)
+    mac: macOS ≥10.15, 64-bit (Tahoe, Sequoia)
     win: Windows ≥10, 64-bit
     linux:
       aimed_at: Aimed at all Linux distributions

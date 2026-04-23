@@ -1,0 +1,55 @@
+---
+layout: layouts/base.njk
+pageTitle: Download
+permalink: /ja/download/
+---
+{% set c = i18n[lang].pages.download %}
+<div class="container" style="padding-top:4rem; text-align:center;">
+  <h1>{{ c.title }}</h1>
+  <p>{{ c.subtitle }}</p>
+
+  <div id="download-root"
+       data-endpoint="{{ site.downloadEndpoint }}"
+       data-base="{{ '/' | url }}"
+       data-pgp-label="{{ c.pgp_signature }}"
+       data-pgp-download="{{ c.pgp_download }}"
+       data-verify-sig="{{ c.verify_signature }}"
+       data-sha-label="{{ c.sha_256_checksum }}"
+       data-verify-checksum="{{ c.verify_checksum }}"
+       data-version-string="{{ c.version_string }}">
+    <div class="spinner">Loading&hellip;</div>
+  </div>
+
+  {% include "partials/download-modals.njk" %}
+
+  {% if c.warning %}
+    <div class="download-callout">{{ c.warning }}</div>
+  {% endif %}
+
+  {% if c.supported_platforms or c.recommended_hardware %}
+  <div class="download-specs">
+    {% if c.supported_platforms %}
+    <section class="download-spec-col">
+      <p class="spec-label">{{ c.supported_platforms.heading }}</p>
+      <ul>
+        {% if c.supported_platforms.mac %}<li><strong>macOS</strong> {{ c.supported_platforms.mac }}</li>{% endif %}
+        {% if c.supported_platforms.win %}<li><strong>Windows</strong> {{ c.supported_platforms.win }}</li>{% endif %}
+        {% if c.supported_platforms.linux %}<li><strong>Linux</strong> {{ c.supported_platforms.linux.aimed_at }}</li>{% endif %}
+      </ul>
+    </section>
+    {% endif %}
+    {% if c.recommended_hardware %}
+    <section class="download-spec-col">
+      <p class="spec-label">{{ c.recommended_hardware.heading }}</p>
+      <ul>
+        {% if c.recommended_hardware.item1 %}<li>{{ c.recommended_hardware.item1 }}</li>{% endif %}
+        {% if c.recommended_hardware.item2 %}<li>{{ c.recommended_hardware.item2 }}</li>{% endif %}
+        {% if c.recommended_hardware.item3 %}<li>{{ c.recommended_hardware.item3 }}</li>{% endif %}
+        {% if c.recommended_hardware.item4 %}<li>{{ c.recommended_hardware.item4 }}</li>{% endif %}
+      </ul>
+    </section>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+<script src="{{ '/assets/js/download.js' | url }}"></script>

@@ -23,32 +23,33 @@ permalink: /download/
   {% include "partials/download-modals.njk" %}
 
   {% if c.warning %}
-    <div class="download-warning">{{ c.warning }}</div>
+    <div class="download-callout">{{ c.warning }}</div>
   {% endif %}
 
-  {% if c.supported_platforms %}
-  <section class="download-info-section">
-    <h2>{{ c.supported_platforms.heading }}</h2>
-    <ul>
-      {% if c.supported_platforms.mac %}<li>macOS: {{ c.supported_platforms.mac }}</li>{% endif %}
-      {% if c.supported_platforms.win %}<li>Windows: {{ c.supported_platforms.win }}</li>{% endif %}
-      {% if c.supported_platforms.linux %}
-        <li>{{ c.supported_platforms.linux.aimed_at }}</li>
-      {% endif %}
-    </ul>
-  </section>
-  {% endif %}
-
-  {% if c.recommended_hardware %}
-  <section class="download-info-section">
-    <h2>{{ c.recommended_hardware.heading }}</h2>
-    <ul>
-      {% if c.recommended_hardware.item1 %}<li>{{ c.recommended_hardware.item1 }}</li>{% endif %}
-      {% if c.recommended_hardware.item2 %}<li>{{ c.recommended_hardware.item2 }}</li>{% endif %}
-      {% if c.recommended_hardware.item3 %}<li>{{ c.recommended_hardware.item3 }}</li>{% endif %}
-      {% if c.recommended_hardware.item4 %}<li>{{ c.recommended_hardware.item4 }}</li>{% endif %}
-    </ul>
-  </section>
+  {% if c.supported_platforms or c.recommended_hardware %}
+  <div class="download-specs">
+    {% if c.supported_platforms %}
+    <section class="download-spec-col">
+      <p class="spec-label">{{ c.supported_platforms.heading }}</p>
+      <ul>
+        {% if c.supported_platforms.mac %}<li><strong>macOS</strong> {{ c.supported_platforms.mac }}</li>{% endif %}
+        {% if c.supported_platforms.win %}<li><strong>Windows</strong> {{ c.supported_platforms.win }}</li>{% endif %}
+        {% if c.supported_platforms.linux %}<li><strong>Linux</strong> {{ c.supported_platforms.linux.aimed_at }}</li>{% endif %}
+      </ul>
+    </section>
+    {% endif %}
+    {% if c.recommended_hardware %}
+    <section class="download-spec-col">
+      <p class="spec-label">{{ c.recommended_hardware.heading }}</p>
+      <ul>
+        {% if c.recommended_hardware.item1 %}<li>{{ c.recommended_hardware.item1 }}</li>{% endif %}
+        {% if c.recommended_hardware.item2 %}<li>{{ c.recommended_hardware.item2 }}</li>{% endif %}
+        {% if c.recommended_hardware.item3 %}<li>{{ c.recommended_hardware.item3 }}</li>{% endif %}
+        {% if c.recommended_hardware.item4 %}<li>{{ c.recommended_hardware.item4 }}</li>{% endif %}
+      </ul>
+    </section>
+    {% endif %}
+  </div>
   {% endif %}
 </div>
 <script src="{{ '/assets/js/download.js' | url }}"></script>

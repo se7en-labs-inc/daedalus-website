@@ -204,10 +204,26 @@ header { position: relative; }
   background:var(--overlay01); padding:0.6rem 0.8rem; width:100%; font-family:monospace; line-height:1.5;
   border-radius:3px; }
 
-/* Download info sections (OS requirements, hardware) */
-.download-info-section { max-width: 60rem; margin: 4rem auto 0; text-align: center; }
-.download-info-section h2 { margin-bottom: 1.6rem; }
-.download-info-section ul { display: inline-block; text-align: left; margin: 0; padding-left: 2rem; }
+/* Download callout + two-column specs */
+.download-callout {
+  max-width: 72rem; margin: 4rem auto 0; padding: 1.6rem 2rem;
+  background: var(--overlay01); border-left: 3px solid var(--primary);
+  border-radius: 3px; text-align: left; font-size: 1.4rem; color: var(--text);
+}
+.download-specs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  max-width: 72rem; margin: 3rem auto 0; text-align: left;
+}
+.download-spec-col ul { list-style: disc; padding-left: 1.8rem; margin: 0.8rem 0 0; }
+.download-spec-col li { margin-bottom: 0.6rem; font-size: 1.4rem; color: var(--text); }
+.download-spec-col li strong { color: var(--text-hi); }
+.spec-label {
+  font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--primary); font-weight: var(--fw-bold); margin: 0;
+}
+@media (max-width: 600px) {
+  .download-specs { grid-template-columns: 1fr; gap: 2rem; }
+}
 
 /* Features section with spinning background */
 @keyframes spin-slow {

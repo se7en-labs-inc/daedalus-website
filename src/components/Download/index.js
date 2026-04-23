@@ -148,17 +148,28 @@ const Download = ({ walletType = 'normal' }) => (
           {!loading && !error && (
             <Fragment>
               <Columns>
-                {Object.keys(os).map((key) => (
-                  <Column key={key}>
-                    <OSColumn
-                      common={common}
-                      osData={os[key].osData}
-                      checksum={os[key].checksum}
-                      signature={os[key].signature}
-                      walletType={walletType}
-                    />
-                  </Column>
-                ))}
+                {Object.keys(os)
+                  .filter((key) => key !== 'darwin-arm')
+                  .map((key) => (
+                    <Column key={key}>
+                      {key === 'darwin' && os['darwin-arm'] && (
+                        <OSColumn
+                          common={common}
+                          osData={os['darwin-arm'].osData}
+                          checksum={os['darwin-arm'].checksum}
+                          signature={os['darwin-arm'].signature}
+                          walletType={walletType}
+                        />
+                      )}
+                      <OSColumn
+                        common={common}
+                        osData={os[key].osData}
+                        checksum={os[key].checksum}
+                        signature={os[key].signature}
+                        walletType={walletType}
+                      />
+                    </Column>
+                  ))}
               </Columns>
               <Columns>
                 <h4>

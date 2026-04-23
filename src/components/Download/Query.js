@@ -61,6 +61,18 @@ const Query = ({ render, walletType = 'normal' }) => {
                 ...data.os.darwin.checksum,
               },
             },
+            ...(daedalusData.platforms['darwin-arm'] && {
+              'darwin-arm': {
+                ...data.os.darwin,
+                checksum: { ...data.os.darwin.checksum },
+                signature: { ...data.os.darwin.signature },
+                osData: {
+                  ...data.os.darwin.osData,
+                  key: 'darwin-arm',
+                  os: 'macOS Apple Silicon',
+                },
+              },
+            }),
           },
         }
 

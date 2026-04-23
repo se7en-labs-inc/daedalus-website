@@ -165,18 +165,18 @@ header { position: relative; }
 .btn-primary {
   display: inline-block; padding: 1.2rem 3rem;
   background: var(--primary); color: #fff; text-decoration: none;
-  font-weight: var(--fw-bold); text-transform: uppercase;
+  font-weight: var(--fw-bold); text-transform: uppercase; border-radius: 3px;
 }
 .btn-primary:hover { color: #fff; opacity: 0.85; }
 .btn-secondary {
   display: inline-block; padding: 1.2rem 3rem;
   background: rgb(86, 100, 116); color: #fff; text-decoration: none;
-  font-weight: var(--fw-bold); text-transform: uppercase;
+  font-weight: var(--fw-bold); text-transform: uppercase; border-radius: 3px;
 }
 .btn-secondary:hover { color: #fff; opacity: 0.85; }
 
 /* Info box (overview section) */
-.info-box { width:100%; padding:5rem; background:var(--overlay01); text-align:center; }
+.info-box { width:100%; padding:5rem; background:var(--overlay01); text-align:center; border-radius:3px; }
 
 /* Download grid */
 .download-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(22rem,1fr)); gap:3rem; margin:4rem 0; }
@@ -186,7 +186,8 @@ header { position: relative; }
 .platform-col .version { color:var(--text-dim); font-size:1.3rem; margin-bottom:2rem; }
 .platform-col .download-btn { display:block; width:100%; padding:1.2rem 2rem;
   background:var(--primary); color:#fff; text-decoration:none; font-weight:var(--fw-bold);
-  text-transform:uppercase; letter-spacing:0.05em; font-size:1.4rem; margin-bottom:2.4rem; }
+  text-transform:uppercase; letter-spacing:0.05em; font-size:1.4rem; margin-bottom:2.4rem;
+  border-radius:3px; }
 .platform-col .download-btn:hover { background:var(--primary-dim); }
 .verify-group { width:100%; display:flex; flex-direction:column; align-items:center;
   gap:0.5rem; padding:1.4rem 0; border-top:1px solid var(--overlay01); }
@@ -194,15 +195,17 @@ header { position: relative; }
   color:var(--text-dim); font-weight:var(--fw-bold); }
 .pgp-btn { display:inline-block; background:none; border:1px solid var(--primary);
   color:var(--primary); padding:0.5rem 1.4rem; font-size:1.3rem; font-weight:var(--fw-bold);
-  text-decoration:none; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer; font-family:var(--font); }
+  text-decoration:none; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer; font-family:var(--font);
+  border-radius:3px; }
 .pgp-btn:hover { background:var(--primary); color:#fff; }
-.verify-link { font-size:1.2rem; color:var(--text-dim); text-decoration:none; }
-.verify-link:hover { color:var(--primary); }
+.verify-link { font-size:1.2rem; color:var(--primary); text-decoration:none; }
+.verify-link:hover { color:var(--text-hi); }
 .checksum-text { font-size:1.05rem; word-break:break-all; color:var(--text-dim);
-  background:var(--overlay01); padding:0.6rem 0.8rem; width:100%; font-family:monospace; line-height:1.5; }
+  background:var(--overlay01); padding:0.6rem 0.8rem; width:100%; font-family:monospace; line-height:1.5;
+  border-radius:3px; }
 
 /* Download info sections (OS requirements, hardware) */
-.download-info-section { max-width: 60rem; margin: 6rem auto 0; text-align: center; }
+.download-info-section { max-width: 60rem; margin: 4rem auto 0; text-align: center; }
 .download-info-section h2 { margin-bottom: 1.6rem; }
 .download-info-section ul { display: inline-block; text-align: left; margin: 0; padding-left: 2rem; }
 

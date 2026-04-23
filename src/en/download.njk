@@ -27,7 +27,7 @@ permalink: /download/
   {% endif %}
 
   {% if c.supported_platforms %}
-  <section class="download-info-section" style="margin-top:6rem;">
+  <section class="download-info-section">
     <h2>{{ c.supported_platforms.heading }}</h2>
     <ul>
       {% if c.supported_platforms.mac %}<li>macOS: {{ c.supported_platforms.mac }}</li>{% endif %}
@@ -40,7 +40,7 @@ permalink: /download/
   {% endif %}
 
   {% if c.recommended_hardware %}
-  <section class="download-info-section" style="margin-top:4rem;">
+  <section class="download-info-section">
     <h2>{{ c.recommended_hardware.heading }}</h2>
     <ul>
       {% if c.recommended_hardware.item1 %}<li>{{ c.recommended_hardware.item1 }}</li>{% endif %}

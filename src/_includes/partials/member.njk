@@ -1,21 +1,9 @@
 <div class="team-member">
   <div class="member-img-wrap">
-    {% if member.iohkProfile %}
-      <a href="https://iohk.io/team/{{ member.iohkProfile }}/" target="_blank" rel="noopener noreferrer">
-        <img src="{{ member.imagePath }}" alt="{{ member.member }}">
-      </a>
-    {% else %}
-      <img src="{{ member.imagePath }}" alt="{{ member.member }}">
-    {% endif %}
+    <img src="{{ member.imagePath }}" alt="{{ member.member }}">
   </div>
   <div class="member-info">
-    {% if member.iohkProfile %}
-      <a href="https://iohk.io/team/{{ member.iohkProfile }}/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <h3 class="member-name">{{ member.member }}</h3>
-      </a>
-    {% else %}
-      <h3 class="member-name">{{ member.member }}</h3>
-    {% endif %}
+    <h3 class="member-name">{{ member.member }}</h3>
 
     <div class="member-job">
       <span>{{ member.jobTitle }}</span>

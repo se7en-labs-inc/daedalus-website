@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+pageTitle: Page Not Found
+permalink: /404.html
+---
+{% set c = i18n[lang].pages['404'] %}
+<div class="container not-found">
+  <h1>{{ c.title }}</h1>
+  <p>{{ c.description }}</p>
+  <a href="/">Go home</a>
+</div>

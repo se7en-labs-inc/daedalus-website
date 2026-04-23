@@ -1,0 +1,10 @@
+{% for os in ['darwin', 'linux', 'windows'] %}
+  {% for type in ['checksum', 'signature'] %}
+    <div id="modal-{{ os }}-{{ type }}" class="modal-overlay" role="dialog">
+      <a href="#" class="modal-close" data-close-modal>&#10005;</a>
+      <div class="modal-content">
+        {{ i18n[lang].downloadInstructions[os + '_' + type] | markdown | safe }}
+      </div>
+    </div>
+  {% endfor %}
+{% endfor %}

@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+pageTitle: Team
+permalink: /ja/team/
+---
+<div class="container team-list" style="padding:4rem 0 8rem;">
+  {% for member in i18n[lang].pages.team.team %}
+    {% include "partials/member.njk" %}
+  {% endfor %}
+</div>

@@ -1,17 +1,26 @@
-{ perSystem = { pkgs, ... }:
-  let
-    mkSite = pathPrefix: pkgs.buildNpmPackage {
-      pname = "daedaluswallet-io";
-      version = "1.0.0";
-      src = pkgs.lib.cleanSource ./../..;
-      npmDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      # Placeholder: run `nix build` once, paste the correct hash from error output
-      buildPhase = "PATH_PREFIX=${pathPrefix} npm run build";
-      installPhase = "cp -r _site $out";
-    };
+{self, ...}: {
+  perSystem = {pkgs, ...}: let
+    mkSite = {
+      pathPrefix ? "/",
+      downloadEndpoint ? "https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-latest-version.json",
+    }:
+      pkgs.buildNpmPackage {
+        pname = "daedaluswallet-io";
+        version = "1.0.0";
+        src = self;
+        npmDepsHash = "sha256-WXytD20TvQ/hsmbulKpbB5pWppG7Mp1R32QLnk6Yvj0=";
+        buildPhase = ''
+          PATH_PREFIX=${pathPrefix} \
+          DOWNLOAD_ENDPOINT=${downloadEndpoint} \
+          npm run build
+        '';
+        installPhase = "cp -r _site $out";
+      };
   in {
-    packages.default = mkSite "/";
-    # Build for a subdirectory:  nix build .#preview
-    # packages.preview = mkSite "/daedalus/";
+    packages.default = mkSite {};
+    packages.preview = mkSite {
+      pathPrefix = "/daedalus/site";
+      # downloadEndpoint = "https://your-test-endpoint/daedalus-latest-version.json";
+    };
   };
 }

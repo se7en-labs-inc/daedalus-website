@@ -62,17 +62,21 @@ function renderDownload(root, data) {
         return `
           <div class="platform-col">
             <img class="os-icon" src="${osIcons[key]}" alt="${osLabels[key]}">
-            <strong>${osLabels[key]}</strong>
+            <strong class="os-name">${osLabels[key]}</strong>
             <span class="version">${labels.versionString}: ${p.version}</span>
             <a class="download-btn" href="${p.URL}">Download Daedalus</a>
 
-            <p class="pgp-label">${labels.pgpLabel}</p>
-            <a class="pgp-btn" href="${sigHref}" download="${sigFilename}">${labels.pgpDownload}</a>
-            <a class="pgp-verify" href="#" data-modal="${modalOs}-signature">(${labels.verifySig})</a>
+            <div class="verify-group">
+              <span class="verify-label">${labels.pgpLabel}</span>
+              <a class="pgp-btn" href="${sigHref}" download="${sigFilename}">${labels.pgpDownload}</a>
+              <a class="verify-link" href="#" data-modal="${modalOs}-signature">${labels.verifySig}</a>
+            </div>
 
-            <p class="sha-label">${labels.shaLabel}</p>
-            <code class="checksum-text">${p.SHA256}</code>
-            <a class="checksum-verify" href="#" data-modal="${modalOs}-checksum">(${labels.verifyChecksum})</a>
+            <div class="verify-group">
+              <span class="verify-label">${labels.shaLabel}</span>
+              <code class="checksum-text">${p.SHA256}</code>
+              <a class="verify-link" href="#" data-modal="${modalOs}-checksum">${labels.verifyChecksum}</a>
+            </div>
           </div>`
       }).join('')}
     </div>`

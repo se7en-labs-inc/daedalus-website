@@ -35,9 +35,7 @@ content:
     url: https://iohk.zendesk.com/hc/ja/sections/900000592286
   supported_platforms:
     heading: オペレーティングシステム
-    mac:
-      MacOS ≥10.15、64ビット（Sequoia、Sonoma、Ventura、Monterey、Big
-      Sur、Catalinaを含む）
+    mac: macOS ≥10.15、64ビット（Tahoe、Sequoia）
     win: Windows ≥10、64ビット
     linux:
       aimed_at: すべてのLinuxディストリビューションをサポート予定です。

@@ -6,29 +6,11 @@ content:
   subtitle: コミュニティと共に成長する、拡張可能なオープンソースの暗号通貨ウォレット
   cta:
     learn: ダウンロード
-    learn_link: /ja/download
     support: サポートポータル
     support_link: https://iohk.zendesk.com/hc/ja/categories/360000877653-Daedalus-wallet-mainnet
   overview:
     title: ADA - 世界で最も先進的な暗号通貨
     content: ダイダロスはカルダノネットワークの暗号通貨であるADAを取り扱います。
-  learn_more:
-    title: もっと詳しく
-    links:
-      - label: カルダノを選ぶ理由
-        href: https://whycardano.com/
-      - label: カルダノ・エクスプローラー
-        href: https://cardanoexplorer.com/
-      - label: カルダノ・ロードマップ
-        href: https://cardanoroadmap.com/
-      - label: Cardano.org
-        href: https://cardano.org/
-      - label: カルダノフォーラム
-        href: https://forum.cardano.org/
-      - label: カルダノファウンデーション
-        href: https://cardanofoundation.org/
-      - label: カルダノステーク
-        href: https://staking.cardano.org/
   wallet_features:
     title: ウォレット機能
     unlimited_accounting:

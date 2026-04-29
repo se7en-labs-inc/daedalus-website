@@ -3,14 +3,8 @@
 title: Ja (Japanese) download page content
 content:
   title: ダウンロード
-  flightTitle: DAEDALUS FLIGHTをダウンロード
-  catalystTitle: Daedalus Catalystをダウンロードする
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
-  catalystSubtitle: ご使用のOSに応じたDaedalus-Catalystの最新バージョンをダウンロードしてください。
-  flightSubtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
   cta_string: ダイダロスのダウンロード
-  flight_cta_string: DAEDALUS FLIGHTをダウンロード
-  catalyst_cta_string: Daedalus Catalystをダウンロードする
   pgp_download: ダウンロード Signature
   version_string: バージョン
   verify_signature: 署名の検証
@@ -20,19 +14,9 @@ content:
   warning:
     DaedalusはPC（Microsoft Windows/Linux）およびApple
     Macアプリケーションのみです。モバイル（Android/iOS）版はありません。
-  os:
-    windows: 64 ビット版 Windows
-    darwin: 64 ビット版 macOS
-    linux: 64 ビット版 Linux
   release_notes:
     label: リリースノート
-    url: https://iohk.zendesk.com/hc/ja/sections/360002144313-Updates
-  release_notes_flight:
-    label: リリースノート Flight
-    url: https://iohk.zendesk.com/hc/ja/sections/900000090723
-  release_notes_catalyst:
-    label: Release notes
-    url: https://iohk.zendesk.com/hc/ja/sections/900000592286
+    url: https://github.com/input-output-hk/daedalus/releases
   supported_platforms:
     heading: オペレーティングシステム
     mac: macOS ≥10.15、64ビット（Tahoe、Sequoia）

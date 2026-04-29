@@ -10,27 +10,9 @@ content:
     title: Coming soon
   cta:
     learn: Download
-    learn_link: '/en/download'
     support: Get support
     support_link: >-
       https://iohk.zendesk.com/hc/en-us/categories/360000877653-Daedalus-wallet-mainnet
-  learn_more:
-    links:
-      - href: 'https://whycardano.com/'
-        label: Why Cardano
-      - href: 'https://cardanoexplorer.com/'
-        label: Cardano Explorer
-      - href: 'https://cardanoroadmap.com/'
-        label: Cardano Roadmap
-      - href: 'https://cardano.org/'
-        label: Cardano.org
-      - href: 'https://forum.cardano.org/'
-        label: Cardano Forum
-      - href: 'https://cardanofoundation.org/'
-        label: Cardano Foundation
-      - href: 'https://staking.cardano.org/'
-        label: Cardano Staking
-    title: Learn more
   overview:
     title: ADA - The cryptocurrency of Cardano
     content: >-

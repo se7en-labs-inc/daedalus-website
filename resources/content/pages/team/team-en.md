@@ -73,9 +73,9 @@ content:
         electrical engineering, David delivers software that prioritizes
         technical rigor and user experience.
     - member: Latheesan Kanesamoorthy
-      twitter: ''
+      twitter: LatheesanK
       linkedin: ''
-      github: ''
+      github: Latheesan-k
       telegram: ''
       discord: ''
       location: United Kingdom

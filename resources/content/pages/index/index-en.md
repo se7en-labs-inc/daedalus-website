@@ -11,8 +11,7 @@ content:
   cta:
     learn: Download
     support: Get support
-    support_link: >-
-      https://iohk.zendesk.com/hc/en-us/categories/360000877653-Daedalus-wallet-mainnet
+    support_link: https://daedalus.support.se7enlabs.com
   overview:
     title: ADA - The cryptocurrency of Cardano
     content: >-

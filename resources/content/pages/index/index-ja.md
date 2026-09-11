@@ -7,7 +7,7 @@ content:
   cta:
     learn: ダウンロード
     support: サポートポータル
-    support_link: https://iohk.zendesk.com/hc/ja/categories/360000877653-Daedalus-wallet-mainnet
+    support_link: https://daedalus.support.se7enlabs.com
   overview:
     title: ADA - 世界で最も先進的な暗号通貨
     content: ダイダロスはカルダノネットワークの暗号通貨であるADAを取り扱います。

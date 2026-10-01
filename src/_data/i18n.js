@@ -12,7 +12,7 @@ function raw(relPath) {
 }
 
 const langs = ['en', 'ja']
-const pages = ['index', 'download', 'team', 'tos', '404']
+const pages = ['index', 'download', 'team', 'tos', '404', 'reports']
 const osParts = [
   'darwin_checksum', 'darwin_signature',
   'linux_checksum', 'linux_signature',

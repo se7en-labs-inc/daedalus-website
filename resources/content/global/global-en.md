@@ -10,5 +10,6 @@ content:
       home: Home
       team: Team
       download: Download
+      reports: Monthly Reports
       flight: Flight
 ---

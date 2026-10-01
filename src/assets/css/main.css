@@ -184,6 +184,11 @@ header { position: relative; }
 .platform-col img.os-icon { width:5rem; margin-bottom:1.2rem; }
 .platform-col .os-name { font-size:1.7rem; color:var(--text-hi); font-weight:var(--fw-bold); margin-bottom:0.4rem; }
 .platform-col .version { color:var(--text-dim); font-size:1.3rem; margin-bottom:2rem; }
+.platform-col--deprecated { opacity: 0.65; }
+.deprecated-notice {
+  font-size: 1.1rem; color: var(--text-dim); font-style: italic;
+  margin: -1.2rem 0 1.2rem;
+}
 .platform-col .download-btn { display:block; width:100%; padding:1.2rem 2rem;
   background:var(--primary); color:#fff; text-decoration:none; font-weight:var(--fw-bold);
   text-transform:uppercase; letter-spacing:0.05em; font-size:1.4rem; margin-bottom:2.4rem;
@@ -308,6 +313,92 @@ header { position: relative; }
 /* Learn more links */
 .learn-more-links { display:flex; flex-wrap:wrap; gap:2rem; margin-top:2rem; }
 .learn-more-links a { color:var(--primary); }
+
+/* Linux installation section */
+.linux-section {
+  max-width: 80rem; margin: 5rem auto 0; text-align: left;
+  border-top: 1px solid var(--overlay01); padding-top: 4rem;
+}
+.linux-section-head {
+  display: flex; align-items: center; gap: 1.6rem; margin-bottom: 1.2rem;
+}
+.linux-section-head img { width: 3.6rem; height: 3.6rem; }
+.linux-section-head h2 { margin: 0; }
+.linux-intro { color: var(--text); font-size: 1.5rem; margin: 0 0 2.4rem; }
+
+/* Package manager tabs */
+.pkg-tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--overlay01);
+  margin-bottom: 0; overflow-x: auto;
+}
+.pkg-tab {
+  background: none; border: none; color: var(--text-dim);
+  font-family: var(--font); font-weight: var(--fw-bold); font-size: 1.3rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 0.8rem 1.6rem; cursor: pointer; white-space: nowrap;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.pkg-tab:hover { color: var(--text-hi); }
+.pkg-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* Package manager panels */
+.pkg-panel { padding: 2rem 0; }
+.pkg-panel pre {
+  background: var(--overlay01); border-radius: 3px; margin: 0 0 1.6rem;
+  overflow-x: auto;
+}
+.pkg-panel pre code {
+  display: block; padding: 1.6rem 2rem; font-family: monospace; font-size: 1.3rem;
+  line-height: 1.7; color: var(--text-hi); white-space: pre;
+}
+.pkg-note { color: var(--text-dim); font-size: 1.4rem; margin: 0 0 0.8rem; }
+
+/* Linux direct download row */
+.linux-direct {
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+  padding: 1.8rem 0; border-top: 1px solid var(--overlay01);
+}
+.linux-direct .version { color: var(--text-dim); font-size: 1.3rem; }
+.linux-direct-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.pkg-dl-btn {
+  display: inline-block; background: none; border: 1px solid var(--primary);
+  color: var(--primary); padding: 0.5rem 1.4rem; font-size: 1.3rem;
+  font-weight: var(--fw-bold); text-decoration: none; text-transform: uppercase;
+  letter-spacing: 0.05em; border-radius: 3px; font-family: monospace;
+}
+.pkg-dl-btn:hover { background: var(--primary); color: #fff; }
+.pkg-dl-soon {
+  display: inline-block; border: 1px solid var(--text-dim);
+  color: var(--text-dim); padding: 0.5rem 1.4rem; font-size: 1.3rem;
+  font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: 0.05em;
+  border-radius: 3px; font-family: monospace; opacity: 0.5;
+}
+.linux-coming-soon {
+  font-size: 1.2rem; color: var(--primary); text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: var(--fw-bold); white-space: nowrap;
+}
+
+/* Monthly reports page */
+.reports-coming-soon { color: var(--text-dim); font-size: 1.5rem; padding: 4rem 0; }
+.reports-list {
+  list-style: none; padding: 0; margin: 3rem auto 0;
+  max-width: 72rem; text-align: left;
+}
+.report-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  padding: 1.4rem 0; border-bottom: 1px solid var(--overlay01);
+}
+.report-item:first-child { border-top: 1px solid var(--overlay01); }
+.report-title { color: var(--text-hi); font-size: 1.5rem; }
+.report-link {
+  flex-shrink: 0; display: inline-block; background: none;
+  border: 1px solid var(--primary); color: var(--primary);
+  padding: 0.4rem 1.2rem; font-size: 1.2rem; font-weight: var(--fw-bold);
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;
+  border-radius: 3px;
+}
+.report-link:hover { background: var(--primary); color: #fff; }
 
 /* Download warning */
 .download-warning { padding:2rem; background:var(--overlay01); margin:2rem 0;

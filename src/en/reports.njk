@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+pageTitle: Monthly Reports
+permalink: /reports/
+---
+{% set c = i18n[lang].pages.reports %}
+<div class="container" style="padding-top:4rem; text-align:center;">
+  <h1>{{ c.title }}</h1>
+  <p>{{ c.subtitle }}</p>
+  <div id="reports-root"
+       data-endpoint="{{ site.reportsEndpoint }}"
+       data-coming-soon="{{ c.coming_soon }}"
+       data-view-label="{{ c.view_label }}">
+    <div class="spinner">Loading&hellip;</div>
+  </div>
+</div>
+<script src="{{ '/assets/js/reports.js' | url }}"></script>

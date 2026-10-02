@@ -16,9 +16,71 @@ permalink: /download/
        data-verify-sig="{{ c.verify_signature }}"
        data-sha-label="{{ c.sha_256_checksum }}"
        data-verify-checksum="{{ c.verify_checksum }}"
-       data-version-string="{{ c.version_string }}">
+       data-version-string="{{ c.version_string }}"
+       data-linux-deprecated="{{ c.linux_deprecated }}">
     <div class="spinner">Loading&hellip;</div>
   </div>
+
+  {% if c.linux_section %}
+  <section id="linux-section" class="linux-section" hidden>
+    <div class="linux-section-head">
+      <img src="{{ '/images/linux.svg' | url }}" alt="Linux" width="40" height="40">
+      <h2>{{ c.linux_section.heading }}</h2>
+    </div>
+    <p class="linux-intro">{{ c.linux_section.intro }}</p>
+
+    <div class="pkg-tabs" role="tablist">
+      <button class="pkg-tab active" role="tab" data-target="apt">{{ c.linux_section.tabs.apt }}</button>
+      <button class="pkg-tab" role="tab" data-target="yum">{{ c.linux_section.tabs.yum }}</button>
+      <button class="pkg-tab" role="tab" data-target="arch">{{ c.linux_section.tabs.arch }}</button>
+      <button class="pkg-tab" role="tab" data-target="nixos">{{ c.linux_section.tabs.nixos }}</button>
+    </div>
+
+    <div class="pkg-panel" id="panel-apt">
+      <pre><code>curl https://daedalus.se7enlabs.org/apt/daedalus-release.gpg | gpg --dearmor \
+  | sudo tee /etc/apt/keyrings/daedalus.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/daedalus.gpg] https://daedalus.se7enlabs.org/apt stable main' \
+  | sudo tee /etc/apt/sources.list.d/daedalus.list
+sudo apt update &amp;&amp; sudo apt install daedalus</code></pre>
+    </div>
+
+    <div class="pkg-panel" id="panel-yum" hidden>
+      <pre><code>sudo rpm --import https://daedalus.se7enlabs.org/yum/daedalus-release.gpg
+sudo tee /etc/yum.repos.d/daedalus.repo &lt;&lt;'EOF'
+[daedalus]
+name=Daedalus
+baseurl=https://daedalus.se7enlabs.org/yum
+enabled=1
+gpgcheck=1
+gpgkey=https://daedalus.se7enlabs.org/yum/daedalus-release.gpg
+EOF
+sudo dnf install daedalus</code></pre>
+    </div>
+
+    <div class="pkg-panel" id="panel-arch" hidden>
+      <p class="pkg-note">{{ c.linux_section.arch_note }}</p>
+      <pre><code>[daedalus]
+Server = https://daedalus.se7enlabs.org/arch
+SigLevel = Required DatabaseOptional</code></pre>
+      <p class="pkg-note">{{ c.linux_section.then_run }}</p>
+      <pre><code>sudo pacman -Sy daedalus</code></pre>
+    </div>
+
+    <div class="pkg-panel" id="panel-nixos" hidden>
+      <p class="pkg-note">{{ c.linux_section.nixos_note }}</p>
+      <pre><code>inputs.daedalus.url = "github:input-output-hk/daedalus/<span id="nixos-version-tag">&hellip;</span>";
+
+# NixOS configuration:
+services.daedalus = {
+  enable = true;
+  clusters = [ "mainnet" ];
+  packages.mainnet = inputs.daedalus.packages.${pkgs.system}."nixos-package-mainnet";
+};</code></pre>
+    </div>
+
+    <div id="linux-pkg-links"></div>
+  </section>
+  {% endif %}
 
   {% include "partials/download-modals.njk" %}
 

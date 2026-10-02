@@ -37,4 +37,20 @@ content:
     item2: 24 GB of RAM (32GB of RAM is recommended)
     item3: 250-300 GB of free drive space (continuously growing)
     item4: Broadband Internet connection
+  linux_deprecated: Legacy self-extracting installer — use a package manager instead
+  linux_section:
+    heading: Linux
+    intro: >-
+      Install via your system's package manager for automatic updates and GPG-verified
+      packages, or download directly below.
+    tabs:
+      apt: Debian / Ubuntu
+      yum: Fedora / RHEL
+      arch: Arch Linux
+      nixos: NixOS
+    arch_note: 'Add to /etc/pacman.conf:'
+    then_run: 'Then install:'
+    nixos_note: 'Add to your flake.nix inputs and NixOS configuration:'
+    direct_heading: Direct downloads
+    direct_intro: Download the latest package for your distribution.
 ---

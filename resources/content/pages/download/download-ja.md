@@ -34,4 +34,20 @@ content:
     item2: 24GB RAM （32GB推奨）
     item3: 250～300GBの空きディスク容量（継続的に増加）
     item4: ブロードバンドインターネット接続
+  linux_deprecated: 旧インストーラー — パッケージマネージャーの使用を推奨します
+  linux_section:
+    heading: Linux
+    intro: >-
+      パッケージマネージャーを使用してインストールすると、自動更新とGPG署名済みパッケージが利用できます。
+      または下記から直接ダウンロードすることもできます。
+    tabs:
+      apt: Debian / Ubuntu
+      yum: Fedora / RHEL
+      arch: Arch Linux
+      nixos: NixOS
+    arch_note: '/etc/pacman.confに追加してください:'
+    then_run: 'インストール:'
+    nixos_note: 'flake.nixのinputsとNixOS設定に追加してください:'
+    direct_heading: 直接ダウンロード
+    direct_intro: お使いのディストリビューション向けの最新パッケージをダウンロードしてください。
 ---

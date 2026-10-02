@@ -10,5 +10,6 @@ content:
       home: ホーム
       team: チーム
       download: ダウンロード
+      reports: 月次レポート
       flight: Flight
 ---

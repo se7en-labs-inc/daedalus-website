@@ -76,3 +76,6 @@ yarn.lock
 result*
 .direnv
 _site
+.wrangler/
+.dev.vars
+.dev.vars.*

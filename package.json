@@ -5,6 +5,8 @@
   "scripts": {
     "develop": "eleventy --serve",
     "build": "eleventy",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy",
     "clean": "rm -rf _site"
   },
   "dependencies": {

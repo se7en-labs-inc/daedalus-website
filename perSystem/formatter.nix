@@ -14,7 +14,6 @@
         "*.lock"
         ".gitattributes"
         ".gitignore"
-        "vscode-tours/*"
         "resources/*"
       ];
     };

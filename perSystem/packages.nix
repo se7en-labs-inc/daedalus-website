@@ -8,7 +8,8 @@
         pname = "daedaluswallet-io";
         version = "1.0.0";
         src = self;
-        npmDepsHash = "sha256-hIe7EmU6DkHLHDJ8B3YeaCxXyQTuWlGokHojPZGWOo8=";
+        nodejs = pkgs.nodejs_26;
+        npmDepsHash = "sha256-2V17nIOIl8cEH0ZkEju86sra7mYU+tivRp3KVBjnysU=";
         buildPhase = ''
           PATH_PREFIX=${pathPrefix} \
           DOWNLOAD_ENDPOINT=${downloadEndpoint} \

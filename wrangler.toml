@@ -1,0 +1,13 @@
+# Existing Worker name confirmed by the maintainer.
+name = "daedalus-website"
+# Match the runtime bundled with the flake's Wrangler 4.62.0.
+compatibility_date = "2026-01-31"
+
+[assets]
+directory = "./_site"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
+# Required by the existing CI `wrangler preview` command.
+# Assets and compatibility settings remain at the top level.
+[previews]

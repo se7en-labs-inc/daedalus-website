@@ -1,0 +1,7 @@
+/*
+  X-Frame-Options: DENY
+
+# HTML and unversioned CSS/JS use Workers' default revalidation policy.
+# Images retain the existing one-week browser cache.
+/images/*
+  Cache-Control: public, max-age=604800

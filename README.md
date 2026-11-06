@@ -80,3 +80,32 @@ preview download endpoint. Both packages include the Cloudflare headers and
 redirects. `PATH_PREFIX` and `DOWNLOAD_ENDPOINT` remain available to npm builds;
 Cloudflare Builds environment variables must be configured as build variables,
 not Worker runtime bindings.
+
+## Mainnet and Pilot downloads
+
+The English and Japanese download pages load Mainnet and Pilot independently.
+Pilot includes Preview, Preprod and Mainnet Flight; each uses isolated storage,
+and Flight does not share storage with standard Mainnet.
+
+Use the project Nix shell to build or serve the site:
+
+```sh
+nix develop -c npm ci
+nix develop -c npm run develop
+nix develop -c npm test
+nix build .#default .#preview
+```
+
+`DOWNLOAD_ENDPOINT` overrides the Mainnet manifest and `PILOT_DOWNLOAD_ENDPOINT`
+overrides the Pilot manifest for `npm run build` / `npm run develop`.
+The defaults use `daedalus-mainnet.json` and `daedalus-pilot.json` in the existing
+`update.cardano-mainnet.iohk.io` S3 bucket. If the new Mainnet manifest is
+unavailable or contains no usable installers, Mainnet falls back to
+`daedalus-latest-version.json` in that bucket. Pilot has no legacy fallback.
+`DOWNLOAD_FALLBACK_ENDPOINT` overrides the Mainnet fallback. Both manifests
+support flat and nested platform entries.
+`perSystem/packages.nix` exposes `downloadEndpoint`, `downloadFallbackEndpoint`
+and `pilotDownloadEndpoint` for Nix builds; preview uses the new Mainnet filename
+and legacy fallback in its existing CDN directory, retaining its path prefix.
+Pilot Linux packages are direct downloads with signature/checksum
+controls; the package repository commands on the page apply to standard Mainnet.

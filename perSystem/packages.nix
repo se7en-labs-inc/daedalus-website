@@ -2,7 +2,9 @@
   perSystem = {pkgs, ...}: let
     mkSite = {
       pathPrefix ? "/",
-      downloadEndpoint ? "https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-latest-version.json",
+      downloadEndpoint ? "https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-mainnet.json",
+      downloadFallbackEndpoint ? "https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-latest-version.json",
+      pilotDownloadEndpoint ? "https://s3-ap-northeast-1.amazonaws.com/update.cardano-mainnet.iohk.io/daedalus-pilot.json",
     }:
       pkgs.buildNpmPackage {
         pname = "daedaluswallet-io";
@@ -13,6 +15,8 @@
         buildPhase = ''
           PATH_PREFIX=${pathPrefix} \
           DOWNLOAD_ENDPOINT=${downloadEndpoint} \
+          DOWNLOAD_FALLBACK_ENDPOINT=${downloadFallbackEndpoint} \
+          PILOT_DOWNLOAD_ENDPOINT=${pilotDownloadEndpoint} \
           npm run build
         '';
         installPhase = "cp -r _site $out";
@@ -21,7 +25,8 @@
     packages.default = mkSite {};
     packages.preview = mkSite {
       pathPrefix = "/daedalus/site";
-      downloadEndpoint = "https://cdn.dripdropz.io/daedalus/8.0/daedalus-latest-version.json";
+      downloadEndpoint = "https://cdn.dripdropz.io/daedalus/8.0/daedalus-mainnet.json";
+      downloadFallbackEndpoint = "https://cdn.dripdropz.io/daedalus/8.0/daedalus-latest-version.json";
     };
   };
 }

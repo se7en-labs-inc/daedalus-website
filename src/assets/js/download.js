@@ -1,17 +1,35 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
   initPkgTabs()
 
-  const root = document.getElementById('download-root')
-  if (!root) return
-
-  try {
-    const resp = await fetch(root.dataset.endpoint)
-    if (!resp.ok) throw new Error(resp.status)
-    renderDownload(root, await resp.json())
-  } catch {
-    root.innerHTML = '<p class="download-error">Could not load download information.</p>'
-  }
+  document.querySelectorAll('[data-download-channel]').forEach(loadDownload)
 })
+
+async function loadDownload(root) {
+  const endpoints = [root.dataset.endpoint]
+  if (root.dataset.downloadChannel === 'mainnet' && root.dataset.fallbackEndpoint) {
+    endpoints.push(root.dataset.fallbackEndpoint)
+  }
+  for (const endpoint of new Set(endpoints)) {
+    try {
+      const resp = await fetch(endpoint)
+      if (!resp.ok) throw new Error(resp.status)
+      if (renderDownload(root, await resp.json())) return
+    } catch {
+      // Mainnet can still use the legacy manifest while the new one is unpublished.
+    }
+  }
+  renderUnavailable(root)
+}
+
+function renderUnavailable(root) {
+  root.innerHTML = `<p class="download-error">${escapeHtml(root.dataset.unavailable || 'Could not load download information.')}</p>`
+}
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c])
+}
 
 function initPkgTabs() {
   document.querySelectorAll('.pkg-tab').forEach(tab => {
@@ -33,6 +51,7 @@ function normalizeManifest(data) {
   const p = data.platforms || {}
   const linuxObj = p.linux ?? null
   const isNew = 'macos' in p ||
+    (p.windows !== null && typeof p.windows === 'object' && 'exe' in p.windows) ||
     (linuxObj !== null && typeof linuxObj === 'object' &&
      ('bin' in linuxObj || 'deb' in linuxObj || 'rpm' in linuxObj || 'arch' in linuxObj))
 
@@ -64,7 +83,16 @@ function normalizeManifest(data) {
 
 function renderDownload(root, data) {
   const norm = normalizeManifest(data)
+  // Ignore incomplete entries rather than offering a broken installer link.
+  for (const key of Object.keys(norm)) {
+    if (key === 'isNewFormat') continue
+    const entry = norm[key]
+    if (!entry || typeof entry.URL !== 'string' || !/^https?:\/\//.test(entry.URL)) {
+      norm[key] = null
+    }
+  }
   const base = (root.dataset.base || '/').replace(/\/$/, '')
+  const isMainnet = root.dataset.downloadChannel === 'mainnet'
 
   const labels = {
     pgpLabel:        root.dataset.pgpLabel        || 'PGP signature',
@@ -74,7 +102,9 @@ function renderDownload(root, data) {
     verifyChecksum:  root.dataset.verifyChecksum   || 'Verify checksum instructions',
     versionString:   root.dataset.versionString    || 'Version',
     linuxDeprecated: root.dataset.linuxDeprecated  || 'Legacy installer — use a package manager instead',
+    download:        root.dataset.downloadLabel    || 'Download Daedalus',
   }
+  Object.keys(labels).forEach(key => { labels[key] = escapeHtml(labels[key]) })
 
   // Linux .bin is only marked deprecated once the package-manager alternatives exist
   const linuxHasPackages = !!(norm.linuxDeb || norm.linuxRpm || norm.linuxArch)
@@ -84,12 +114,16 @@ function renderDownload(root, data) {
     norm.windows   && { key: 'windows',    label: 'Windows',             icon: `${base}/images/windows.svg`, data: norm.windows,   deprecated: false           },
     norm.darwinArm && { key: 'darwin-arm', label: 'macOS Apple Silicon', icon: `${base}/images/darwin.svg`,  data: norm.darwinArm, deprecated: false           },
     norm.darwin    && { key: 'darwin',     label: 'macOS (Intel)',        icon: `${base}/images/darwin.svg`,  data: norm.darwin,    deprecated: false           },
-    norm.linuxBin  && { key: 'linux',      label: 'Linux',               icon: `${base}/images/linux.svg`,   data: norm.linuxBin,  deprecated: linuxHasPackages },
+    norm.linuxBin  && { key: 'linux',      label: 'Linux',               icon: `${base}/images/linux.svg`,   data: norm.linuxBin,  deprecated: isMainnet && linuxHasPackages },
+    ...(!isMainnet ? [
+      norm.linuxDeb  && { key: 'linux', label: 'Linux (.deb)',         icon: `${base}/images/linux.svg`, data: norm.linuxDeb },
+      norm.linuxRpm  && { key: 'linux', label: 'Linux (.rpm)',         icon: `${base}/images/linux.svg`, data: norm.linuxRpm },
+      norm.linuxArch && { key: 'linux', label: 'Linux (.pkg.tar.zst)', icon: `${base}/images/linux.svg`, data: norm.linuxArch },
+    ] : []),
   ].filter(Boolean)
 
-  if (gridPlatforms.length === 0) {
-    root.innerHTML = '<p class="download-error">Could not load download information.</p>'
-    return
+  if (gridPlatforms.length === 0 && !(isMainnet && linuxHasPackages)) {
+    return false
   }
 
   root.innerHTML = `
@@ -102,28 +136,29 @@ function renderDownload(root, data) {
 
         return `
           <div class="platform-col${deprecated ? ' platform-col--deprecated' : ''}">
-            <img class="os-icon" src="${icon}" alt="${label}">
+            <img class="os-icon" src="${escapeHtml(icon)}" alt="${label}">
             <strong class="os-name">${label}</strong>
-            <span class="version">${labels.versionString}: ${p.version}</span>
-            <a class="download-btn" href="${p.URL}">Download Daedalus</a>
+            <span class="version">${labels.versionString}: ${escapeHtml(p.version)}</span>
+            <a class="download-btn" href="${escapeHtml(p.URL)}">${labels.download}</a>
             ${deprecated ? `<span class="deprecated-notice">${labels.linuxDeprecated}</span>` : ''}
 
             <div class="verify-group">
               <span class="verify-label">${labels.pgpLabel}</span>
-              <a class="pgp-btn" href="${sigHref}" download="${sigFilename}">${labels.pgpDownload}</a>
+              <a class="pgp-btn" href="${sigHref}" download="${escapeHtml(sigFilename)}">${labels.pgpDownload}</a>
               <a class="verify-link" href="#" data-modal="${modalOs}-signature">${labels.verifySig}</a>
             </div>
 
             <div class="verify-group">
               <span class="verify-label">${labels.shaLabel}</span>
-              <code class="checksum-text">${p.SHA256}</code>
+              <code class="checksum-text">${escapeHtml(p.SHA256)}</code>
               <a class="verify-link" href="#" data-modal="${modalOs}-checksum">${labels.verifyChecksum}</a>
             </div>
           </div>`
       }).join('')}
     </div>`
 
-  initLinuxSection(norm, labels.versionString)
+  if (isMainnet) initLinuxSection(norm, labels.versionString)
+  return true
 }
 
 function initLinuxSection(norm, versionString) {
@@ -147,15 +182,15 @@ function initLinuxSection(norm, versionString) {
   if (!container) return
 
   const btns = [
-    linuxDeb  ? `<a class="pkg-dl-btn" href="${linuxDeb.URL}">.deb</a>`          : '',
-    linuxRpm  ? `<a class="pkg-dl-btn" href="${linuxRpm.URL}">.rpm</a>`          : '',
-    linuxArch ? `<a class="pkg-dl-btn" href="${linuxArch.URL}">.pkg.tar.zst</a>` : '',
+    linuxDeb  ? `<a class="pkg-dl-btn" href="${escapeHtml(linuxDeb.URL)}">.deb</a>`          : '',
+    linuxRpm  ? `<a class="pkg-dl-btn" href="${escapeHtml(linuxRpm.URL)}">.rpm</a>`          : '',
+    linuxArch ? `<a class="pkg-dl-btn" href="${escapeHtml(linuxArch.URL)}">.pkg.tar.zst</a>` : '',
   ].filter(Boolean).join('')
 
   if (btns) {
     container.innerHTML = `
       <div class="linux-direct">
-        <span class="version">${versionString}: ${version}</span>
+        <span class="version">${versionString}: ${escapeHtml(version)}</span>
         <div class="linux-direct-btns">${btns}</div>
       </div>`
   }

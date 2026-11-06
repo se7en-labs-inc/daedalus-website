@@ -179,6 +179,11 @@ header { position: relative; }
 .info-box { width:100%; padding:5rem; background:var(--overlay01); text-align:center; border-radius:3px; }
 
 /* Download grid */
+.download-channel { margin-top:4rem; scroll-margin-top:2rem; }
+.download-channel + .download-channel { border-top:1px solid var(--overlay01); padding-top:4rem; }
+.download-channel > p { max-width:72rem; margin:1.2rem auto; }
+.download-channel .download-callout { margin-top:2rem; }
+.download-channel-nav { display:flex; justify-content:center; gap:2rem; margin:2rem 0; }
 .download-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(22rem,1fr)); gap:3rem; margin:4rem 0; }
 .platform-col { display:flex; flex-direction:column; align-items:center; gap:0; text-align:center; }
 .platform-col img.os-icon { width:5rem; margin-bottom:1.2rem; }

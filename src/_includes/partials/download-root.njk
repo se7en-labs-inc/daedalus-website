@@ -1,0 +1,17 @@
+<div id="{{ channel }}-download-root"
+     data-download-channel="{{ channel }}"
+     data-endpoint="{{ endpoint }}"
+     {% if channel == "mainnet" %}data-fallback-endpoint="{{ site.downloadFallbackEndpoint }}"{% endif %}
+     data-base="{{ '/' | url }}"
+     data-download-label="{{ channelContent.cta }}"
+     data-unavailable="{{ c.unavailable }}"
+     data-pgp-label="{{ c.pgp_signature }}"
+     data-pgp-download="{{ c.pgp_download }}"
+     data-verify-sig="{{ c.verify_signature }}"
+     data-sha-label="{{ c.sha_256_checksum }}"
+     data-verify-checksum="{{ c.verify_checksum }}"
+     data-version-string="{{ c.version_string }}"
+     data-linux-deprecated="{{ c.linux_deprecated }}"
+     aria-live="polite">
+  <div class="spinner">{{ c.loading }}</div>
+</div>

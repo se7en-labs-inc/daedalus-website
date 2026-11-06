@@ -6,6 +6,17 @@ content:
   subtitle:
     Download the latest version of Daedalus for your preferred operating system.
   cta_string: Download Daedalus
+  loading: Loading…
+  unavailable: Download information is currently unavailable. Please try again later.
+  mainnet:
+    heading: Daedalus Mainnet
+    description: Download Daedalus for the Cardano Mainnet.
+    cta: Download Mainnet
+  pilot:
+    heading: Daedalus Pilot
+    description: Pilot includes Daedalus Preview, Preprod and Mainnet Flight versions.
+    storage: Each version uses its own isolated storage. Mainnet Flight does not share storage with standard Daedalus Mainnet.
+    cta: Download Pilot
   pgp_download: Get Signature
   version_string: Version
   verify_signature: Verify signature instructions

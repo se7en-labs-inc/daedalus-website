@@ -5,6 +5,17 @@ content:
   title: ダウンロード
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
   cta_string: ダイダロスのダウンロード
+  loading: 読み込み中…
+  unavailable: 現在ダウンロード情報を取得できません。しばらくしてから再度お試しください。
+  mainnet:
+    heading: Daedalus Mainnet
+    description: Cardanoメインネット用のDaedalusをダウンロードできます。
+    cta: Mainnetをダウンロード
+  pilot:
+    heading: Daedalus Pilot
+    description: PilotにはDaedalusのPreview、Preprod、Mainnet Flightが含まれています。
+    storage: 各バージョンは独立したストレージを使用します。Mainnet Flightは通常のDaedalus Mainnetとストレージを共有しません。
+    cta: Pilotをダウンロード
   pgp_download: ダウンロード Signature
   version_string: バージョン
   verify_signature: 署名の検証

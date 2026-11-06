@@ -8,18 +8,18 @@ permalink: /download/
   <h1>{{ c.title }}</h1>
   <p>{{ c.subtitle }}</p>
 
-  <div id="download-root"
-       data-endpoint="{{ site.downloadEndpoint }}"
-       data-base="{{ '/' | url }}"
-       data-pgp-label="{{ c.pgp_signature }}"
-       data-pgp-download="{{ c.pgp_download }}"
-       data-verify-sig="{{ c.verify_signature }}"
-       data-sha-label="{{ c.sha_256_checksum }}"
-       data-verify-checksum="{{ c.verify_checksum }}"
-       data-version-string="{{ c.version_string }}"
-       data-linux-deprecated="{{ c.linux_deprecated }}">
-    <div class="spinner">Loading&hellip;</div>
-  </div>
+  <nav class="download-channel-nav" aria-label="{{ c.title }}">
+    <a href="#mainnet">{{ c.mainnet.heading }}</a>
+    <a href="#pilot">{{ c.pilot.heading }}</a>
+  </nav>
+
+  <section id="mainnet" class="download-channel" aria-labelledby="mainnet-heading">
+    <h2 id="mainnet-heading">{{ c.mainnet.heading }}</h2>
+    <p>{{ c.mainnet.description }}</p>
+    {% set channel = "mainnet" %}
+    {% set channelContent = c.mainnet %}
+    {% set endpoint = site.downloadEndpoint %}
+    {% include "partials/download-root.njk" %}
 
   {% if c.linux_section %}
   <section id="linux-section" class="linux-section" hidden>
@@ -81,6 +81,18 @@ services.daedalus = {
     <div id="linux-pkg-links"></div>
   </section>
   {% endif %}
+
+  </section>
+
+  <section id="pilot" class="download-channel" aria-labelledby="pilot-heading">
+    <h2 id="pilot-heading">{{ c.pilot.heading }}</h2>
+    <p>{{ c.pilot.description }}</p>
+    <div class="download-callout">{{ c.pilot.storage }}</div>
+    {% set channel = "pilot" %}
+    {% set channelContent = c.pilot %}
+    {% set endpoint = site.pilotDownloadEndpoint %}
+    {% include "partials/download-root.njk" %}
+  </section>
 
   {% include "partials/download-modals.njk" %}
 

@@ -1,7 +1,12 @@
 /*
   X-Frame-Options: DENY
 
-# HTML and unversioned CSS/JS use Workers' default revalidation policy.
+# HTML uses Workers' default revalidation policy. CSS and JS are referenced
+# with a content hash in the query string and also revalidate.
 # Images retain the existing one-week browser cache.
+# The service worker script must always be revalidated so that browsers holding
+# the retired site's worker pick up the replacement.
+/sw.js
+  Cache-Control: no-cache
 /images/*
   Cache-Control: public, max-age=604800

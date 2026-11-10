@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!root) return
 
   try {
-    const resp = await fetch(root.dataset.endpoint)
+    // A fresh query string on every request keeps stale copies of the manifest
+    // out of reach of any cache, so the newest release is always offered.
+    const url = new URL(root.dataset.endpoint, location.href)
+    url.searchParams.set('t', Date.now())
+    const resp = await fetch(url, { cache: 'no-store' })
     if (!resp.ok) throw new Error(resp.status)
     renderDownload(root, await resp.json())
   } catch {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ pageTitle }} | {{ i18n[lang].global.main_title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}?v={{ '/assets/css/main.css' | assetHash }}">
   <link rel="icon" href="{{ '/images/icon.png' | url }}">
   {% if site.osanoSrc %}<script src="{{ site.osanoSrc }}"></script>{% endif %}
 </head>
@@ -12,7 +12,7 @@
   {% include "partials/header.njk" %}
   <main>{{ content | safe }}</main>
   {% include "partials/footer.njk" %}
-  <script src="{{ '/assets/js/modal.js' | url }}"></script>
-  <script src="{{ '/assets/js/nav.js' | url }}"></script>
+  <script src="{{ '/assets/js/modal.js' | url }}?v={{ '/assets/js/modal.js' | assetHash }}"></script>
+  <script src="{{ '/assets/js/nav.js' | url }}?v={{ '/assets/js/nav.js' | assetHash }}"></script>
 </body>
 </html>

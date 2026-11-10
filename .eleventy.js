@@ -1,3 +1,6 @@
+const crypto = require('node:crypto')
+const fs = require('node:fs')
+const path = require('node:path')
 const matter = require('gray-matter')
 const md = require('markdown-it')({ html: true })
 
@@ -10,6 +13,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' })
 
   eleventyConfig.addFilter('markdown', (str) => md.render(str || ''))
+  // Short content hash of a file under src/, used as a cache-busting query
+  // value so a changed asset always gets a URL no browser has stored.
+  eleventyConfig.addFilter('assetHash', (url) =>
+    crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(path.join('src', url)))
+      .digest('hex')
+      .slice(0, 10)
+  )
   eleventyConfig.addFilter('langUrl', (url, lang) =>
     lang === 'ja' ? `/ja${url}` : url
   )

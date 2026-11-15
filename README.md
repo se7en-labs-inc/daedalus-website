@@ -52,8 +52,11 @@ For a manual deployment from the Nix shell, after building and authenticating
 with the intended Cloudflare account, use `npm run deploy`.
 
 `static/_redirects` preserves the legacy native-tokens and d0 redirects.
-`static/_headers` adds frame protection and one-week image caching. HTML and
-unversioned CSS/JS use Workers' default browser revalidation policy. Missing
+`static/_headers` adds frame protection and one-week image caching, and marks
+`/sw.js` `no-cache`. HTML uses Workers' default browser revalidation policy;
+CSS and JS are linked with a content hash in the query string. `static/sw.js`
+removes the service worker the retired Gatsby site installed in visitors'
+browsers and must stay deployed. Missing
 URLs return the nearest `404.html`, including the Japanese page under `/ja/`.
 
 Content changes are made in Git. The obsolete Netlify CMS and Identity admin

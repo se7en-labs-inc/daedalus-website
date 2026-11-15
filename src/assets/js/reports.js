@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const viewLabel  = root.dataset.viewLabel  || 'View PDF'
 
   try {
-    const resp = await fetch(endpoint)
+    const url = new URL(endpoint, location.href)
+    url.searchParams.set('t', Date.now())
+    const resp = await fetch(url, { cache: 'no-store' })
     if (!resp.ok) throw new Error(resp.status)
     const reports = await resp.json()
     if (!Array.isArray(reports) || reports.length === 0) throw new Error('empty')

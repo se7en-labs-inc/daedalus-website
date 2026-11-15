@@ -71,6 +71,7 @@ function renderDownload(root, data) {
   const base = (root.dataset.base || '/').replace(/\/$/, '')
 
   const labels = {
+    ctaString:       root.dataset.ctaString        || 'Download Daedalus',
     pgpLabel:        root.dataset.pgpLabel        || 'PGP signature',
     pgpDownload:     root.dataset.pgpDownload      || 'Get Signature',
     verifySig:       root.dataset.verifySig        || 'Verify signature instructions',
@@ -109,7 +110,7 @@ function renderDownload(root, data) {
             <img class="os-icon" src="${icon}" alt="${label}">
             <strong class="os-name">${label}</strong>
             <span class="version">${labels.versionString}: ${p.version}</span>
-            <a class="download-btn" href="${p.URL}">Download Daedalus</a>
+            <a class="download-btn" href="${p.URL}">${labels.ctaString}</a>
             ${deprecated ? `<span class="deprecated-notice">${labels.linuxDeprecated}</span>` : ''}
 
             <div class="verify-group">

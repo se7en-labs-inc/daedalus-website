@@ -4,8 +4,8 @@ title: Ja (Japanese) download page content
 content:
   title: ダウンロード
   subtitle: ご希望のOS用の最新バージョンのDaedalusをダウンロードしてください。
-  cta_string: ダイダロスのダウンロード
-  pgp_download: ダウンロード Signature
+  cta_string: Daedalusをダウンロード
+  pgp_download: ダウンロード
   version_string: バージョン
   verify_signature: 署名の検証
   verify_checksum: チェックサムの検証
